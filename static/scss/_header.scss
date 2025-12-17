@@ -7,12 +7,16 @@
     padding: 40px 255px 0;  
     .navbar{ 
         padding: 0; 
-        width: 100%; 
+        width: 100%;
+        align-items: center;
         .navbar-brand{ 
-            padding: 0; 
+            padding: 0;
+            margin-right: 25px;
+            display: flex;
+            align-items: center;
         }
         .navbar_supported{ 
-			margin-left: 30px;
+			margin-left: auto;
             ul{ 
                 li{
                     a{
@@ -214,12 +218,15 @@
             } 
         }
         .right_nav{  
+            display: flex;
+            align-items: center;
+            margin-left: 40px;
             li{
 				display: inline-block;  
                 a{
 					color: #282828; 
 					font: 400 18px/52px $font; 
-					&:hover, &:focus,{  
+					&:hover, &:focus{  
 						color: $hover; 
 					}
                 }  

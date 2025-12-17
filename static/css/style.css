@@ -426,12 +426,16 @@ body a:focus, body a:hover, body .btn:focus, body .btn:hover, body button:focus,
 .main_header_area .navbar {
   padding: 0;
   width: 100%;
+  align-items: center;
 }
 .main_header_area .navbar .navbar-brand {
   padding: 0;
+  margin-right: 25px;
+  display: flex;
+  align-items: center;
 }
 .main_header_area .navbar .navbar_supported {
-  margin-left: 30px;
+  margin-left: auto;
 }
 .main_header_area .navbar .navbar_supported ul li a {
   margin: 0 15px;
@@ -623,6 +627,11 @@ body a:focus, body a:hover, body .btn:focus, body .btn:hover, body button:focus,
     visibility: visible;
     opacity: 1;
   }
+}
+.main_header_area .navbar .right_nav {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
 }
 .main_header_area .navbar .right_nav li {
   display: inline-block;
