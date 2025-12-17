@@ -1,0 +1,80 @@
+/*font Variables*/  
+$font: 'Poppins', sans-serif; 
+
+/*Color Variables*/ 
+$bc: #5079f7;
+$hover: #1be394; 
+$heding: #181818;  
+$pfont: rgba(24, 24, 24, 0.8); 
+
+// Mixins
+@mixin transition($property: all, $duration: 300ms, $animate: linear, $delay:0s){
+    transition: $property $duration $animate $delay; 
+}
+
+// Placeholder Mixins
+@mixin placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}  
+
+/* Button Style */
+.theme_btn{ 
+    color: #fff;   
+    text-align: center; 
+    font: 400 18px/50px $font;
+    display: inline-block; 
+    padding: 0 20px;    
+	background: #5079f7; 
+	z-index: 1; 
+	border-radius: 10px;  
+	min-width: 181px; 
+    &:hover, &:focus{ 
+		background: #1be394;  
+		color: #fff;
+    }
+}
+ 
+
+/* Scroll Top */ 
+.scroll-top{
+    position: fixed;
+    right: 30px;
+    bottom: 15px; 
+    height: 50px;
+    width: 50px; 
+    cursor: pointer;
+    background: $bc;
+    border: 0;
+    box-shadow: none;
+    z-index: 999;
+    color: #fff;
+    &:hover, &:focus{
+        background: $hover;
+    }  
+}
+/* Preloader */ 
+.preloader{
+    position:fixed;
+    left:0px; 
+    top:0px;
+    width:100%;
+    height:100%;
+    z-index:999999;
+    background:#ffffff;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	img{
+		animation: rotation infinite 5s linear;
+		max-width: 100%;
+	}
+}
+
+/* Alimation */  
+.lfup{ 
+	animation: float-bob-y infinite 2s linear;
+}
+/* Alimation */ 

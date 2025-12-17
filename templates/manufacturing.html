@@ -1,0 +1,202 @@
+{% include 'header.html' %}
+{% load static %}
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Top Banner Section -->
+  <section class="banner_area ba_2">
+    <div class="container">
+      <div class="row">
+        <!-- Left Content -->
+        <div class="col-lg-6 banner_con">
+          <h2>Manufacturing</h2>
+          <p>Sky ERP Manufacturing module enables businesses to plan, track, and manage the entire production lifecycle — from Bill of Materials to Work Orders, Job Cards, and costing. It helps streamline operations for small to large manufacturers with real-time production insights.</p>
+        </div>
+
+        <!-- Right Image or Video -->
+        <div class="col-lg-6">
+          <div class="banner_i">
+            <img src="{% static 'images/manufacture.png' %}" alt="Manufacturing Banner" class="images_1" style="height:500px; width:auto;" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Area -->
+  <div class="tv-blog-area tv-single-service pt-130 pb-130">
+    <div class="container">
+      <div class="row">
+        <!-- Left/Main Content -->
+        <div class="col-xl-8 col-lg-8 col-12">
+          <div class="tv-blog-list-wrap">
+            <div class="tv-blog-details">
+              <div class="tv-blog-details-thumb mb-40">
+              </div>
+
+              <h2 class="title" style="font-size: 40px;">Why Choose Our Manufacturing Module?</h2>
+
+              <div class="tv-blog-details-content">
+                <p>Our manufacturing module helps manage production efficiently from planning to final output. With ERP-level integration, it ensures transparency, control, and optimization at every stage of your manufacturing process.</p>
+                <div>
+                  <img src="{% static 'images/manufacturing.png' %}" alt="" />
+                </div>
+
+                <div class="tv-service-list-item">
+                  <ul>
+                    <p>
+                      <strong>Core Manufacturing Modules</strong>
+                    </p>
+
+                    <li>
+                      <strong>Bill of Materials (BOM):-</strong> Define and manage components, operations, and standard costs required to manufacture a product. Easily configure multi-level BOMs to reflect real-world product complexity.
+                    </li>
+                    <div class="banner_i">
+                      <img src="{% static 'images/bom-materials.png' %}" alt="" class="images_1" style="height:350px; width:auto;" />
+                    </div><br />
+                    <li>
+                      <strong>Production Planning:-</strong> Schedule production runs based on demand forecasts and raw material availability. Optimize capacity and minimize delays by aligning resources with production goals.
+                    </li>
+                    <div class="banner_i">
+                      <img src="{% static 'images/pp_fetch_from.png' %}" alt="" class="images_1" style="height:250px; width:auto;" />
+                    </div><br />
+                    <li>
+                      <strong>Work Orders:-</strong> Automatically generate work orders from sales or inventory needs. Track production progress, assign responsibilities, and ensure timely order fulfillment through structured workflows.
+                    </li>
+                    <div class="banner_i">
+                      <img src="{% static 'images/work-order-summary.png' %}" alt="" class="images_1" style="height:400px; width:auto;" />
+                    </div><br />
+                    <li>
+                      <strong>Job Cards:-</strong> Break down work orders into specific tasks assigned to operators or machines. Monitor time spent, productivity, and job completion to ensure accountability on the shop floor.
+                    </li>
+                    <div class="banner_i">
+                      <img src="{% static 'images/job-card.png' %}" alt="" class="images_1" style="height:380px; width:auto;" />
+                    </div><br />
+                    <li>
+                      <strong>Downtime Entry:-</strong> Record and analyze unplanned machine downtimes or idle periods. Use this data to identify operational inefficiencies, root causes, and take corrective action to reduce future disruptions.
+                    </li>
+                    <div class="banner_i">
+                      <img src="{% static 'images/downtime-entry.png' %}" alt="" class="images_1" style="height:380px; width:auto;" />
+                    </div><br />
+                    <li>
+                      <strong>Workstation Type:-</strong> Define and categorize various workstation types based on functionality and usage. Optimize layout, improve task allocation, and streamline workflows across the manufacturing line.
+                    </li>
+
+                    <li>
+                      <strong>Reports:-</strong> Access insightful reports covering production efficiency, machine usage, cost analysis, and overall performance. Use data to improve decision-making and drive continuous improvement initiatives.
+                    </li>
+
+                    <li>
+                      <strong>Plant Floor:-</strong> Get real-time visibility into production activities, WIP (Work in Progress), and operator performance. Monitor key metrics directly from dashboards to manage floor operations efficiently.
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Images -->
+                <div class="tv-blog-details-thumb-img d-flex justify-content-between">
+                  <div>
+                    <img src="{% static 'images/manufacturing-thumb-2.png' %}" alt="" />
+                  </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <h3 class="faq-title">Frequently Asked Questions</h3>
+
+                <div class="tv-custom-accordion">
+                  <div class="accordion" id="accordionExample">
+                    <!-- FAQ 1 -->
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="faq1"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">Can I Create and Manage Bill of Materials (BOMs) for complex products?</button></h2>
+                      <div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          <p>Yes, Multi-level BOMs with raw materials, sub-assemblies, and operations are fully supported.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="faq2"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">Does it Handle production Planning and Work Orders?</button></h2>
+                      <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          <p>Yes, Work Orders can be generated, scheduled, and tracked against available resources.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="faq3"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">How are Raw Materials issued and Finished goods recorded?</button></h2>
+                      <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          <p>Materials are Issued from Stock to Production, and Finished goods are auto-updated in inventory.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="faq4"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">Can I Track Manufacturing Costs and Variances?</button></h2>
+                      <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          <p>Yes, the system captures Material, Labor, and Overhead Costs, Comparing Planned vs. Actual.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="faq5"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5">Does it Integrate with Inventory and Sales?</button></h2>
+                      <div id="collapse5" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          <p>Yes, Production directly updates Stock levels and links with Sales Orders for demand-driven manufacturing.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div> <!-- End Accordion -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Sidebar -->
+        <div class="col-xl-4 col-lg-4 col-12">
+          <div class="tv-sidebar-area">
+            <div class="tv-widget widget mb-40">
+              <ul>
+                <li class="cat-item">
+                  <strong>Core Manufacturing Modules</strong>
+                </li>
+                <li class="cat-item">
+                  <a href="#"><i class="fas fa-cubes fa-lg text-primary me-2"></i> Bill of Materials</a>
+                </li>
+                <li class="cat-item">
+                  <a href="#"><i class="fas fa-calendar-alt fa-lg text-primary me-2"></i> Production Planning</a>
+                </li>
+                <li class="cat-item">
+                  <a href="#"><i class="fas fa-tasks fa-lg text-primary me-2"></i> Work Orders</a>
+                </li>
+                <li class="cat-item">
+                  <a href="#"><i class="fas fa-id-card fa-lg text-primary me-2"></i> Job Cards</a>
+                </li>
+                <li class="cat-item">
+                  <a href="#"><i class="fas fa-clock fa-lg text-primary me-2"></i> Downtime Entry</a>
+                </li>
+                <li class="cat-item">
+                  <a href="#"><i class="fas fa-industry fa-lg text-primary me-2"></i> Workstation Types</a>
+                </li>
+                <li class="cat-item">
+                  <a href="#"><i class="fas fa-file-alt fa-lg text-primary me-2"></i> Reports</a>
+                </li>
+                <li class="cat-item">
+                  <a href="#"><i class="fas fa-warehouse fa-lg text-primary me-2"></i> Plant Floor View</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% include 'footer.html' %}

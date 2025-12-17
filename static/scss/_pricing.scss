@@ -1,0 +1,139 @@
+//pricing_area
+.pricing_area{
+	display: block;
+	overflow: hidden;
+	position: relative;   
+	padding: 100px 0;
+	.nav-tabs{
+		border: 0;
+		box-shadow: 0px 0px 20px 0px rgba(218, 218, 218, 0.45);
+		background: $hover;
+		border-radius: 30px;
+		height: 29px;
+		width: 60px;
+		display: block;
+		margin: 0 auto;
+		padding: 3px; 
+		margin-bottom:60px;
+		li{
+			display: inline-block; 
+			&:before{
+				content: "Monthly Billing";
+				font: 400 22px/1 $font;
+				color: #525252;
+				position: absolute;
+				margin-left: -170px;
+			}
+			&:last-child{ 
+				&:before{
+					content: "Annual Billing";
+					margin-left: 40px;
+				}
+			}
+			a{
+				width: 23px;
+				height: 23px;
+				border-radius: 50%;
+				background: transparent;
+				display: block;   
+				&.active{  
+					background: #fff;
+				}
+			}
+		}
+	}
+	.tab-content{
+		border: 1px solid #eeeeee;
+		padding-top: 70px;
+		padding-bottom: 40px;
+	}
+	.plan{  
+		max-width: 370px;
+		padding: 0 40px;
+		border-right: 1px solid #eeeeee;
+		&:last-child{
+			border-right: 0;
+		}
+		h4{
+			font: 500 28px/1 $font;
+			color: #525252; 
+			padding-bottom: 15px;
+		}
+		h2{
+			font: 600 50px/1 $font;
+			color: $hover;  
+			small{
+				font:500 28px/1 $font;
+			}
+		}
+		h6{
+			font: 400 16px/1 $font;
+			color: #525252;
+			padding-top: 10px;
+			padding-bottom: 20px;
+			position: relative;
+			&:after{
+				content: "";
+				left: 0;
+				bottom: 0;
+				width: 200px;
+				height: 2px;
+				background: #eeeeee;
+				position: absolute;
+			}
+		}
+		h5{ 
+			font: 500 22px/1 $font;
+			color: #525252;
+			padding-top: 38px;
+		}
+		ul{
+			padding: 20px 0;
+			padding-bottom: 30px; 
+			li{
+				font: 400 15px/40px $font;
+				color: #525252;
+				i{
+					color: #1be394;
+					font-size: 16px;
+					padding-right: 10px;
+				}
+				.c_2{
+					color: #fdc5c5;
+				}
+			}
+		}
+		.theme_btn{
+			min-width: 224px;
+		}
+		.tb_2{
+			background: $hover;
+			&:hover, &:focus{
+				background: $bc; 
+			}
+		}
+	} 
+	.plan_2{
+		h2{
+			color: $bc;
+		}
+		ul li i{
+			color: $bc;
+		}
+	}
+	.plan_3{
+		h2{
+			color: #c48dfd;
+		}
+		ul li i{
+			color: #c48dfd;
+		}
+		.theme_btn{
+			background: #c48dfd;
+			&:hover, &:focus{
+				background: $bc; 
+			}
+		}
+	}
+} 
+//pricing_area

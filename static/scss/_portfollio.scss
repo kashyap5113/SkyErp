@@ -1,0 +1,266 @@
+//portfolio_grid
+.portfolio_grid{
+	display: block;
+	overflow: hidden;
+	padding-top: 100px;
+	padding-bottom: 90px;
+	.protfoli_filter{
+		text-align: center;
+		display: block;
+		padding-bottom: 75px;
+		li{
+			display: inline-block;
+			a{
+				 font: 400 16px/30px $font;
+				color: #282828;
+				margin: 0 10px;
+				position: relative;
+				z-index: 1;
+				display: block;
+				&:after{
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					background: $hover;
+					z-index: -1;
+					width: 34px;
+					height: 30px;
+					margin: 0 auto; 
+					opacity: 0;
+					@include transition;
+				}
+			}
+			&:hover, &:focus, &.active{
+				a:after{
+					opacity: 1; 
+				}
+			}
+		}
+	}
+	.portfoli_inner{
+		.portfolio_item{
+			margin-bottom: 30px;
+			position: relative;
+			img{
+				max-width: 100%;
+			}
+			.hover{
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-color: rgba(20, 20, 57, 0.8);
+				text-align: center;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+				transform: perspective(400px) rotateY(90deg);
+				transform-origin: left;
+				transition: all 0.5s;
+				opacity: 0;
+				a{
+					font: 400 22px/1 $font;
+					color: #fff;
+					display: block; 
+					img{
+						margin: 0 auto;
+						display: block;
+						margin-top: 20px;
+					}
+					&:hover, &:focus{
+						color: $hover;
+					}
+				}
+			}
+			&:hover, &:focus{
+				.hover{
+					transform: perspective(400px) rotateY(0deg);
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
+.pg_2{
+	.protfoli_filter{
+		text-align: left; 
+		position: absolute;
+		margin-left: -160px;
+		li{
+			display: block;
+			a{
+				line-height: 40px;
+				margin: 0; 
+				&:after{ 
+					margin: 0;
+					top: 4px;
+				}
+			}
+			
+			&:hover, &:focus, &.active{
+				a{
+					padding-left: 5px;
+					&:after{
+						opacity: 1; 
+					}
+				}
+			}
+		}
+	}
+	.portfoli_inner .portfolio_item .hover{
+		background: url("../images/hover-bg.png") no-repeat center;
+		a{
+			padding-top: 40px;
+		}
+	}
+}
+//portfolio_grid
+
+//strategy_area
+.strategy_area{
+	display: block;
+	overflow: hidden;
+	padding-top: 25px;
+	.sa_img{
+		img{
+			margin-left: -20px;
+		}
+	}
+	h4{
+		font: 400 16px/27px $font;
+		color: #181818;
+		padding-top: 120px;
+	}
+	h2{
+		font: 500 36px/45px $font;
+		color: $heding;
+		padding-top: 10px;
+	}
+	.visit_website{
+		display: block;
+		overflow: hidden;
+		background: #e4fff4;
+		padding: 45px;
+		padding-top: 35px;
+		margin-top: 45px;
+		p{
+			max-width: 1000px;
+			padding-bottom: 20px;
+		}
+		.theme_btn{
+			border-radius: 0;
+		}
+	}
+}
+//strategy_area
+
+//management_area
+.management_area{
+	display: block;
+	overflow: hidden;
+	padding-bottom: 75px;
+	.management{
+		padding-top: 40px;
+		img{
+			max-width: 100%;
+		}
+		h2{
+			font: 500 36px/45px $font;
+			color: $heding; 
+			padding-top: 25px;
+			position: relative;
+			margin-top: 145px;
+			padding-bottom: 15px;
+			&:before{
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 30px;
+				height: 2px;
+				background: $hover;
+			}
+		}
+		p{
+			max-width: 495px;
+			padding-bottom: 10px;
+		}
+		.m_test{
+			padding-left: 55px;
+		}
+	}
+	.highlights{
+		display: block;
+		overflow: hidden;
+		background: #fbf6f6; 
+		margin-top: 40px;
+		text-align: center; 
+		padding-top: 70px;
+		padding-bottom: 20px;
+		h2{
+			font: 500 36px/45px $font;
+			color: $heding; 
+			padding-bottom: 10px;
+		}
+		h3{
+			font: 500 30px/1 $font;
+			color: $heding;
+			padding-top: 45px;
+		}
+		i{
+			color: $hover;
+			font-size: 78px;
+			line-height: 1;
+		}
+		h6{
+			font: 500 18px/1 $font;
+			color: #282828;
+			padding-top:15px;
+			padding-bottom: 50px;
+		}
+	}
+	.have_idea{
+		text-align: center;
+		padding-top: 65px;
+		h2{
+			font: 500 36px/45px $font;
+			color: $heding; 
+			padding-bottom: 25px;
+		}
+		.theme_btn{
+			min-width: 235px;
+			background: $hover;
+			&:hover, &:focus{
+				background: $bc;
+			}
+		}
+		.next_p{
+			padding-top: 45px;
+			display: block;
+			overflow: hidden;
+			a{
+				font: 500 16px/1 $font;
+				color: #282828;
+				float: left;
+				i{
+					padding-right: 10px;
+				}
+				&:hover, &:focus{
+					color: $bc;
+				}
+				&:last-child{
+					float: right;
+					i{
+						padding: 0;
+						padding-left: 10px;
+					}
+				}
+			}
+		}
+	}
+}
+//management_area

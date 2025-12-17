@@ -1,0 +1,54 @@
+//faq_area
+.faq_area{
+	display: block;
+	overflow: hidden;
+	h2{
+		text-align: center;
+		font: 500 36px/45px $font;
+		color: $heding;
+		padding-bottom: 35px;
+	}
+	.frequently{
+		max-width: 970px;
+		margin: 0 auto;
+		.faq{
+			a{
+				font: 500 18px/27px $font;
+				color: #201818;
+				display: block;
+				border-bottom: 1px solid #f9f9f9;
+				padding: 20px 30px;
+				background: #f9f9f9; 
+				position: relative;
+				padding-right: 50px;
+				&:after{
+					content: "\f106";
+					position: absolute;
+					top: 0;
+					right: 30px;
+					font-family: "Font Awesome 5 Free";
+					font-weight: 900;
+					font-size: 22px;
+					color: #201818;
+					top: 20px;
+					@include transition;
+				}
+				&.collapsed{
+					background-color: transparent;
+					border-color: #eeeeee;
+					&:after{
+						transform: rotate(180deg);
+					}
+				}
+			}
+			p {
+				padding: 0 30px 30px;
+				background: #f9f9f9; 
+			}
+		}
+	}
+}
+.fa_2{
+	padding: 100px 0;
+}
+//faq_area

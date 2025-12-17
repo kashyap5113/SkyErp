@@ -1,0 +1,302 @@
+//banner_area
+.banner_area{
+	display: block;
+	overflow: hidden;
+	padding-top: 240px;
+	.bdr{
+		padding-bottom: 65px;
+		border-bottom: 1px solid #eaeef6;
+	}
+	h2{
+		font: 500 50px/55px $font;
+		color: $heding;
+		padding-bottom: 5px;
+		padding-top: 60px;
+	}
+	p{
+		font-size: 18px;
+		padding-top: 20px;
+	}
+	.theme_btn{
+		min-width: 232px;
+		margin-top: 28px;
+	}
+	.banner_i{
+		position: relative;
+		.images_1{
+			animation: float-bob-y infinite 2s linear;
+		}
+		.images_2{
+			position: absolute;
+			bottom: 0;
+			right: -130px;
+		}
+		.rs_banner{
+			display: none;
+		}
+	}
+}
+.ba_2{
+	background: url("../images/banner-bg.png") no-repeat center;
+	background-size: cover;
+	position: relative;
+	z-index: 1; 
+	.banner_con{
+		padding-bottom: 205px;
+		display: block;
+	}
+	h2{
+		color: #fff;
+	}
+	p{
+		color: rgba(255, 255, 255, 0.8);
+	}
+	.rs_banner{
+		display: none;
+	}
+	.banner_i{
+		position: absolute;
+		bottom: 0;
+		width: 680px;
+		.images_1{
+			margin-bottom: 90px;
+		}
+		.images_2{
+			right: auto;
+			left: 140px;
+			z-index: 2;
+		}
+		.images_3{
+			position: absolute;
+			top: 16px;
+			left: 53%;
+			animation: rotation infinite 10s linear;
+			z-index: 3;
+		}
+		.images_4{
+			position: absolute;
+			right: -25px;
+			bottom: 61px;
+			animation: float-bob-y infinite 2s linear;
+		}
+	}
+}
+.ba_3{ 
+	background-image: -moz-linear-gradient( -23deg, rgb(80,121,247) 0%, rgb(74,70,254) 99%);
+	background-image: -webkit-linear-gradient( -23deg, rgb(80,121,247) 0%, rgb(74,70,254) 99%);
+	background-image: -ms-linear-gradient( -23deg, rgb(80,121,247) 0%, rgb(74,70,254) 99%);
+	position: relative;
+	padding-top: 180px;
+	z-index: 1;
+	&:before{
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 100%;
+		background: url("../images/banner-angle-shap.png") no-repeat;
+		height: 139px;
+		z-index: -1;
+	}
+	&:after{
+		content: "";
+		position: absolute;
+		right: 0;
+		bottom: 120px;
+		background: url("../images/banner-bg-shap.png") no-repeat right bottom;
+		height: 100%;
+		width: 100%;
+		z-index: -1;
+	}
+	.banner_con{
+		padding-top: 80px;
+	}
+	h4{
+		color: #fff;
+		font: 400 18px/27px $font;
+		i{
+			width: 27px;
+			line-height: 27px;
+			margin-right: 5px;
+			display: inline-block;
+			text-align: center;
+			color: #fff; 
+			background-image: -moz-linear-gradient( -90deg, rgb(221,129,255) 0%, rgb(149,112,255) 100%);
+			background-image: -webkit-linear-gradient( -90deg, rgb(221,129,255) 0%, rgb(149,112,255) 100%);
+			background-image: -ms-linear-gradient( -90deg, rgb(221,129,255) 0%, rgb(149,112,255) 100%);
+		}
+	}
+	h2{
+		color: #fff;
+		padding-top: 20px;
+	}
+	
+	p{
+		color: rgba(255, 255, 255, 0.8);
+	}
+	.theme_btn{
+		background: #fff;
+		color: #394366;
+		&:hover, &:focus{
+			color: #fff;
+			background: $hover;
+		}
+	}
+	span{
+		font: 400 16px/1 $font;
+		color: rgba(255, 255, 255, 0.8);
+		position: relative;
+		top: 7px;
+		padding-left: 17px; 
+		b{
+			font: 400 40px/1 $font;
+		}
+	}
+	.banner_i{
+		.images{
+			position: relative;
+			z-index: 2;
+		}
+		.images_2{
+			bottom: 40px;
+			right: -190px;
+			animation: float-bob-y infinite 2s linear;
+		}
+		.images_3{
+			position: absolute;
+			right: 55px;
+			top: 130px;
+			z-index: 3;
+			animation: rotation infinite 10s linear;
+		}
+	}
+	.rs_banner{
+		display: none;
+	}
+}
+//banner_area
+ 
+//pages_banner
+.pages_banner{
+	display: block;
+	overflow: hidden;
+	position: relative;
+	z-index: 1; 
+	padding-top: 180px;
+	background-image: -moz-linear-gradient( -23deg, rgb(80,121,247) 0%, rgb(74,70,254) 99%);
+	background-image: -webkit-linear-gradient( -23deg, rgb(80,121,247) 0%, rgb(74,70,254) 99%);
+	background-image: -ms-linear-gradient( -23deg, rgb(80,121,247) 0%, rgb(74,70,254) 99%);
+	&:after{
+		content: "";
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		background: url("../images/banner-bg-shap.png") no-repeat right bottom;
+		height: 100%;
+		width: 100%;
+		z-index: -1;
+	}
+	h2{
+		color: #fff;
+		font: 500 50px/1 $font;
+		padding-bottom: 20px;
+		padding-top: 85px;
+	}
+	p{ 
+		color: rgba(255, 255, 255, 0.8);
+		font-size: 18px;
+		max-width: 600px;
+	}
+	.cercle_img{
+		position: absolute;
+		right: 180px;
+		top: 230px; 
+		animation: rotation infinite 10s linear;
+	}
+}
+.pb_2{
+	background: url("../images/banner-bg.jpg") no-repeat;
+	background-size: cover;
+	text-align: center;
+	padding-bottom: 155px;
+	&:after{
+		left: 0;
+		right: 0;
+		background-image: -moz-linear-gradient( -23deg, rgb(121,81,251) 0%, rgb(13,18,16) 99%);
+		background-image: -webkit-linear-gradient( -23deg, rgb(121,81,251) 0%, rgb(13,18,16) 99%);
+		background-image: -ms-linear-gradient( -23deg, rgb(121,81,251) 0%, rgb(13,18,16) 99%);
+		opacity: 0.878;
+	}
+	p{
+		margin: 0 auto;
+	}
+}
+.pb_4{
+	background: url("../images/banner-bg-2.jpg") no-repeat;
+	&:after{ 
+		background-image: -moz-linear-gradient( -23deg, rgb(46,36,151) 0%, rgb(43,97,250) 99%);
+		background-image: -webkit-linear-gradient( -23deg, rgb(46,36,151) 0%, rgb(43,97,250) 99%);
+		background-image: -ms-linear-gradient( -23deg, rgb(46,36,151) 0%, rgb(43,97,250) 99%);
+	}
+}
+.b_angle{ 
+	text-align: center;
+	padding-bottom: 240px;
+	position: relative;
+	z-index: 1; 
+	background-image: -moz-linear-gradient( -23deg, rgb(80,121,247) 0%, rgb(74,70,254) 99%);
+	background-image: -webkit-linear-gradient( -23deg, rgb(80,121,247) 0%, rgb(74,70,254) 99%);
+	background-image: -ms-linear-gradient( -23deg, rgb(80,121,247) 0%, rgb(74,70,254) 99%);
+	&:after{
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: url("../images/banner-angle-shap-2.png") no-repeat center;
+		width: 100%;
+		height: 108px;
+		z-index: -1;
+	}
+	p{
+		margin: 0 auto;
+	}
+	.container{
+		position: relative;
+	}
+	.images_1{
+		position: absolute;
+		bottom: -200px;
+		left: 0;
+		animation: float-bob-y infinite 2s linear;
+	}
+	.images_2{
+		position: absolute;
+		right: 0;
+		bottom: -160px;
+		animation: float-bob-y infinite 5s linear;
+	}
+}
+.bagle_2{ 
+	background-image: -moz-linear-gradient( -86deg, rgb(59,100,226) 0%, rgb(253,216,216) 99%);
+	background-image: -webkit-linear-gradient( -86deg, rgb(59,100,226) 0%, rgb(253,216,216) 99%);
+	background-image: -ms-linear-gradient( -86deg, rgb(59,100,226) 0%, rgb(253,216,216) 99%);
+	position: relative;
+	z-index: 1;
+	&:before{
+		content: "";
+		position: absolute;
+		bottom: 100px;
+		top: 0;
+		left: 0;
+		right: 0;
+		display: block;
+		background: url("../images/banner-shap.png") no-repeat center bottom;
+		z-index: -1;
+		animation: float-bob-x infinite 10s linear;
+	}
+}
+//pages_banner
+
+

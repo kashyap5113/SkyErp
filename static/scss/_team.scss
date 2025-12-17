@@ -1,0 +1,43 @@
+//people_behind
+.people_behind{
+	display: block;
+	overflow: hidden;
+	padding-top: 110px;
+	padding-bottom: 70px;
+	text-align: center;
+	h2{
+		font: 500 36px/1 $font;
+		color: $heding; 
+		padding-bottom: 75px;
+	}
+	.people{
+		background: url("../images/people-bg.png") no-repeat top right;
+		padding-top: 30px;
+		margin-bottom: 30px;
+		img{
+			max-width: 100%;
+		}
+		a{
+			display: block;
+			font: 500 20px/1 $font;
+			color: $heding;
+			padding-top: 20px;
+			&:hover, &:focus{
+				color: $bc;
+			}
+		}
+		
+		h6{
+			font: 400 16px/1 $font;
+			color: $heding;
+			padding-top: 15px;
+		}
+	}
+}
+.pb_3{
+	padding-bottom: 0;
+	.people{
+		margin-bottom: 50px;
+	}
+}
+//people_behind

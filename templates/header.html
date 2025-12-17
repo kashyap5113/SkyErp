@@ -1,0 +1,174 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/preloader.png' %}">
+    <title>Sky ERP</title>
+
+    <!-- CSS -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+   <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+   <link rel="stylesheet" href="{% static 'css/custom-animation.css' %}">
+   <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+   <link rel="stylesheet" href="{% static 'css/swiper-bundle.css' %}">
+   <link rel="stylesheet" href="{% static 'css/font-awesome-pro.css' %}">
+   <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+   <link rel="stylesheet" href="{% static 'css/spacing.css' %}">
+   <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    
+  </head>
+  <body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Header Area -->
+    <header class="main_header_area">
+      <nav class="navbar navbar-expand-lg">
+        <div class="navbar-brand">
+          <a class="logo" href="{% url 'index' %}">
+             <img src="{% static 'images/erpnextlogo.png' %}" alt="Logo" style="height: 50px; width: auto" />
+          </a>
+        </div>
+
+        <!-- Small Device Menu-->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target=".navbar_supported"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Left Nav bar -->
+        <div class="collapse navbar-collapse navbar_supported">
+          <ul class="navbar-nav">
+            <!-- ERPNext -->
+           <li class="nav-item dropdown">  
+              <a class="nav-link dropdown-toggle" href="#">
+                &nbsp; &nbsp; &nbsp; &nbsp; Sky ERP
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="servicesDropdown" style="min-width: 250px;">
+                 <ul class="dropdown-submenu position-relative">
+                <li>
+                  <a class="dropdown-item" href="{% url 'account' %}">
+                      <i class="fas fa-calculator me-2"></i> &nbsp; &nbsp;Accounting
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'selling' %}">
+                  <i class="fas fa-shopping-cart me-2"></i> &nbsp; &nbsp;Selling
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'buying' %}">
+                  <i class="fas fa-shopping-basket me-2"></i> &nbsp; &nbsp;Buying
+                  </a>
+                </li>
+              </ul>
+
+
+                <!-- Other normal items -->
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="{% url 'hrms' %}">
+                    <i class="fas fa-users me-2"></i> &nbsp;&nbsp;&nbsp;HRMS
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="{% url 'crm' %}">
+                    <i class="fas fa-building me-2"></i> &nbsp;&nbsp;&nbsp;&nbsp;Real Estate CRM
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="{% url 'stock' %}">
+                    <i class="fas fa-cogs me-2"></i> &nbsp;&nbsp;Stock Inventory
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="{% url 'projects' %}">
+                    <i class="fas fa-tasks me-2"></i> &nbsp;&nbsp;&nbsp;Projects
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="{% url 'asset_management' %}">
+                    <i class="fas fa-boxes me-2"></i> &nbsp;&nbsp;Asset Management
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="{% url 'manufacturing' %}">
+                    <i class="fas fa-industry me-2"></i> &nbsp;&nbsp;&nbsp;Manufacturing
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="{% url 'dashboard' %}">
+                    <i class="fas fa-tachometer-alt me-2"></i> &nbsp;&nbsp;Customised Dashboard
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="{% url 'reports' %}">
+                    <i class="fas fa-chart-bar me-2"></i> &nbsp;&nbsp;&nbsp;Reports
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="{% url 'support' %}">
+                    <i class="fas fa-headset"></i> &nbsp;&nbsp;&nbsp;Support
+                  </a>
+                </li>
+              </ul>
+            </li>
+          
+          
+
+            <!-- Product -->
+             <li class="nav-item">
+              <a class="nav-link" href="{% url 'product' %}">
+                &nbsp; &nbsp; &nbsp; &nbsp; Product
+              </a>
+            </li> 
+            
+             
+            <!-- Portfolio -->
+           <li class="nav-item">
+              <a class="nav-link" href="{% url 'portfolio' %}">
+                &nbsp; &nbsp; &nbsp; &nbsp; Portfolio
+              </a>
+            </li>
+
+
+            <!-- Company -->
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">
+                &nbsp; &nbsp; &nbsp; &nbsp; Company
+              </a>
+            </li>
+
+            <!-- Contact Us -->
+        
+              <li class="nav-item">
+              <a class="nav-link" href="{% url 'contact' %}">
+                &nbsp; &nbsp; &nbsp; &nbsp; Contact Us
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right Nav bar -->
+        <ul class="right_nav">
+                              <li><a href="{% url 'schedule_demo' %}" class="theme_btn">Schedule Demo</a></li>
+          <li><a href="https://demo.itfarmer.in/#login" class="theme_btn"  target="_blank">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- End Header -->
+
+    
+<!-- Page Content -->
+    
+
+    

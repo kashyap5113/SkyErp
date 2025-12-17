@@ -1,0 +1,124 @@
+{% load static %}
+<!-- Footer Area -->  
+    <footer class="footer_area">   
+      <div class="container"> 
+     <div class="footer_inner row">   
+       <div class="col-lg-4 col-sm-6 footer_logo wow fadeIn"> 
+         <a class="logo" href="index">
+           <img src="{% static 'images/erpnextlogo.png' %}" alt="Logo" style="height: 90px; width: auto"/>
+         </a>
+         <address>
+           <b>603, ZION Z1, Nr. Regenta Hotel, <br>Ramdas Road, SindhuBhavan Road,<br>Bodakdev, Ahmedabad, Gujarat - 380059<br></b><br>
+         <div class="footer_inline_contact">
+           <p>
+             <b><i class="fas fa-phone"></i> <strong>&nbsp;Sales :</strong> (+91) 97144 90600 &nbsp;&nbsp;<br></b>
+             <b><i class="fas fa-headset"></i> <strong>&nbsp;Support :</strong> (+91) 97145 90600 &nbsp;&nbsp;<br></b>
+             <b><i class="fas fa-envelope"></i> <strong>&nbsp;Email :</strong> hello@nivasync.in &nbsp;&nbsp;<br></b>
+             <b><i class="fas fa-globe"></i> <strong>&nbsp;Website :</strong> www.nivasync.in<br></b>
+           </p>
+         </div>
+         </address> 
+          <ul class="footer_social">
+           <li><a href="https://www.facebook.com/Skydotinfotech"><i class="fab fa-facebook-f icon"></i></a></li>
+           <li><a href="https://www.linkedin.com/company/nivasync-infotech-pvt-ltd"><i class="fab fa-linkedin-in icon"></i></a></li>
+           <li><a href="https://www.instagram.com/skydot_infotech/"><i class="fab fa-instagram icon"></i></a></li>
+           <li><a href="https://www.google.com/maps/place/SKYDOT+INFOTECH/@23.045616,72.5054684,17z/data=!3m1!4b1!4m6!3m5!1s0x395e9bf61517e975:0x7371fdb1d958b49!8m2!3d23.0456111!4d72.5080433!16s%2Fg%2F11xkphhf4v?authuser=0&entry=tts&g_ep=EgoyMDI1MDkxNS4wIPu8ASoASAFQAw%3D%3D&skid=6cca66f3-e188-4863-818d-4089e2e7693b"><i class="fab fa-google-plus-g icon"></i></a></li>
+         </ul>
+         <div class="app_btn">
+           <a href="#"><img src="{% static 'images/app-btn.png' %}" alt=""></a>
+           <a href="#"><img src="{% static 'images/app-btn-2.png' %}" alt=""></a>
+         </div> 
+       </div>
+       <div class="footer_widget col-lg-3 col-sm-6 wow fadeIn" data-wow-delay="0.2s">
+         <h4>Quick links</h4>
+         <ul class="footer_nav"> 
+           <li><a href="#">Sky ERP</a></li>   
+           <li><a href="{% url 'product' %}">Product</a></li>
+           <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+           <li><a href="{% url 'about' %}">About us</a></li>
+           <li><a href="{% url 'contact' %}">Contact Us</a></li>
+         </ul>
+       </div>  
+       <div class="footer_widget col-lg-3 col-sm-6 wow fadeIn" data-wow-delay="0.6s">
+         <h4>Product</h4>
+         <ul class="footer_nav">      
+           <li><a href="{% url 'account' %}">Accounting</a></li>     
+           <li><a href="{% url 'selling' %}">Selling</a></li>     
+           <li><a href="{% url 'buying' %}">Buying</a></li>     
+           <li><a href="{% url 'hrms' %}">HRMS</a></li>     
+           <li><a href="{% url 'crm' %}">Real Estate CRM</a></li>  
+           <li><a href="{% url 'stock' %}">Stock Inventory</a></li>
+           <li><a href="{% url 'projects' %}">Projects</a></li>
+           <li><a href="{% url 'asset_management' %}">Assest Management</a></li>
+           <li><a href="{% url 'manufacturing' %}">Manufacturing</a></li>
+           <li><a href="{% url 'dashboard' %}">Customised Dashboard</a></li>
+           <li><a href="{% url 'reports' %}">Reports</a></li>
+           <li><a href="{% url 'support' %}">Support</a></li>
+         </ul>
+       </div>
+       <div class="footer_widget col-lg-2 fw_2 col-sm-6 wow fadeIn" data-wow-delay="0.9s">
+         <h4>Industries</h4> 
+         <ul class="footer_nav">   
+          <li><a href="#">Manufacturing</a></li>  
+          <li><a href="#">Healthcare</a></li>  
+          <li><a href="#">Retail</a></li>  
+          <li><a href="#">Education</a></li>            
+          <li><a href="#">Construction</a></li>
+          <li><a href="#">Finance & Banking</a></li>         
+      
+          <li><a href="#">Protective Gear Manufacturer</a></li> 
+         </ul>
+       </div>
+     </div>  
+     <div class="copy_right">
+       <div class="row"> 
+         <div class="col-md-6  wow slideInRight">
+           <ul class="c_nav"> 
+             <li><a href="#">Privacy Policy</a></li>
+             <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Terms of Services</a></li>
+           </ul>
+         </div>   
+         <div class="col-md-6 order-md-first  wow slideInLeft">
+           <p>© Copyright © 2025 NivaSync Infotech Pvt. Ltd. - All Rights Reserved.</p>
+         </div> 
+       </div>
+     </div> 
+      </div> 
+   </footer>
+   <!-- End Footer Area --> 
+
+   <!-- Scroll Top Button -->
+   <button class="scroll-top">
+     <i class="fas fa-angle-up"></i>
+   </button>
+
+   <!-- Preloader -->
+ <div class="preloader">
+ <img src="{% static 'images/preloader.png' %}" alt="Loading..." style="height:100px; width:auto;" />
+   </div> 
+
+   <!-- JS -->
+   <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+   <script src="{% static 'js/popper.min.js' %}"></script>
+   <script src="{% static 'js/bootstrap.min.js' %}"></script>
+   <script src="{% static 'vendors/animate-css/wow.min.js' %}"></script>
+   <script src="{% static 'js/theme.js' %}"></script>
+   <script src="{% static 'vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+
+  
+
+   <script src="{% static 'js/jquery.js' %}"></script>
+   <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+   <script src="{% static 'js/slick.min.js' %}"></script>
+   <script src="{% static 'js/magnific-popup.js' %}"></script>
+   <script src="{% static 'js/purecounter.js' %}"></script>
+   <script src="{% static 'js/wow.js' %}"></script>
+   <script src="{% static 'js/nice-select.js' %}"></script>
+   <script src="{% static 'js/range-slider.js' %}"></script>
+   <script src="{% static 'js/swiper-bundle.js' %}"></script>
+   <script src="{% static 'js/isotope-pkgd.js' %}"></script>
+   <script src="{% static 'js/imagesloaded-pkgd.js' %}"></script>
+   <script src="{% static 'js/main-tv.js' %}"></script>
+   <script src="{% static 'js/custom-gsap.js' %}"></script>
+   <script src="{% static 'js/slider.js' %}"></script>
+   <script src="{% static 'js/main.js' %}"></script>
