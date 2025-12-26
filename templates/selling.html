@@ -18,7 +18,13 @@
   }
 
   .hero-section {
-    background: linear-gradient(135deg, #F2F6FF 0%, #E8EFFF 100%);
+    background:linear-gradient(135deg, #0f1f3d 0%, #1b2f59 45%, #253c73 100%);
+    background-image:
+      url("{% static 'images/modules.jpg' %}"),
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
     padding: 100px 0;
     position: relative;
     overflow: hidden;
@@ -58,14 +64,14 @@
   .hero-title {
     font-size: 56px;
     font-weight: 800;
-    color: #111827;
+    color: #F8FAFC;
     margin-bottom: 24px;
     line-height: 1.2;
   }
 
   .hero-description {
     font-size: 16px;
-    color: #6B7280;
+    color: rgba(248, 250, 252, 0.78);
     line-height: 1.8;
     margin-bottom: 0;
   }
@@ -82,6 +88,37 @@
     max-width: 100%;
     height: auto;
     filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.1));
+  }
+
+  .hero-screen {
+    position: relative;
+    padding: 1.5rem;
+    border-radius: 32px;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 25px 60px rgba(15, 41, 66, 0.18);
+    overflow: hidden;
+  }
+
+  .hero-screen img {
+    border-radius: 22px;
+    display: block;
+    width: 100%;
+  }
+
+  .hero-floating-gif {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 220px;
+    border-radius: 20px;
+    background: #fff;
+    padding: 0.75rem;
+    box-shadow: 0 16px 30px rgba(15, 41, 66, 0.25);
+  }
+
+  .hero-floating-gif img {
+    border-radius: 12px;
+    width: 100%;
   }
 
   .content-area {
@@ -268,25 +305,9 @@
         </p>
       </div>
       <div class="col-lg-6 hero-visual">
-        <svg viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width: 100%; height: auto;">
-          <rect width="600" height="500" fill="transparent" />
-          <rect x="180" y="140" width="280" height="200" rx="12" fill="#2563EB" />
-          <rect x="200" y="160" width="240" height="140" rx="8" fill="#fff" />
-          <text x="220" y="195" font-size="18" font-weight="700" fill="#0EA5E9">INVOICE</text>
-          <line x1="220" y1="215" x2="420" y2="215" stroke="#E5E7EB" stroke-width="2" />
-          <line x1="220" y1="235" x2="380" y2="235" stroke="#E5E7EB" stroke-width="2" />
-          <rect x="390" y="225" width="30" height="15" rx="4" fill="#0EA5E9" />
-          <circle cx="140" cy="320" r="45" fill="#FFF7ED" />
-          <rect x="120" y="310" width="40" height="30" rx="4" fill="#0EA5E9" />
-          <path d="M125 320 L135 325 L145 315" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-          <circle cx="480" cy="340" r="40" fill="#10B981" opacity="0.8" />
-          <text x="460" y="350" font-size="32" fill="#fff">$</text>
-          <rect x="250" y="370" width="120" height="60" rx="8" fill="#0EA5E9" opacity="0.7" />
-          <circle cx="280" cy="395" r="8" fill="#fff" />
-          <circle cx="300" cy="395" r="8" fill="#fff" />
-          <circle cx="320" cy="395" r="8" fill="#fff" />
-          <rect x="265" y="410" width="70" height="15" rx="4" fill="#fff" opacity="0.5" />
-        </svg>
+        <div class="hero-screen">
+          <img src="{% static 'images/sales.png' %}" alt="Selling dashboards" loading="lazy">
+        </div>
       </div>
     </div>
   </div>
@@ -306,41 +327,42 @@
 
           <div class="feature-section">
             <p class="feature-title"><strong>Quotation:-</strong> Create and share professional quotations quickly. Track revisions, convert quotations into orders, and manage customer negotiations seamlessly.</p>
-            <img src="https://placehold.co/800x400/E8EFFF/0EA5E9?text=Quotation+Module" alt="Quotation" class="feature-image" />
+            <img src="{% static 'images/sales-analytics-data-window.gif' %}" alt="Quotation workspace" class="feature-image" loading="lazy" />
           </div>
 
           <div class="feature-section">
             <p class="feature-title"><strong>Sales Order:-</strong> Turn approved quotations into sales orders with a single click. Monitor order status, deliveries, and payments while ensuring accuracy in every transaction.</p>
-            <img src="https://placehold.co/800x400/F2F6FF/2563EB?text=Sales+Order+Interface" alt="Sales Order" class="feature-image" />
+            <img src="{% static 'images/salesorder.gif' %}" alt="Sales order interface" class="feature-image" loading="lazy" />
           </div>
 
           <div class="feature-section">
             <p class="feature-title"><strong>Sales Invoice:-</strong> Generate invoices instantly from sales orders or deliveries. Automate billing, manage payments, and maintain compliance with tax rules.</p>
-            <img src="https://placehold.co/800x400/FFF7ED/F97316?text=Sales+Invoice" alt="Sales Invoice" class="feature-image" />
+            <img src="{% static 'images/salesinvoice.png' %}" alt="Sales invoice document" class="feature-image" loading="lazy" />
           </div>
 
           <div class="feature-section">
             <p class="feature-title"><strong>Point of Sales (POS):-</strong> Run your retail operations with an easy-to-use POS system. Process walk-in sales, manage discounts, and print receipts while syncing inventory in real time.</p>
-            <img src="https://placehold.co/800x500/E0F2FE/0EA5E9?text=POS+Checkout" alt="Point of Sales" class="feature-image" />
+            <img src="{% static 'images/pos-checkout.gif' %}" alt="POS checkout experience" class="feature-image" loading="lazy" />
           </div>
 
           <div class="feature-section">
             <p class="feature-title"><strong>Sales Taxes & Charges Templates:-</strong> Automate tax calculations and apply predefined charges across invoices and quotations. Ensure compliance and reduce manual errors.</p>
-            <img src="https://placehold.co/800x450/F0FDF4/10B981?text=Sales+Taxes+Templates" alt="Sales Taxes" class="feature-image" />
+            <img src="{% static 'images/salestaxes.png' %}" alt="Sales tax template" class="feature-image" loading="lazy" />
           </div>
 
           <div class="feature-section">
             <p class="feature-title"><strong>Sales Analytics:-</strong> Gain actionable insights with real-time reports on sales trends, revenue, customer behavior, and product performance. Improve decision-making with accurate data.</p>
-            <img src="https://placehold.co/800x400/FEF3C7/F59E0B?text=Sales+Analytics+Dashboard" alt="Sales Analytics" class="feature-image" />
+            <img src="{% static 'images/sales_dashboard.png' %}" alt="Sales analytics dashboard" class="feature-image" loading="lazy" />
           </div>
 
           <div class="feature-section">
             <p class="feature-title"><strong>Sales Funnel:-</strong> Visualize the customer journey from lead to conversion. Identify bottlenecks, track deal progress, and optimize your sales strategy for higher conversions.</p>
-            <img src="https://placehold.co/800x350/DBEAFE/3B82F6?text=Sales+Funnel+View" alt="Sales Funnel" class="feature-image" />
+            <img src="{% static 'images/sales-funnel.png' %}" alt="Sales funnel view" class="feature-image" loading="lazy" />
           </div>
 
           <div class="feature-section">
             <p class="feature-title"><strong>Reports:-</strong> Access detailed sales reports including order history, invoices, tax reports, and revenue forecasts to keep track of business performance.</p>
+            <img src="{% static 'images/sales-analytics-sections.png' %}" alt="Sales reports summary" class="feature-image" loading="lazy" />
           </div>
         </div>
       </div>

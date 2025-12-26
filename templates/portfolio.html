@@ -204,6 +204,49 @@
             padding: 80px 0;
         }
         
+        /* Map Section */
+        .map-section {
+            background: #F6F9FF;
+            padding: 60px 0 80px;
+        }
+
+        .map-wrapper {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(15, 41, 66, 0.08);
+            padding: 24px;
+        }
+
+        .map-heading {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 12px;
+        }
+
+        .map-description {
+            color: #6B7280;
+            font-size: 16px;
+            margin-bottom: 24px;
+        }
+
+        .map-embed {
+            position: relative;
+            padding-bottom: 60%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 14px;
+        }
+
+        .map-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
         .client-item {
             display: flex;
             align-items: flex-start;
@@ -504,6 +547,18 @@
                             <p class="client-text">NAIR, IRISET, IRIMEE, IRIDM, ZRTI Udaipur, MDDTI [Bengaluru], STTI [Byculla], STTI [Pandu], STTI [Podanur], Diesel Loco Shed [West Bengal]</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="map-wrapper">
+                <h2 class="map-heading text-center">Visit Our Global Office</h2>
+                <p class="map-description text-center mb-4">Find Sky ERP across the globe. Drop in to experience how we transform operations.</p>
+                <div class="map-embed">
+                    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1bFaoQUPMMXTseZMOL1tvNyMThqvn_Ko&ehbc=2E312F&noprof=1" width="640" height="480" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
