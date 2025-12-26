@@ -1,20 +1,148 @@
-{% include 'header.html' %}
+{% include 'header.html' with active_page='modules' %}
 {% load static %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<script>
+  tailwind.config = {
+    corePlugins: {
+      preflight: false,
+    },
+  }
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+  .asset-page * {
+    font-family: 'Inter', sans-serif;
+  }
 
-  <!-- Asset Management Banner -->
-  <section class="banner_area ba_2">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 banner_con">
-          <h2 class="wow fadeInUp">Asset Management</h2>
-          <p>With Sky ERP Asset Management module, you can register, track, maintain, and report on all your company assets — from procurement to disposal. Maintain depreciation, schedule maintenance, track locations, and integrate with accounting and finance for full control over your assets.</p>
+  .asset-page {
+    background: #F2F6FF;
+  }
+
+  .asset-page .hero-gradient {
+    background: linear-gradient(135deg, #16216B 0%, #1a2d7d 100%);
+  }
+
+  .asset-page .card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .asset-page .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  }
+
+  .asset-page .btn-primary {
+    background: #FF7A21;
+    transition: all 0.3s ease;
+  }
+
+  .asset-page .btn-primary:hover {
+    background: #e66a14;
+    transform: scale(1.02);
+  }
+
+  .asset-page .btn-secondary {
+    border: 2px solid #FF7A21;
+    color: #FF7A21;
+    transition: all 0.3s ease;
+  }
+
+  .asset-page .btn-secondary:hover {
+    background: #FF7A21;
+    color: white;
+    transform: scale(1.02);
+  }
+
+  .asset-page .section-animate {
+    animation: fadeUp 0.6s ease-out;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .asset-page .feature-icon {
+    transition: all 0.3s ease;
+  }
+
+  .asset-page .feature-item:hover .feature-icon {
+    color: #FF7A21;
+    transform: scale(1.1);
+  }
+
+  .asset-page .accordion-item {
+    transition: all 0.3s ease;
+  }
+
+  .asset-page .accordion-button {
+    background: white;
+    border: 1px solid #E6ECF5;
+    transition: all 0.3s ease;
+  }
+
+  .asset-page .accordion-button:hover {
+    background: #F2F6FF;
+    border-color: #FF7A21;
+  }
+
+  .asset-page .accordion-button.active {
+    background: #FFF4ED;
+    border-color: #FF7A21;
+    color: #FF7A21;
+  }
+
+  .asset-page .nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  .asset-page .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #FF7A21;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 768px) {
+    .asset-page .hero-gradient h1 {
+      font-size: 32px;
+    }
+  }
+</style>
+
+<div class="asset-page">
+  <!-- Hero Section -->
+  <section class="hero-gradient py-20 lg:py-28 section-animate">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="text-white">
+          <h1 class="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+            Asset Management
+          </h1>
+          <p class="text-lg text-blue-100 mb-8 leading-relaxed">
+            With Sky ERP Asset Management module, you can register, track, maintain, and report on all your company assets — from procurement to disposal. Maintain depreciation, schedule maintenance, track locations, and integrate with accounting and finance for full control over your assets.
+          </p>
         </div>
-        <div class="col-lg-6">
-          <div class="banner_i">
-            <img src="{% static 'images/asset.png' %}" alt="Assets Banner" class="images_1" style="height:400px; width:auto;" />
+        <div class="flex justify-center lg:justify-end">
+          <div class="relative">
+            <div class="absolute -inset-4 bg-gradient-to-r from-orange-400 to-orange-600 rounded-3xl opacity-20 blur-2xl"></div>
+            <img src="{% static 'images/asset.png' %}" alt="Asset Management Illustration" class="relative rounded-2xl shadow-2xl w-full max-w-md" />
           </div>
         </div>
       </div>
@@ -22,157 +150,298 @@
   </section>
 
   <!-- Main Content -->
-  <div class="tv-blog-area tv-single-service pt-130 pb-130">
-    <div class="container">
-      <div class="row">
-        <!-- Left Content -->
-        <div class="col-xl-8 col-lg-8 col-12">
-          <div class="tv-blog-list-wrap">
-            <div class="tv-blog-details">
-              <h2 class="title">Why Choose Our Asset Management Module?</h2>
-              <div class="tv-blog-details-content">
-                <p>Our Asset Management Module provides a comprehensive and user-friendly solution designed to give you total control over your company's assets. Whether you need to track asset location, monitor maintenance schedules, or manage depreciation and valuation, our module integrates seamlessly with your ERP system for enhanced operational efficiency and accurate financial reporting.</p>
-                <p>Key benefits include real-time asset tracking, automated depreciation calculations, maintenance alerts, and detailed asset ledger management. With role-based access and multi-location support, you can ensure the right people have the right information at the right time.</p>
+  <section class="py-16 lg:py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid lg:grid-cols-12 gap-8">
 
-                <div class="tv-service-list-item">
-                  <ul>
-                    <li>
-                      <strong>Asset Item List:</strong> In ERPNext, Asset Management Item means any Fixed Asset (like Machinery, Vehicles, or Equipment) tracked for its Purchase, Depreciation, Maintenance, and Disposal.
-                    </li>
-                    <div class="banner_i">
-          			         <img src="{% static 'images/asset1.png' %}" alt="" class="images_1" style="height:400px; width:auto;">
-       			        </div><br>
-                    <li>
-                      <strong>Asset Location:</strong> Track assets across sites or departments for accountability and optimal usage.
-                    </li>
-                    <div class="banner_i">
-          			         <img src="{% static 'images/asset-location.png' %}" alt="" class="images_1" style="height:400px; width:auto;">
-       			        </div><br>
-                    <li>
-                      <strong>Asset Category:</strong> Organize assets for simplified reporting and auditing.
-                    </li>
-                    <div class="banner_i">
-          			         <img src="{% static 'images/asset-category.png' %}" alt="" class="images_1" style="height:400px; width:auto;">
-       			        </div><br>
-                    <li>
-                      <strong>Asset Movement:</strong> Log asset transfers and ensure transparency with audit trails.
-                    </li>
-                    <div class="banner_i">
-          			         <img src="{% static 'images/asset-movement.png' %}" alt="" class="images_1" style="height:400px; width:auto;">
-       			        </div><br>
-                    <li>
-                      <strong>Asset Maintenance:</strong> Automate preventive and corrective maintenance to prolong asset life.
-                    </li>
-                    <div class="banner_i">
-          			         <img src="{% static 'images/asset-maintenance.png' %}" alt="" class="images_1" style="height:400px; width:auto;">
-       			        </div><br>
-                    <li>
-                      <strong>Asset Value:</strong> Manage depreciation and financial adjustments accurately.
-                    </li>
-                    <div class="banner_i">
-          			         <img src="{% static 'images/asset-value.png' %}" alt="" class="images_1" style="height:400px; width:auto;">
-       			        </div><br>
-                    <li>
-                      <strong>Asset Ledger:</strong> Maintain complete records of all asset-related transactions and lifecycle events.
-                    </li>
-                    <div class="banner_i">
-          			         <img src="{% static 'images/asset-ledger.png' %}" alt="" class="images_1" style="height:330px; width:auto;">
-       			        </div><br>
-                  </ul>
+        <!-- Main Content Column -->
+        <div class="lg:col-span-8 space-y-8">
+          <div class="bg-white rounded-2xl shadow-sm p-8 lg:p-12 card-hover">
+            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+              Why Choose Our Asset Management Module?
+            </h2>
+            <p class="text-gray-600 text-base leading-relaxed mb-6">
+              Our Asset Management Module provides a comprehensive and user-friendly solution designed to give you total control over your company's assets. Whether you need to track asset location, monitor maintenance schedules, or manage depreciation and valuation, our module integrates seamlessly with your ERP system for enhanced operational efficiency and accurate financial reporting.
+            </p>
+            <p class="text-gray-600 text-base leading-relaxed">
+              Key benefits include real-time asset tracking, automated depreciation calculations, maintenance alerts, and detailed asset ledger management. With role-based access and multi-location support, you can ensure the right people have the right information at the right time.
+            </p>
+          </div>
+
+          <div class="space-y-8">
+            <div class="bg-white rounded-2xl shadow-sm p-8 card-hover">
+              <div class="flex items-start space-x-4 mb-6">
+                <div class="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
+                  <i class="fas fa-list text-[#FF7A21] text-xl"></i>
                 </div>
-
-                <!-- Images -->
-                <div class="tv-blog-details-thumb-img d-flex justify-content-between my-4">
-                  <div>
-                    <img src="{% static 'images/erpnext-asset-thumb-1.png' %}" alt="" />
-                  </div>
-                  <div>
-                    <img src="{% static 'images/erpnext-asset-thumb-2.png' %}" alt="" />
-                  </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-900 mb-3">Asset Item List:</h3>
+                  <p class="text-gray-600 leading-relaxed">
+                    In ERPNext, Asset Management Item means any Fixed Asset (like Machinery, Vehicles, or Equipment) tracked for its Purchase, Depreciation, Maintenance, and Disposal.
+                  </p>
                 </div>
+              </div>
+              <div class="mt-6 rounded-xl overflow-hidden border border-gray-200">
+                <img src="{% static 'images/asset1.png' %}" alt="Asset Item List" class="w-full" />
+              </div>
+            </div>
 
-                <!-- FAQs -->
-                <h3 class="faq-title">Frequently Asked Questions</h3>
+            <div class="bg-[#F2F6FF] rounded-2xl shadow-sm p-8 card-hover">
+              <div class="flex items-start space-x-4 mb-6">
+                <div class="flex-shrink-0 w-12 h-12 bg-white rounded-xl flex items-center justify-center">
+                  <i class="fas fa-map-marker-alt text-[#FF7A21] text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-900 mb-3">Asset Location:</h3>
+                  <p class="text-gray-600 leading-relaxed">
+                    Track assets across sites or departments for accountability and optimal usage.
+                  </p>
+                </div>
+              </div>
+              <div class="mt-6 rounded-xl overflow-hidden border border-gray-200 bg-white">
+                <img src="{% static 'images/asset-location.png' %}" alt="Asset Location" class="w-full" />
+              </div>
+            </div>
 
-                <div class="tv-custom-accordion">
-                  <div class="accordion" id="accordionAsset">
-                    <!-- FAQ 1 -->
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="faqA1"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseA1">Can I Automate Depreciation for different asset classes?</button></h2>
-                      <div id="collapseA1" class="accordion-collapse collapse" aria-labelledby="faqA1" data-bs-parent="#accordionAsset">
-                        <div class="accordion-body">Yes, you can set depreciation methods (straight-line, reducing balance, etc.) and schedules per asset type.</div>
-                      </div>
-                    </div>
+            <div class="bg-white rounded-2xl shadow-sm p-8 card-hover">
+              <div class="flex items-start space-x-4 mb-6">
+                <div class="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
+                  <i class="fas fa-tags text-[#FF7A21] text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-900 mb-3">Asset Category:</h3>
+                  <p class="text-gray-600 leading-relaxed">
+                    Organize assets for simplified reporting and auditing.
+                  </p>
+                </div>
+              </div>
+              <div class="mt-6 rounded-xl overflow-hidden border border-gray-200">
+                <img src="{% static 'images/asset-category.png' %}" alt="Asset Category" class="w-full" />
+              </div>
+            </div>
 
-                    <!-- FAQ 2 -->
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="faqA2"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseA2">Does it Support asset Tracking with location and custodians?</button></h2>
-                      <div id="collapseA2" class="accordion-collapse collapse" aria-labelledby="faqA2" data-bs-parent="#accordionAsset">
-                        <div class="accordion-body">Yes, each asset can be tagged to a location, employee, or department for accountability.</div>
-                      </div>
-                    </div>
+            <div class="bg-[#F2F6FF] rounded-2xl shadow-sm p-8 card-hover">
+              <div class="flex items-start space-x-4 mb-6">
+                <div class="flex-shrink-0 w-12 h-12 bg-white rounded-xl flex items-center justify-center">
+                  <i class="fas fa-exchange-alt text-[#FF7A21] text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-900 mb-3">Asset Movement:</h3>
+                  <p class="text-gray-600 leading-relaxed">
+                    Log asset transfers and ensure transparency with audit trails.
+                  </p>
+                </div>
+              </div>
+              <div class="mt-6 rounded-xl overflow-hidden border border-gray-200 bg-white">
+                <img src="{% static 'images/asset-movement.png' %}" alt="Asset Movement" class="w-full" />
+              </div>
+            </div>
 
-                    <!-- FAQ 3 -->
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="faqA3"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseA3">How are Asset transfers and disposals managed?</button></h2>
-                      <div id="collapseA3" class="accordion-collapse collapse" aria-labelledby="faqA3" data-bs-parent="#accordionAsset">
-                        <div class="accordion-body">The system handles inter-branch transfers, write-offs, and disposals with proper accounting entries.</div>
-                      </div>
-                    </div>
+            <div class="bg-white rounded-2xl shadow-sm p-8 card-hover">
+              <div class="flex items-start space-x-4 mb-6">
+                <div class="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
+                  <i class="fas fa-tools text-[#FF7A21] text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-900 mb-3">Asset Maintenance:</h3>
+                  <p class="text-gray-600 leading-relaxed">
+                    Automate preventive and corrective maintenance to prolong asset life.
+                  </p>
+                </div>
+              </div>
+              <div class="mt-6 rounded-xl overflow-hidden border border-gray-200">
+                <img src="{% static 'images/asset-maintenance.png' %}" alt="Asset Maintenance" class="w-full" />
+              </div>
+            </div>
 
-                    <!-- FAQ 4 -->
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="faqA4"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseA4">Can I manage asset maintenance and lifecycle costs?</button></h2>
-                      <div id="collapseA4" class="accordion-collapse collapse" aria-labelledby="faqA4" data-bs-parent="#accordionAsset">
-                        <div class="accordion-body">Yes, Preventive and Corrective maintenance can be scheduled, with costs linked to the asset.</div>
-                      </div>
-                    </div>
+            <div class="bg-[#F2F6FF] rounded-2xl shadow-sm p-8 card-hover">
+              <div class="flex items-start space-x-4 mb-6">
+                <div class="flex-shrink-0 w-12 h-12 bg-white rounded-xl flex items-center justify-center">
+                  <i class="fas fa-dollar-sign text-[#FF7A21] text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-900 mb-3">Asset Value:</h3>
+                  <p class="text-gray-600 leading-relaxed">
+                    Manage depreciation and financial adjustments accurately.
+                  </p>
+                </div>
+              </div>
+              <div class="mt-6 rounded-xl overflow-hidden border border-gray-200 bg-white">
+                <img src="{% static 'images/asset-value.png' %}" alt="Asset Value" class="w-full" />
+              </div>
+            </div>
 
-                    <!-- FAQ 5 -->
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="faqA5"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseA5">Does it Integrate with Accounting and Purchase workflows?</button></h2>
-                      <div id="collapseA5" class="accordion-collapse collapse" aria-labelledby="faqA5" data-bs-parent="#accordionAsset">
-                        <div class="accordion-body">Yes, Assets link to Purchase Invoices, post to Ledgers, and reflect in Financial Reports automatically.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div> <!-- End Accordion -->
+            <div class="bg-white rounded-2xl shadow-sm p-8 card-hover">
+              <div class="flex items-start space-x-4 mb-6">
+                <div class="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
+                  <i class="fas fa-book text-[#FF7A21] text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-900 mb-3">Asset Ledger:</h3>
+                  <p class="text-gray-600 leading-relaxed">
+                    Maintain complete records of all asset-related transactions and lifecycle events.
+                  </p>
+                </div>
+              </div>
+              <div class="mt-6 rounded-xl overflow-hidden border border-gray-200">
+                <img src="{% static 'images/asset-ledger.png' %}" alt="Asset Ledger" class="w-full" />
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Section -->
+          <div class="mt-12">
+            <h3 class="text-3xl font-bold text-gray-900 mb-8">Frequently Asked Questions</h3>
+            <div class="space-y-4 faq-accordion">
+
+              <div class="accordion-item rounded-xl overflow-hidden">
+                <button class="accordion-button w-full text-left px-6 py-5 font-semibold text-gray-900 flex items-center justify-between active" onclick="toggleAccordion(this)">
+                  <span>Can I Automate Depreciation for different asset classes?</span>
+                  <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                </button>
+                <div class="accordion-content px-6 py-5 bg-white border-t border-gray-100">
+                  <p class="text-gray-600">Yes, you can set depreciation methods (straight-line, reducing balance, etc.) and schedules per asset type.</p>
+                </div>
+              </div>
+
+              <div class="accordion-item rounded-xl overflow-hidden">
+                <button class="accordion-button w-full text-left px-6 py-5 font-semibold text-gray-900 flex items-center justify-between" onclick="toggleAccordion(this)">
+                  <span>Does it Support asset Tracking with location and custodians?</span>
+                  <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                </button>
+                <div class="accordion-content hidden px-6 py-5 bg-white border-t border-gray-100">
+                  <p class="text-gray-600">Yes, each asset can be tagged to a location, employee, or department for accountability.</p>
+                </div>
+              </div>
+
+              <div class="accordion-item rounded-xl overflow-hidden">
+                <button class="accordion-button w-full text-left px-6 py-5 font-semibold text-gray-900 flex items-center justify-between" onclick="toggleAccordion(this)">
+                  <span>How are Asset transfers and disposals managed?</span>
+                  <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                </button>
+                <div class="accordion-content hidden px-6 py-5 bg-white border-t border-gray-100">
+                  <p class="text-gray-600">The system handles inter-branch transfers, write-offs, and disposals with proper accounting entries.</p>
+                </div>
+              </div>
+
+              <div class="accordion-item rounded-xl overflow-hidden">
+                <button class="accordion-button w-full text-left px-6 py-5 font-semibold text-gray-900 flex items-center justify-between" onclick="toggleAccordion(this)">
+                  <span>Can I manage asset maintenance and lifecycle costs?</span>
+                  <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                </button>
+                <div class="accordion-content hidden px-6 py-5 bg-white border-t border-gray-100">
+                  <p class="text-gray-600">Yes, Preventive and Corrective maintenance can be scheduled, with costs linked to the asset.</p>
+                </div>
+              </div>
+
+              <div class="accordion-item rounded-xl overflow-hidden">
+                <button class="accordion-button w-full text-left px-6 py-5 font-semibold text-gray-900 flex items-center justify-between" onclick="toggleAccordion(this)">
+                  <span>Does it Integrate with Accounting and Purchase workflows?</span>
+                  <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                </button>
+                <div class="accordion-content hidden px-6 py-5 bg-white border-t border-gray-100">
+                  <p class="text-gray-600">Yes, Assets link to Purchase Invoices, post to Ledgers, and reflect in Financial Reports automatically.</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Sidebar -->
-        <div class="col-xl-4 col-lg-4 col-12">
-          <div class="tv-sidebar-area">
-            <div class="tv-widget widget mb-40">
-              <ul>
-                <li class="cat-item">
-                  <strong>Core Asset Management Modules</strong>
-                </li>
-                <li class="cat-item">
-                  <a href="#"><i class="fas fa-map-marker-alt fa-lg text-primary me-2"></i> Asset Location</a>
-                </li>
-                <li class="cat-item">
-                  <a href="#"><i class="fas fa-tags fa-lg text-primary me-2"></i> Asset Category</a>
-                </li>
-                <li class="cat-item">
-                  <a href="#"><i class="fas fa-exchange-alt fa-lg text-primary me-2"></i> Asset Movement</a>
-                </li>
-                <li class="cat-item">
-                  <a href="#"><i class="fas fa-tools fa-lg text-primary me-2"></i> Asset Maintenance</a>
-                </li>
-                <li class="cat-item">
-                  <a href="#"><i class="fas fa-dollar-sign fa-lg text-primary me-2"></i> Asset Value</a>
-                </li>
-                <li class="cat-item">
-                  <a href="#"><i class="fas fa-book fa-lg text-primary me-2"></i> Asset Ledger</a>
-                </li>
-              </ul>
-            </div>
+        <div class="lg:col-span-4">
+          <div class="bg-white rounded-2xl shadow-sm p-6 sticky top-24">
+            <h4 class="font-bold text-lg text-gray-900 mb-6 pb-4 border-b border-gray-200">
+              Core Asset Management Modules
+            </h4>
+            <ul class="space-y-3">
+              <li class="feature-item">
+                <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-orange-50 transition-all">
+                  <i class="fas fa-map-marker-alt feature-icon text-[#16216B]"></i>
+                  <span class="text-gray-700 font-medium">Asset Location</span>
+                </a>
+              </li>
+              <li class="feature-item">
+                <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-orange-50 transition-all">
+                  <i class="fas fa-tags feature-icon text-[#16216B]"></i>
+                  <span class="text-gray-700 font-medium">Asset Category</span>
+                </a>
+              </li>
+              <li class="feature-item">
+                <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-orange-50 transition-all">
+                  <i class="fas fa-exchange-alt feature-icon text-[#16216B]"></i>
+                  <span class="text-gray-700 font-medium">Asset Movement</span>
+                </a>
+              </li>
+              <li class="feature-item">
+                <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-orange-50 transition-all">
+                  <i class="fas fa-tools feature-icon text-[#16216B]"></i>
+                  <span class="text-gray-700 font-medium">Asset Maintenance</span>
+                </a>
+              </li>
+              <li class="feature-item">
+                <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-orange-50 transition-all">
+                  <i class="fas fa-dollar-sign feature-icon text-[#16216B]"></i>
+                  <span class="text-gray-700 font-medium">Asset Value</span>
+                </a>
+              </li>
+              <li class="feature-item">
+                <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-orange-50 transition-all">
+                  <i class="fas fa-book feature-icon text-[#16216B]"></i>
+                  <span class="text-gray-700 font-medium">Asset Ledger</span>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
-      </div> 
-    </div> 
-  </div> 
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Strip -->
+  <section class="bg-gradient-to-r from-[#FF7A21] to-[#e66a14] py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between">
+        <div class="text-white mb-6 md:mb-0">
+          <h3 class="text-2xl font-bold mb-2">Ready to Transform Your Asset Management?</h3>
+          <p class="text-orange-100">Schedule a demo to see how Sky ERP can help your business grow.</p>
+        </div>
+        <a href="{% url 'schedule_demo' %}" class="bg-white text-[#FF7A21] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
+          Schedule Demo
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  function toggleAccordion(button) {
+    const accordionWrapper = button.closest('.faq-accordion');
+    const content = button.nextElementSibling;
+    const icon = button.querySelector('i');
+
+    accordionWrapper.querySelectorAll('.accordion-button').forEach(btn => {
+      if (btn !== button) {
+        btn.classList.remove('active');
+        btn.querySelector('i').style.transform = 'rotate(0deg)';
+      }
+    });
+
+    accordionWrapper.querySelectorAll('.accordion-content').forEach(c => {
+      if (c !== content) {
+        c.classList.add('hidden');
+      }
+    });
+
+    if (content.classList.contains('hidden')) {
+      content.classList.remove('hidden');
+      button.classList.add('active');
+      icon.style.transform = 'rotate(180deg)';
+    } else {
+      content.classList.add('hidden');
+      button.classList.remove('active');
+      icon.style.transform = 'rotate(0deg)';
+    }
+  }
+</script>
+
 {% include 'footer.html' %}

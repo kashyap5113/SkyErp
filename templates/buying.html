@@ -1,186 +1,452 @@
-{% include 'header.html' %}
+{% include 'header.html' with active_page='modules' %}
 {% load static %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Main Banner -->
-<section class="banner_area ba_2">
-    	<div class="container">
-    		<div class="row">
-    			<div class="col-lg-6 banner_con">
-    				<h2 class="wow fadeInUp">Buying</h2>
-					<p class="wow fadeInUp" data-wow-delay="0.3s">Our Buying Module is a robust solution designed to optimize your procurement process. It enables businesses to efficiently manage suppliers, track purchase orders, and monitor inventory levels all from a single, user-friendly platform. With real-time insights, automated approvals, and secure supplier communications, it ensures smarter purchasing decisions and cost-effective operations. 
-                  Built for scalability and efficiency, this module delivers a seamless buying experience that strengthens supplier relationships and drives business growth.</p>  					
-    			</div>
+<script>
+    tailwind.config = {
+        corePlugins: {
+            preflight: false,
+        },
+    }
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
 
-      			<div class="col-lg-6">
-        		  <div class="banner_i">
-          				<img src="{% static 'images/buying.png' %}" alt="" class="images_1" style="height:500px; width:auto;">
-       			  </div>
-     			</div>
-    		</div>
-  		</div>
-</section>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        color: #111827;
+        line-height: 1.6;
+        overflow-x: hidden;
+        background: #fff;
+    }
 
+    .buying-page {
+        padding-top: 0px;
+        background: #fff;
+    }
 
-<!-- breadcrumb-area-end -->
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
 
-<div class="tv-blog-area tv-single-service pt-130 pb-130">
-   <div class="container">
-      <div class="row">
-         <!-- Main Content Area -->
-         <div class="col-xl-8 col-lg-8 col-12">
-            <div class="tv-blog-list-wrap">
-               <div class="tv-blog-details">
-                  <div class="tv-blog-details-thumb mb-40">
-                     <img src="assets/img/service/single-service.png" alt="">
-                  </div>
-                  <h2 class="title">Why Choose Our Buying Module?</h2>
-                  <div class="tv-blog-details-content">
-                     <p>Our Buying Module simplifies procurement, making the entire process faster and more accurate. It helps you manage supplier data, orders, and approvals effortlessly, reducing manual effort. With intelligent reporting and analytics,
-                         you gain complete visibility into your purchases and expenses. Experience a secure, streamlined, and scalable buying process that empowers your business to thrive.</p>
-                           <div class="banner_i">
-          			         <img src="{% static 'images/material-request-flowchart.png' %}" alt="" class="images_1" style="height:400px; width:auto;">
-       			            </div><br>
-                      <div class="tv-service-list-item">
-                        <ul>
-                           <p><strong>Core Buying Modules</strong></p>
-                           <li><strong>Material Request:-</strong> Create and track requests for materials needed within the organization. Streamlines the internal approval process before procurement.</li>
-                           <div class="banner_i">
-          			         <img src="{% static 'images/material-request.png' %}" alt="" class="images_1" style="height:250px; width:auto;">
-       			            </div><br>
-                           <li><strong>Purchase Order:-</strong>Generate formal orders to suppliers for required goods or services. Ensures accurate and authorized purchasing.</li>
-                           <div class="banner_i">
-          			         <img src="{% static 'images/purchaseorder.png' %}" alt="" class="images_1" style="height:450px; width:900px;">
-       			            </div><br>
-                           <li><strong>Purchase Invoice:-</strong> Record invoices received from suppliers for purchased items. Facilitates payment processing and accounting.</li>
-                           <div class="banner_i">
-          			         <img src="{% static 'images/purchase-invoice.png' %}" alt="" class="images_1" style="height:400px; width:auto;">
-       			            </div><br>
-                           <li><strong>Purchase Order Analysis:-</strong> Analyze purchase orders for trends, costs, and supplier performance. Supports data-driven procurement decisions.</li>
-                           <div class="banner_i">
-          			         <img src="{% static 'images/po_analysis.png' %}" alt="" class="images_1" style="height:400px; width:auto;">
-       			            </div><br>
-                           <li><strong>Payment Entry:-</strong> Simplify payments and receipts by recording customer and vendor transactions with automated reconciliation.</li>
-                           <div class="banner_i">
-          			         <img src="{% static 'images/payment-entry-from-invoice (1).gif' %}" alt="" class="images_1" style="height:400px; width:auto;">
-       			            </div><br>
-                           <li><strong>Report:-</strong> Generate detailed reports on procurement, inventory, and supplier activity. Helps monitor performance and compliance.</li>
-                      </div>
+    .animate-fadeUp {
+        opacity: 0;
+        animation: fadeUp 0.8s ease-out forwards;
+    }
 
-                     <div class="tv-blog-details-thumb-img d-flex justify-content-between">
-                        <div><img src="assets/img/blog/blog-details-thumb-1-2.png" alt=""></div>
-                        <div><img src="assets/img/blog/blog-details-thumb-1-3.png" alt=""></div>
-                     </div>
-                     <h3 class="faq-title">Frequently Asked Questions</h3>
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
 
-                     <div class="tv-custom-accordion">
-                        <div class="accordion" id="accordionExample">
-                           <div class="accordion-item">
-                              <h2 class="accordion-header" id="heading1">
-                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-                                   Can I Automate Purchase requisitions into Purchase Orders?
-                                 </button>
-                              </h2>
-                              <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1" data-bs-parent="#accordionExample">
-                                 <div class="accordion-body">
-                                    <p>Yes, Requisitions can be auto-routed into RFQs and POs with approval workflows.</p>
-                                 </div>
-                              </div>
-                           </div>
+    .card-hover {
+        transition: all 0.3s ease;
+    }
 
-                           <div class="accordion-item">
-                              <h2 class="accordion-header" id="heading2">
-                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                                  Does it Support Vendor performance Tracking?
-                                 </button>
-                              </h2>
-                              <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordionExample">
-                                 <div class="accordion-body">
-                                    <p>Yes, you can evaluate suppliers on Price, Quality, and Delivery Metrics.</p>
-                                 </div>
-                              </div>
-                           </div>
+    .card-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    }
 
-                           <div class="accordion-item">
-                              <h2 class="accordion-header" id="heading3">
-                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                                  How does it handle Multi-level Approvals in procurement?
-                                 </button>
-                              </h2>
-                              <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordionExample">
-                                 <div class="accordion-body">
-                                    <p>Role-based Workflows let you define complex approval chains for purchases.</p>
-                                 </div>
-                              </div>
-                           </div>
+    .btn-primary {
+        background: #FF7A21;
+        transition: all 0.3s ease;
+    }
 
-                           <div class="accordion-item">
-                              <h2 class="accordion-header" id="heading4">
-                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
-                                   Can I Manage Blanket orders and long-term supplier contracts?
-                                 </button>
-                              </h2>
-                              <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordionExample">
-                                 <div class="accordion-body">
-                                    <p>Yes, Blanket POs and contract terms can be defined with scheduled releases.</p>
-                                 </div>
-                              </div>
-                           </div>
+    .btn-primary:hover {
+        background: #E66810;
+        transform: scale(1.02);
+    }
 
-                           <div class="accordion-item">
-                              <h2 class="accordion-header" id="heading5">
-                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
-                                  Does it link directly to Inventory and Accounts?
-                                 </button>
-                              </h2>
-                              <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#accordionExample">
-                                 <div class="accordion-body">
-                                    <p>Yes, Purchase Receipts update Stock instantly and create Accounting Entries automatically.   </p>
-                                 </div>
-                              </div>
-                           </div>
+    .btn-outline {
+        border: 2px solid #16216B;
+        color: #16216B;
+        background: #fff;
+        transition: all 0.3s ease;
+    }
+
+    .btn-outline:hover {
+        background: #16216B;
+        color: #fff;
+        transform: scale(1.02);
+    }
+
+    .icon-circle {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: #EEF4FF;
+        color: #16216B;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+    }
+
+    .feature-icon:hover {
+        background: #FF7A21;
+        color: #fff;
+    }
+
+    .accordion-item {
+        border-bottom: 1px solid #E6ECF5;
+        border-radius: 16px;
+        padding: 20px 24px;
+        background: #fff;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .accordion-item:hover {
+        background: #F9FAFB;
+    }
+
+    .accordion-item.active {
+        background: #EEF4FF;
+    }
+
+    .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .accordion-item.active .accordion-content {
+        max-height: 300px;
+    }
+
+    .accordion-icon {
+        transition: transform 0.3s ease;
+    }
+
+    .accordion-item.active .accordion-icon {
+        transform: rotate(180deg);
+    }
+
+    .screenshot-container img {
+        width: 100%;
+        border-radius: 16px;
+        object-fit: cover;
+    }
+
+    .cta-btn {
+        transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cta-btn:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 15px 30px rgba(15, 41, 66, 0.15);
+    }
+
+    .blob-bg {
+        background: linear-gradient(135deg, #FDF8F3 0%, #F2F6FF 100%);
+    }
+
+    .section-bg {
+        background: #F2F6FF;
+    }
+
+    @media (max-width: 1024px) {
+        .buying-page {
+            padding-top: 90px;
+        }
+    }
+</style>
+
+<main class="buying-page">
+    <!-- Hero Section -->
+    <section class="blob-bg pt-10 pb-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-fadeUp">
+                    <p class="text-[#FF7A21] font-semibold uppercase tracking-[0.3rem] mb-4">Buying Module</p>
+                    <h1 class="text-4xl lg:text-5xl font-bold text-[#0f2942] leading-tight mb-6">Buying</h1>
+                    <p class="text-lg text-[#6B7280] leading-relaxed mb-8">
+                        Our Buying Module is a robust solution designed to optimize your procurement process. Manage suppliers, track purchase orders, and monitor inventory levels from a single workspace. With real-time insights, automated approvals, and secure supplier communications, it ensures smarter purchasing decisions and stronger vendor relationships.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="{% url 'schedule_demo' %}" class="cta-btn btn-primary text-white px-8 py-3 rounded-xl font-semibold shadow-lg shadow-[#FF7A21]/30">Request a live demo</a>
+                        <a href="#core-modules" class="cta-btn btn-outline px-8 py-3 rounded-xl font-semibold">Explore modules</a>
+                    </div>
+                </div>
+                <div class="animate-fadeUp delay-200">
+                    <div class="relative">
+                        <div class="absolute -inset-6 bg-gradient-to-r from-[#FF7A21]/15 to-[#16216B]/20 rounded-[32px] blur-2xl"></div>
+                        <div class="relative bg-white rounded-[32px] shadow-2xl p-6">
+                            <img src="{% static 'images/buying.png' %}" alt="Buying illustration" class="w-full rounded-[24px] object-cover">
+                            <div class="grid grid-cols-2 gap-4 mt-6">
+                                <div class="bg-[#FFF4E6] rounded-2xl p-4">
+                                    <p class="text-sm text-[#6B7280]">Cycle Time</p>
+                                    <p class="text-2xl font-bold text-[#FF7A21]">30% faster</p>
+                                </div>
+                                <div class="bg-[#E8F0FF] rounded-2xl p-4">
+                                    <p class="text-sm text-[#6B7280]">Supplier Score</p>
+                                    <p class="text-2xl font-bold text-[#16216B]">4.9 / 5</p>
+                                </div>
+                            </div>
                         </div>
-                     </div>
-
-                  </div>
-               </div>
+                    </div>
+                </div>
             </div>
-         </div>
+        </div>
+    </section>
 
-         <!-- Sidebar Area -->
-          <div class="col-xl-4 col-lg-4 col-12">
-            <div class="tv-sidebar-area">
-               <div class="tv-widget widget mb-40 wow-itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-                  <ul>
-                  <li class="cat-item"><strong>Core Buying Modules</strong></li>
-
-                  <li class="cat-item">
-                     <a href="#"><i class="fas fa-box-open fa-lg text-primary me-2"></i> Material Request</a>
-                  </li>
-                  <li class="cat-item">
-                     <a href="#"><i class="fas fa-truck-loading fa-lg text-primary me-2"></i> Purchase Order</a>
-                  </li>
-                  <li class="cat-item">
-                     <a href="#"><i class="fas fa-file-invoice fa-lg text-primary me-2"></i> Purchase Invoice</a>
-                  </li>
-                  <li class="cat-item">
-                     <a href="#"><i class="fas fa-chart-bar fa-lg text-primary me-2"></i> Purchase Order Analysis</a>
-                  </li>
-                  <li class="cat-item">
-                     <a href="#"><i class="fas fa-money-check-alt fa-lg text-primary me-2"></i> Payment Entry</a>
-
-                  </li>
-                  <li class="cat-item">
-                     <a href="#"><i class="fas fa-file-lines fa-lg text-primary me-2"></i> Reports</a>
-                  </li>
-
-                  </ul>
-               </div>
+    <!-- Why Choose -->
+    <section class="py-20 bg-white" id="core-modules">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
+                <div class="animate-fadeUp">
+                    <p class="text-[#FF7A21] font-semibold uppercase tracking-[0.4rem] mb-4">Why Sky ERP</p>
+                    <h2 class="text-4xl font-bold text-[#0f2942] mb-6">Procurement teams stay in control</h2>
+                    <p class="text-lg text-[#6B7280] leading-relaxed mb-8">
+                        Automate procurement from request to reconciliation. The Buying module connects vendors, contracts, approvals, and inventory—giving your team reliable visibility and faster execution.
+                    </p>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="card-hover bg-[#F9FAFB] rounded-2xl p-5">
+                            <p class="text-sm uppercase text-[#6B7280]">Automation</p>
+                            <p class="text-2xl font-semibold text-[#0f2942]">65%</p>
+                            <p class="text-sm text-[#6B7280] mt-2">Manual tasks eliminated</p>
+                        </div>
+                        <div class="card-hover bg-[#F9FAFB] rounded-2xl p-5">
+                            <p class="text-sm uppercase text-[#6B7280]">Visibility</p>
+                            <p class="text-2xl font-semibold text-[#0f2942]">24/7</p>
+                            <p class="text-sm text-[#6B7280] mt-2">Live vendor KPIs</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-fadeUp delay-100">
+                    <h3 class="text-xl font-bold text-[#0f2942] mb-6">Core Buying Modules</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3">
+                            <div class="icon-circle feature-icon"><i class="fas fa-box-open"></i></div>
+                            <a href="#material-request" class="text-base font-medium text-[#2563EB] hover:text-[#FF7A21] transition">Material Request</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="icon-circle feature-icon"><i class="fas fa-truck-loading"></i></div>
+                            <a href="#purchase-order" class="text-base font-medium text-[#2563EB] hover:text-[#FF7A21] transition">Purchase Order</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="icon-circle feature-icon"><i class="fas fa-file-invoice"></i></div>
+                            <a href="#purchase-invoice" class="text-base font-medium text-[#2563EB] hover:text-[#FF7A21] transition">Purchase Invoice</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="icon-circle feature-icon"><i class="fas fa-chart-bar"></i></div>
+                            <a href="#purchase-analysis" class="text-base font-medium text-[#2563EB] hover:text-[#FF7A21] transition">Purchase Order Analysis</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="icon-circle feature-icon"><i class="fas fa-money-check-alt"></i></div>
+                            <a href="#payment-entry" class="text-base font-medium text-[#2563EB] hover:text-[#FF7A21] transition">Payment Entry</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="icon-circle feature-icon"><i class="fas fa-file-lines"></i></div>
+                            <a href="#reports" class="text-base font-medium text-[#2563EB] hover:text-[#FF7A21] transition">Reports</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-         </div>
+        </div>
+    </section>
 
-      </div>
-   </div>
-</div>
+    <!-- Process Flow -->
+    <section class="py-20 bg-[#F2F6FF]">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="card-hover bg-white rounded-2xl shadow-lg p-8 screenshot-container">
+                <img src="{% static 'images/material-request-flowchart.png' %}" alt="Buying process flow">
+            </div>
+        </div>
+    </section>
+
+    <!-- Material Request -->
+    <section id="material-request" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-8">
+                <h2 class="text-3xl font-semibold text-[#0f2942] mb-4">Material Request</h2>
+                <p class="text-base text-[#6B7280] leading-relaxed">
+                    Create and track internal requests, capture approvals, and auto-route qualified requisitions into purchase workflows.
+                </p>
+            </div>
+            <div class="screenshot-container card-hover bg-white p-6 shadow-md">
+                <img src="{% static 'images/material-request.png' %}" alt="Material request screenshot">
+            </div>
+        </div>
+    </section>
+
+    <!-- Purchase Order -->
+    <section id="purchase-order" class="py-20 bg-[#F2F6FF]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="screenshot-container card-hover bg-white p-6 shadow-md">
+                    <img src="{% static 'images/purchaseorder.png' %}" alt="Purchase order screenshot">
+                </div>
+                <div>
+                    <h2 class="text-3xl font-semibold text-[#0f2942] mb-4">Purchase Order</h2>
+                    <p class="text-base text-[#6B7280] leading-relaxed">
+                        Generate formal orders with supplier terms, delivery windows, and budget checks. Automate approvals and ensure policy compliance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Purchase Invoice -->
+    <section id="purchase-invoice" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-semibold text-[#0f2942] mb-4">Purchase Invoice</h2>
+                    <p class="text-base text-[#6B7280] leading-relaxed">
+                        Capture invoices with line-level validations, apply taxes automatically, and sync payable entries to finance.
+                    </p>
+                </div>
+                <div class="screenshot-container card-hover bg-white p-6 shadow-md">
+                    <img src="{% static 'images/purchase-invoice.png' %}" alt="Purchase invoice screenshot">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Purchase Order Analysis -->
+    <section id="purchase-analysis" class="py-20 bg-[#F2F6FF]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-8">
+                <h2 class="text-3xl font-semibold text-[#0f2942] mb-4">Purchase Order Analysis</h2>
+                <p class="text-base text-[#6B7280] leading-relaxed">
+                    Monitor spend by vendor, item, and region. Detect variances, analyze delivery metrics, and fuel negotiations with real-time insights.
+                </p>
+            </div>
+            <div class="screenshot-container card-hover bg-white p-6 shadow-md">
+                <img src="{% static 'images/po_analysis.png' %}" alt="Purchase order analysis screenshot">
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Entry -->
+    <section id="payment-entry" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="screenshot-container card-hover bg-white p-6 shadow-md">
+                    <img src="{% static 'images/payment-entry-from-invoice (1).gif' %}" alt="Payment entry screenshot">
+                </div>
+                <div>
+                    <h2 class="text-3xl font-semibold text-[#0f2942] mb-4">Payment Entry</h2>
+                    <p class="text-base text-[#6B7280] leading-relaxed">
+                        Record supplier payments, clear advances, and auto-reconcile with bank feeds to close the loop faster.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reports -->
+    <section id="reports" class="py-20 bg-[#F2F6FF]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-8">
+                <h2 class="text-3xl font-semibold text-[#0f2942] mb-4">Reports</h2>
+                <p class="text-base text-[#6B7280] leading-relaxed">
+                    Generate detailed reports on procurement, inventory, vendor scorecards, and compliance—all export-ready.
+                </p>
+            </div>
+            <div class="screenshot-container card-hover bg-white p-6 shadow-md">
+                <img src="{% static 'images/sales-analytics-data-window.gif' %}" alt="Reports dashboard">
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-4xl font-semibold text-[#0f2942] mb-12 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-4" id="buyingFaq">
+                <div class="accordion-item">
+                    <div class="flex items-center justify-between gap-4">
+                        <h3 class="text-lg font-semibold text-[#0f2942]">Can I automate requisitions into purchase orders?</h3>
+                        <svg class="accordion-icon w-5 h-5 text-[#6B7280]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </div>
+                    <div class="accordion-content mt-3 text-[#6B7280] text-sm leading-relaxed">
+                        Yes, approved material requests flow directly into RFQs and purchase orders with configurable approval workflows.
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="flex items-center justify-between gap-4">
+                        <h3 class="text-lg font-semibold text-[#0f2942]">Does it support vendor performance tracking?</h3>
+                        <svg class="accordion-icon w-5 h-5 text-[#6B7280]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </div>
+                    <div class="accordion-content mt-3 text-[#6B7280] text-sm leading-relaxed">
+                        Absolutely. Track delivery lead times, quality scores, pricing accuracy, and contract compliance per supplier.
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="flex items-center justify-between gap-4">
+                        <h3 class="text-lg font-semibold text-[#0f2942]">How are multi-level approvals handled?</h3>
+                        <svg class="accordion-icon w-5 h-5 text-[#6B7280]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </div>
+                    <div class="accordion-content mt-3 text-[#6B7280] text-sm leading-relaxed">
+                        Use role-based workflows with thresholds by department, value, or project to model complex approval chains.
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="flex items-center justify-between gap-4">
+                        <h3 class="text-lg font-semibold text-[#0f2942]">Can I manage blanket orders and contracts?</h3>
+                        <svg class="accordion-icon w-5 h-5 text-[#6B7280]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </div>
+                    <div class="accordion-content mt-3 text-[#6B7280] text-sm leading-relaxed">
+                        Yes, create blanket purchase orders with release schedules, track contract ceilings, and link milestones.
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="flex items-center justify-between gap-4">
+                        <h3 class="text-lg font-semibold text-[#0f2942]">Does it connect to inventory and accounting?</h3>
+                        <svg class="accordion-icon w-5 h-5 text-[#6B7280]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </div>
+                    <div class="accordion-content mt-3 text-[#6B7280] text-sm leading-relaxed">
+                        Real-time integrations update stock levels, generate landed cost entries, and sync payable ledgers instantly.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Strip -->
+    <section class="py-16 text-white" style="background: linear-gradient(135deg, #FF7A21 0%, #E66810 100%);">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+                <div>
+                    <p class="uppercase tracking-[0.35rem] text-white/70 font-semibold mb-3">Get started</p>
+                    <h3 class="text-3xl lg:text-4xl font-bold mb-3">Let's get ready for an empowering future with Sky ERP!</h3>
+                    <p class="text-lg text-white/90">Transform your procurement process today.</p>
+                </div>
+                <div class="flex flex-wrap gap-4">
+                    <a href="{% url 'schedule_demo' %}" class="cta-btn bg-white text-[#FF7A21] px-8 py-3 rounded-xl font-semibold hover:bg-[#16216B] hover:text-white">
+                        Request a demo
+                    </a>
+                    <a href="https://demo.itfarmer.in/#login" target="_blank" class="cta-btn border-2 border-white text-white px-8 py-3 rounded-xl font-semibold hover:bg-white hover:text-[#0f2942]">
+                        7 Day free trial
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script>
+    document.querySelectorAll('#buyingFaq .accordion-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('#buyingFaq .accordion-item').forEach(other => other.classList.remove('active'));
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+</script>
 
 {% include 'footer.html' %}
+

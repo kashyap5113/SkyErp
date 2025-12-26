@@ -1,124 +1,607 @@
 {% load static %}
-<!-- Footer Area -->  
-    <footer class="footer_area">   
-      <div class="container"> 
-     <div class="footer_inner row">   
-       <div class="col-lg-4 col-sm-6 footer_logo wow fadeIn"> 
-         <a class="logo" href="index">
-           <img src="{% static 'images/erpnextlogo.png' %}" alt="Logo" style="height: 90px; width: auto"/>
-         </a>
-         <address>
-           <b>603, ZION Z1, Nr. Regenta Hotel, <br>Ramdas Road, SindhuBhavan Road,<br>Bodakdev, Ahmedabad, Gujarat - 380059<br></b><br>
-         <div class="footer_inline_contact">
-           <p>
-             <b><i class="fas fa-phone"></i> <strong>&nbsp;Sales :</strong> (+91) 97144 90600 &nbsp;&nbsp;<br></b>
-             <b><i class="fas fa-headset"></i> <strong>&nbsp;Support :</strong> (+91) 97145 90600 &nbsp;&nbsp;<br></b>
-             <b><i class="fas fa-envelope"></i> <strong>&nbsp;Email :</strong> hello@nivasync.in &nbsp;&nbsp;<br></b>
-             <b><i class="fas fa-globe"></i> <strong>&nbsp;Website :</strong> www.nivasync.in<br></b>
-           </p>
-         </div>
-         </address> 
-          <ul class="footer_social">
-           <li><a href="https://www.facebook.com/Skydotinfotech"><i class="fab fa-facebook-f icon"></i></a></li>
-           <li><a href="https://www.linkedin.com/company/nivasync-infotech-pvt-ltd"><i class="fab fa-linkedin-in icon"></i></a></li>
-           <li><a href="https://www.instagram.com/skydot_infotech/"><i class="fab fa-instagram icon"></i></a></li>
-           <li><a href="https://www.google.com/maps/place/SKYDOT+INFOTECH/@23.045616,72.5054684,17z/data=!3m1!4b1!4m6!3m5!1s0x395e9bf61517e975:0x7371fdb1d958b49!8m2!3d23.0456111!4d72.5080433!16s%2Fg%2F11xkphhf4v?authuser=0&entry=tts&g_ep=EgoyMDI1MDkxNS4wIPu8ASoASAFQAw%3D%3D&skid=6cca66f3-e188-4863-818d-4089e2e7693b"><i class="fab fa-google-plus-g icon"></i></a></li>
-         </ul>
-         <div class="app_btn">
-           <a href="#"><img src="{% static 'images/app-btn.png' %}" alt=""></a>
-           <a href="#"><img src="{% static 'images/app-btn-2.png' %}" alt=""></a>
-         </div> 
-       </div>
-       <div class="footer_widget col-lg-3 col-sm-6 wow fadeIn" data-wow-delay="0.2s">
-         <h4>Quick links</h4>
-         <ul class="footer_nav"> 
-           <li><a href="#">Sky ERP</a></li>   
-           <li><a href="{% url 'product' %}">Product</a></li>
-           <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
-           <li><a href="{% url 'about' %}">About us</a></li>
-           <li><a href="{% url 'contact' %}">Contact Us</a></li>
-         </ul>
-       </div>  
-       <div class="footer_widget col-lg-3 col-sm-6 wow fadeIn" data-wow-delay="0.6s">
-         <h4>Product</h4>
-         <ul class="footer_nav">      
-           <li><a href="{% url 'account' %}">Accounting</a></li>     
-           <li><a href="{% url 'selling' %}">Selling</a></li>     
-           <li><a href="{% url 'buying' %}">Buying</a></li>     
-           <li><a href="{% url 'hrms' %}">HRMS</a></li>     
-           <li><a href="{% url 'crm' %}">Real Estate CRM</a></li>  
-           <li><a href="{% url 'stock' %}">Stock Inventory</a></li>
-           <li><a href="{% url 'projects' %}">Projects</a></li>
-           <li><a href="{% url 'asset_management' %}">Assest Management</a></li>
-           <li><a href="{% url 'manufacturing' %}">Manufacturing</a></li>
-           <li><a href="{% url 'dashboard' %}">Customised Dashboard</a></li>
-           <li><a href="{% url 'reports' %}">Reports</a></li>
-           <li><a href="{% url 'support' %}">Support</a></li>
-         </ul>
-       </div>
-       <div class="footer_widget col-lg-2 fw_2 col-sm-6 wow fadeIn" data-wow-delay="0.9s">
-         <h4>Industries</h4> 
-         <ul class="footer_nav">   
-          <li><a href="#">Manufacturing</a></li>  
-          <li><a href="#">Healthcare</a></li>  
-          <li><a href="#">Retail</a></li>  
-          <li><a href="#">Education</a></li>            
-          <li><a href="#">Construction</a></li>
-          <li><a href="#">Finance & Banking</a></li>         
-      
-          <li><a href="#">Protective Gear Manufacturer</a></li> 
-         </ul>
-       </div>
-     </div>  
-     <div class="copy_right">
-       <div class="row"> 
-         <div class="col-md-6  wow slideInRight">
-           <ul class="c_nav"> 
-             <li><a href="#">Privacy Policy</a></li>
-             <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Terms of Services</a></li>
-           </ul>
-         </div>   
-         <div class="col-md-6 order-md-first  wow slideInLeft">
-           <p>© Copyright © 2025 NivaSync Infotech Pvt. Ltd. - All Rights Reserved.</p>
-         </div> 
-       </div>
-     </div> 
-      </div> 
-   </footer>
-   <!-- End Footer Area --> 
 
-   <!-- Scroll Top Button -->
-   <button class="scroll-top">
-     <i class="fas fa-angle-up"></i>
-   </button>
+<!-- Footer Section -->
+<footer class="main-footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <!-- Company Info Column -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-about">
+                        <a href="{% url 'index' %}" class="footer-logo">
+                            <img src="{% static 'images/erpnextlogo.png' %}" alt="Sky ERP Logo" />
+                        </a>
+                        <p class="footer-tagline">Let's get ready for an Empowering future with Sky ERP!</p>
+                        <div class="company-info">
+                            <h5>NivaSync Infotech Pvt. Ltd.</h5>
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>603, ZION Z1, Nr. Regenta Hotel, Ramdas Road, SindhuBhavan Road, Bodakdev, Ahmedabad, Gujarat - 380059</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-phone"></i>
+                                <span><strong>Sales:</strong> (+91) 97144 90600</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-headset"></i>
+                                <span><strong>Support:</strong> (+91) 97145 90600</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-envelope"></i>
+                                <span><strong>Email:</strong> hello@nivasync.in</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-globe"></i>
+                                <span><strong>Website:</strong> www.nivasync.in</span>
+                            </div>
+                        </div>
 
-   <!-- Preloader -->
- <div class="preloader">
- <img src="{% static 'images/preloader.png' %}" alt="Loading..." style="height:100px; width:auto;" />
-   </div> 
+                        <!-- App Download Buttons -->
+                        <div class="app-download-section">
+                            <h6>Available On</h6>
+                            <div class="app-buttons">
+                                <a href="#" class="app-btn">
+                                    <i class="fab fa-google-play"></i>
+                                    <div>
+                                        <small>GET IT ON</small>
+                                        <strong>Google Play</strong>
+                                    </div>
+                                </a>
+                                <a href="#" class="app-btn">
+                                    <i class="fab fa-apple"></i>
+                                    <div>
+                                        <small>Download on the</small>
+                                        <strong>App Store</strong>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-   <!-- JS -->
-   <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-   <script src="{% static 'js/popper.min.js' %}"></script>
-   <script src="{% static 'js/bootstrap.min.js' %}"></script>
-   <script src="{% static 'vendors/animate-css/wow.min.js' %}"></script>
-   <script src="{% static 'js/theme.js' %}"></script>
-   <script src="{% static 'vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+                <!-- Products Column -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h4 class="footer-heading">
+                            <i class="fas fa-chevron-right"></i> Products
+                        </h4>
+                        <ul>
+                            <li><a href="{% url 'account' %}">Accounting</a></li>
+                            <li><a href="{% url 'selling' %}">Selling</a></li>
+                            <li><a href="{% url 'buying' %}">Buying</a></li>
+                            <li><a href="{% url 'hrms' %}">HRMS</a></li>
+                            <li><a href="{% url 'crm' %}">Real Estate CRM</a></li>
+                            <li><a href="{% url 'stock' %}">Stock Inventory</a></li>
+                            <li><a href="{% url 'projects' %}">Projects</a></li>
+                            <li><a href="{% url 'asset_management' %}">Asset Management</a></li>
+                            <li><a href="{% url 'manufacturing' %}">Manufacturing</a></li>
+                            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                            <li><a href="{% url 'reports' %}">Reports</a></li>
+                            <li><a href="{% url 'support' %}">Support</a></li>
+                        </ul>
+                    </div>
+                </div>
 
-  
+                <!-- Quick Links Column -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h4 class="footer-heading">Quick Links</h4>
+                        <ul>
+                            <li><a href="{% url 'index' %}">Home</a></li>
+                            <li><a href="{% url 'product' %}">Product</a></li>
+                            <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+                            <li><a href="{% url 'about' %}">About Us</a></li>
+                            <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
 
-   <script src="{% static 'js/jquery.js' %}"></script>
-   <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-   <script src="{% static 'js/slick.min.js' %}"></script>
-   <script src="{% static 'js/magnific-popup.js' %}"></script>
-   <script src="{% static 'js/purecounter.js' %}"></script>
-   <script src="{% static 'js/wow.js' %}"></script>
-   <script src="{% static 'js/nice-select.js' %}"></script>
-   <script src="{% static 'js/range-slider.js' %}"></script>
-   <script src="{% static 'js/swiper-bundle.js' %}"></script>
-   <script src="{% static 'js/isotope-pkgd.js' %}"></script>
-   <script src="{% static 'js/imagesloaded-pkgd.js' %}"></script>
-   <script src="{% static 'js/main-tv.js' %}"></script>
-   <script src="{% static 'js/custom-gsap.js' %}"></script>
-   <script src="{% static 'js/slider.js' %}"></script>
-   <script src="{% static 'js/main.js' %}"></script>
+                <!-- Industries Column -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h4 class="footer-heading">Industries</h4>
+                        <ul>
+                            <li><a href="#">Manufacturing</a></li>
+                            <li><a href="#">Healthcare</a></li>
+                            <li><a href="#">Retail</a></li>
+                            <li><a href="#">Education</a></li>
+                            <li><a href="#">Construction</a></li>
+                            <li><a href="#">Finance & Banking</a></li>
+                            <li><a href="#">IT Services</a></li>
+                            <li><a href="#">FMCG</a></li>
+                            <li><a href="#">Agriculture</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Connect Column -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h4 class="footer-heading">Connect With Us</h4>
+                        <div class="footer-cta-buttons">
+                            <a href="{% url 'schedule_demo' %}" class="footer-btn-primary">Request A Demo</a>
+                            <a href="https://demo.itfarmer.in/#login" class="footer-btn-secondary" target="_blank">7 Days Free Trial</a>
+                        </div>
+
+                        <!-- Social Media -->
+                        <div class="social-media">
+                            <h6>Follow Us</h6>
+                            <div class="social-icons">
+                                <a href="https://www.facebook.com/Skydotinfotech" target="_blank" class="social-icon">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/company/nivasync-infotech-pvt-ltd" target="_blank" class="social-icon">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://www.instagram.com/skydot_infotech/" target="_blank" class="social-icon">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://twitter.com" target="_blank" class="social-icon">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://www.youtube.com" target="_blank" class="social-icon">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Certifications -->
+                        <div class="certifications">
+                            <div class="cert-badge">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>ISO Certified</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p class="copyright-text">© Copyright 2025 NivaSync Infotech Pvt. Ltd. - All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <ul class="footer-legal-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Services</a></li>
+                        <li><a href="#">Security Policy</a></li>
+                        <li><a href="#">Cancellation Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Scroll to Top Button -->
+<button class="scroll-to-top" id="scrollToTop">
+    <i class="fas fa-angle-up"></i>
+</button>
+
+<!-- Custom Footer Styles -->
+<style>
+/* =================== FOOTER STYLES =================== */
+.main-footer {
+    background: var(--primary-navy);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-top {
+    padding: 80px 0 40px;
+}
+
+.footer-about {
+    padding-right: 2rem;
+}
+
+.footer-logo img {
+    height: 60px;
+    width: auto;
+    margin-bottom: 1.5rem;
+    filter: brightness(0) invert(1);
+}
+
+.footer-tagline {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.company-info h5 {
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 0.75rem;
+    font-size: 0.9375rem;
+}
+
+.info-item i {
+    color: var(--primary-orange);
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.info-item strong {
+    color: var(--white);
+}
+
+.app-download-section {
+    margin-top: 2rem;
+}
+
+.app-download-section h6 {
+    color: var(--white);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.app-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.app-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--white);
+    text-decoration: none;
+    transition: var(--transition);
+    flex: 1;
+    min-width: 150px;
+}
+
+.app-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--primary-orange);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.app-btn i {
+    font-size: 2rem;
+}
+
+.app-btn small {
+    display: block;
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.app-btn strong {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 600;
+}
+
+.footer-heading {
+    color: var(--white);
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-heading i {
+    color: var(--primary-orange);
+    font-size: 0.875rem;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links ul li a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.footer-links ul li a:hover {
+    color: var(--primary-orange);
+    padding-left: 8px;
+}
+
+.footer-cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.footer-btn-primary,
+.footer-btn-secondary {
+    padding: 0.875rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-align: center;
+    text-decoration: none;
+    transition: var(--transition);
+    display: block;
+}
+
+.footer-btn-primary {
+    background: var(--primary-orange);
+    color: var(--white);
+}
+
+.footer-btn-primary:hover {
+    background: #e55a28;
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+}
+
+.footer-btn-secondary {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: var(--white);
+}
+
+.footer-btn-secondary:hover {
+    border-color: var(--white);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+}
+
+.social-media {
+    margin-top: 2rem;
+}
+
+.social-media h6 {
+    color: var(--white);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.social-icon:hover {
+    background: var(--primary-orange);
+    border-color: var(--primary-orange);
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+.certifications {
+    margin-top: 2rem;
+}
+
+.cert-badge {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 200px;
+}
+
+.cert-badge i {
+    font-size: 1.5rem;
+    color: var(--primary-orange);
+}
+
+.cert-badge span {
+    font-weight: 600;
+    color: var(--white);
+    font-size: 0.9375rem;
+}
+
+.footer-bottom {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.copyright-text {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-legal-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.footer-legal-links li a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    transition: var(--transition);
+}
+
+.footer-legal-links li a:hover {
+    color: var(--primary-orange);
+}
+
+/* =================== SCROLL TO TOP =================== */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--primary-orange);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    z-index: 999;
+    box-shadow: var(--shadow-lg);
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-to-top:hover {
+    background: var(--primary-navy);
+    transform: translateY(-5px);
+}
+
+.scroll-to-top i {
+    font-size: 1.25rem;
+}
+
+/* =================== RESPONSIVE =================== */
+@media (max-width: 991px) {
+    .footer-top {
+        padding: 60px 0 30px;
+    }
+
+    .footer-about {
+        padding-right: 0;
+    }
+
+    .app-btn {
+        min-width: 140px;
+    }
+
+    .footer-legal-links {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .footer-logo img {
+        height: 50px;
+    }
+
+    .footer-tagline {
+        font-size: 1rem;
+    }
+
+    .app-buttons {
+        flex-direction: column;
+    }
+
+    .app-btn {
+        min-width: 100%;
+    }
+
+    .social-icons {
+        justify-content: flex-start;
+    }
+
+    .cert-badge {
+        max-width: 100%;
+    }
+
+    .footer-legal-links {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+    }
+
+    .scroll-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+</style>
+
+<!-- Footer Scripts -->
+<script>
+    // Scroll to Top Button
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollToTopBtn.classList.add('show');
+        } else {
+            scrollToTopBtn.classList.remove('show');
+        }
+    });
+
+    scrollToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Smooth scroll for all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

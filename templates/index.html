@@ -1,361 +1,1459 @@
-{% include 'header.html' %}
+{% include 'header.html' with active_page='modules' %}
 {% load static %}
-<!-- Banner Area -->    
-<section class="banner_area">
-    <div class="container bdr">
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/preloader.png' %}">
+    <title>Sky ERP - Enterprise Resource Planning Software</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =================== CSS VARIABLES (TRACKOLAP INSPIRED) =================== */
+        :root {
+            --primary-navy: #0a2540;
+            --primary-blue: #1e3a5f;
+            --accent-orange: #ff6b35;
+            --accent-orange-hover: #e55a28;
+            --light-bg: #f8f9fb;
+            --light-gray: #f0f2f5;
+            --white: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-gray: #5f6c7b;
+            --text-light: #8792a2;
+            --border-light: #e4e7eb;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+            --border-radius: 14px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--white);
+        }
+
+        /* =================== HEADER / NAVIGATION =================== */
+        .main-header {
+            background: var(--white);
+            box-shadow: 0 1px 0 var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .main-header.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+
+        .navbar {
+            padding: 0.875rem 0;
+        }
+
+        .navbar-brand img {
+            height: 42px;
+            width: auto;
+        }
+
+        .navbar-nav {
+            gap: 0.25rem;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 14px;
+            padding: 0.625rem 1rem;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--accent-orange);
+            background: var(--light-gray);
+        }
+
+        .dropdown-menu {
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-lg);
+            border-radius: 12px;
+            padding: 0.75rem;
+            margin-top: 0.5rem;
+            min-width: 260px;
+        }
+
+        .dropdown-item {
+            padding: 0.625rem 0.875rem;
+            border-radius: 8px;
+            font-size: 14px;
+            color: var(--text-dark);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dropdown-item:hover {
+            background: var(--light-bg);
+            color: var(--accent-orange);
+            transform: translateX(3px);
+        }
+
+        .dropdown-item i {
+            font-size: 16px;
+            color: var(--primary-blue);
+            width: 20px;
+        }
+
+        .dropdown-header {
+            font-weight: 600;
+            color: var(--text-gray);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 0.5rem 0.875rem 0.25rem;
+        }
+
+        .dropdown-divider {
+            margin: 0.5rem 0;
+            border-color: var(--border-light);
+        }
+
+        .header-btn {
+            padding: 0.625rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .btn-demo {
+            background: transparent;
+            color: var(--primary-navy);
+            border: 2px solid var(--primary-navy);
+        }
+
+        .btn-demo:hover {
+            background: var(--primary-navy);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .btn-login {
+            background: var(--accent-orange);
+            color: var(--white);
+            border: 2px solid var(--accent-orange);
+            margin-left: 0.625rem;
+        }
+
+        .btn-login:hover {
+            background: var(--accent-orange-hover);
+            border-color: var(--accent-orange-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+        }
+
+        /* =================== HERO SECTION =================== */
+        .hero-banner-section {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-blue) 100%);
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-banner-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,107,53,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-title .highlight-text {
+            color: var(--accent-orange);
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            max-width: 560px;
+        }
+
+        .btn-primary-orange {
+            background: var(--accent-orange);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: var(--transition);
+            border: none;
+            box-shadow: 0 4px 16px rgba(255,107,53,0.3);
+        }
+
+        .btn-primary-orange:hover {
+            background: var(--accent-orange-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(255,107,53,0.4);
+            color: var(--white);
+        }
+
+        .hero-illustration {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* =================== SECTION COMMON STYLES =================== */
+        section {
+            position: relative;
+        }
+
+        .section-header {
+            margin-bottom: 3.5rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-navy);
+            margin-bottom: 0.875rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+            font-weight: 400;
+        }
+
+        .section-subtitle-alt {
+            font-size: 1.375rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* =================== FEATURES SECTION =================== */
+        .features-section {
+            padding: 90px 0;
+            background: var(--white);
+        }
+
+        .feature-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2.25rem;
+            height: 100%;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
+            border-color: transparent;
+        }
+
+        .icon-circle {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .icon-circle.icon-blue {
+            background: rgba(30, 58, 95, 0.08);
+            color: var(--primary-blue);
+        }
+
+        .icon-circle.icon-green {
+            background: rgba(34, 197, 94, 0.08);
+            color: #16a34a;
+        }
+
+        .icon-circle.icon-purple {
+            background: rgba(147, 51, 234, 0.08);
+            color: #9333ea;
+        }
+
+        .icon-circle.icon-orange {
+            background: rgba(255, 107, 53, 0.08);
+            color: var(--accent-orange);
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-description {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+
+        .feature-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tool-badge {
+            background: var(--light-bg);
+            padding: 0.5rem 0.875rem;
+            border-radius: 20px;
+            font-size: 0.8125rem;
+            color: var(--text-dark);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+        }
+
+        .tool-badge i {
+            font-size: 13px;
+            color: var(--primary-blue);
+        }
+
+        .feature-link {
+            color: var(--accent-orange);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9375rem;
+            transition: var(--transition);
+        }
+
+        .feature-link:hover {
+            gap: 12px;
+            color: var(--accent-orange-hover);
+        }
+
+        /* =================== SECONDARY PRODUCTS =================== */
+        .secondary-products-section {
+            padding: 70px 0;
+            background: var(--light-bg);
+        }
+
+        .secondary-product-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 1.75rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+
+        .secondary-product-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+            border-color: transparent;
+        }
+
+        .secondary-icon {
+            width: 72px;
+            height: 72px;
+            background: rgba(30, 58, 95, 0.08);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            flex-shrink: 0;
+        }
+
+        .secondary-content h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .secondary-link {
+            color: var(--accent-orange);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9375rem;
+            transition: var(--transition);
+        }
+
+        .secondary-link:hover {
+            gap: 10px;
+        }
+
+        /* =================== BRAND TRUST =================== */
+        .brand-trust-section {
+            padding: 90px 0;
+            background: var(--white);
+        }
+
+        .trust-description {
+            max-width: 800px;
+            margin: 0 auto 3.5rem;
+            color: var(--text-gray);
+            font-size: 1.0625rem;
+        }
+
+        .brand-placeholder {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: var(--transition);
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-light);
+        }
+
+        .brand-placeholder:hover {
+            background: var(--white);
+            border-color: var(--primary-blue);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* =================== INDUSTRIES TAB SECTION =================== */
+        .industries-tab-section {
+            padding: 90px 0;
+            background: var(--light-bg);
+        }
+
+        .custom-tabs {
+            border-bottom: none;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .custom-tabs .nav-link {
+            background: var(--white);
+            border: 2px solid var(--border-light);
+            color: var(--text-dark);
+            padding: 0.875rem 2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            transition: var(--transition);
+        }
+
+        .custom-tabs .nav-link:hover {
+            background: var(--light-gray);
+            border-color: var(--primary-blue);
+        }
+
+        .custom-tabs .nav-link.active {
+            background: var(--primary-navy);
+            color: var(--white);
+            border-color: var(--primary-navy);
+        }
+
+        .tab-content-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .tab-content-description {
+            font-size: 1.0625rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        .industry-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            padding: 1.125rem;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+
+        .industry-item:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateX(8px);
+            border-color: transparent;
+        }
+
+        .industry-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(30, 58, 95, 0.08);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            flex-shrink: 0;
+        }
+
+        .industry-text {
+            flex: 1;
+            color: var(--text-gray);
+            font-size: 0.9375rem;
+        }
+
+        .industry-text strong {
+            color: var(--primary-navy);
+            display: block;
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+
+        .size-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+
+        .size-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+            border-color: transparent;
+        }
+
+        .size-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 107, 53, 0.08);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-orange);
+            margin-bottom: 1rem;
+        }
+
+        .size-card h4 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .size-card p {
+            color: var(--text-gray);
+            margin: 0;
+            font-size: 0.9375rem;
+        }
+
+        .tab-illustration {
+            width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* =================== SUPPORT BANNER =================== */
+        .support-highlights-banner {
+            background: var(--accent-orange);
+            padding: 70px 0;
+        }
+
+        .support-item {
+            text-align: center;
+            color: var(--white);
+        }
+
+        .support-icon i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+        }
+
+        .support-item h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .support-item p {
+            font-size: 0.9375rem;
+            opacity: 0.9;
+        }
+
+        /* =================== TESTIMONIALS =================== */
+        .testimonials-section {
+            padding: 90px 0;
+            background: var(--white);
+        }
+
+        .testimonial-card {
+            background: var(--light-bg);
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid var(--border-light);
+        }
+
+        .company-logo-placeholder {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            color: var(--text-gray);
+            border: 1px solid var(--border-light);
+        }
+
+        .quote-icon {
+            color: var(--accent-orange);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .testimonial-author h5 {
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-author p {
+            color: var(--text-gray);
+            margin: 0;
+        }
+
+        /* =================== CTA BANNER =================== */
+        .cta-banner-section {
+            background: var(--primary-navy);
+            padding: 70px 0;
+        }
+
+        .cta-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.125rem;
+            color: rgba(255,255,255,0.9);
+            margin: 0;
+        }
+
+        .btn-large {
+            padding: 1.125rem 3rem;
+            font-size: 1.0625rem;
+        }
+
+        /* =================== BLOG & MEDIA =================== */
+        .blog-media-section {
+            padding: 90px 0;
+            background: var(--light-bg);
+        }
+
+        .blog-media-tabs .nav-pills .nav-link {
+            background: var(--white);
+            color: var(--text-dark);
+            padding: 0.875rem 2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .blog-media-tabs .nav-pills .nav-link:hover {
+            border-color: var(--primary-blue);
+        }
+
+        .blog-media-tabs .nav-pills .nav-link.active {
+            background: var(--primary-navy);
+            color: var(--white);
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .blog-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
+            border-color: transparent;
+        }
+
+        .blog-image-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-navy));
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-content h4 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-content p {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+            font-size: 0.9375rem;
+        }
+
+        .blog-read-more {
+            color: var(--accent-orange);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9375rem;
+            transition: var(--transition);
+        }
+
+        .blog-read-more:hover {
+            gap: 10px;
+        }
+
+        .media-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .media-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+            border-color: transparent;
+        }
+
+        .media-logo-placeholder {
+            width: 100%;
+            height: 80px;
+            background: var(--light-bg);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--text-gray);
+            font-weight: 600;
+            border: 1px solid var(--border-light);
+        }
+
+        .media-content h5 {
+            font-size: 0.8125rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .media-content h4 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+        }
+
+        .btn-outline-primary {
+            background: transparent;
+            border: 2px solid var(--primary-navy);
+            color: var(--primary-navy);
+            padding: 0.875rem 2.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: var(--transition);
+            font-size: 0.9375rem;
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--primary-navy);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* =================== CONTACT CTA =================== */
+        .contact-cta-section {
+            padding: 90px 0;
+            background: var(--white);
+        }
+
+        .contact-illustration {
+            width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .contact-content p {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        /* =================== RESPONSIVE =================== */
+        @media (max-width: 991px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .navbar-nav {
+                margin-top: 1rem;
+            }
+
+            .header-btn {
+                display: block;
+                width: 100%;
+                text-align: center;
+                margin: 0.5rem 0;
+            }
+
+            .btn-login {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .feature-title {
+                font-size: 1.25rem;
+            }
+
+            .cta-title {
+                font-size: 1.5rem;
+            }
+
+            .contact-content h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* =================== NAVBAR TOGGLE =================== */
+        .navbar-toggler {
+            border: none;
+            padding: 0.5rem;
+            background: var(--light-bg);
+            border-radius: 8px;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- =================== HERO SECTION =================== -->
+<section class="hero-banner-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        All In One Platform<br>
+                        <span class="highlight-text">to run your business</span>
+                    </h1>
+                    <p class="hero-description">
+                        Sky ERP unifies your Core Business Processes — Accounting, Procurement, Inventory, Supply-Chain, HRMS, CRM, and more into a Single Intelligent Platform.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="{% url 'schedule_demo' %}" class="btn-primary-orange">Request a Demo</a>
+                    </div>
+                </div>
+            </div>
+           <div class="col-lg-6">
+                    <div style=" border-radius: 12px; padding: 1.5rem; display: inline-block; box-shadow: 0 0 0 rgba(15,23,42,0.12);">
+                    <img src="{% static 'images/erp.jpg' %}" alt="ERP Platform" class="hero-illustration">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =================== FEATURES SECTION =================== -->
+<section class="features-section">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2 class="section-title">What Sky ERP Offers?</h2>
+            <p class="section-subtitle">A Toolkit to Enhance Your Business Efficiency & Competitive Edge</p>
+        </div>
+
         <div class="row">
+            <div class="col-lg-6 col-md-12 mb-4">
+                <div class="feature-card">
+                    <div class="icon-circle icon-blue">
+                        <i class="fas fa-calculator fa-2x"></i>
+                    </div>
+                    <h3 class="feature-title">Accounting</h3>
+                    <p class="feature-description">Manage financial transactions, reports, and accounts seamlessly</p>
+                    <div class="feature-tools">
+                        <span class="tool-badge"><i class="fas fa-chart-line"></i> Financial Reports</span>
+                        <span class="tool-badge"><i class="fas fa-receipt"></i> Invoices</span>
+                        <span class="tool-badge"><i class="fas fa-file-invoice-dollar"></i> Tax Management</span>
+                        <span class="tool-badge"><i class="fas fa-wallet"></i> Expense Tracking</span>
+                    </div>
+                    <a href="{% url 'account' %}" class="feature-link">
+                        Explore Accounting Tools <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 mb-4">
+                <div class="feature-card">
+                    <div class="icon-circle icon-green">
+                        <i class="fas fa-shopping-cart fa-2x"></i>
+                    </div>
+                    <h3 class="feature-title">Selling</h3>
+                    <p class="feature-description">Track sales, generate invoices, and manage customers efficiently</p>
+                    <div class="feature-tools">
+                        <span class="tool-badge"><i class="fas fa-users"></i> Lead Management</span>
+                        <span class="tool-badge"><i class="fas fa-chart-bar"></i> Sales Analytics</span>
+                        <span class="tool-badge"><i class="fas fa-file-invoice"></i> Quotations</span>
+                        <span class="tool-badge"><i class="fas fa-handshake"></i> Customer Relations</span>
+                    </div>
+                    <a href="{% url 'selling' %}" class="feature-link">
+                        Explore Selling Tools <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 mb-4">
+                <div class="feature-card">
+                    <div class="icon-circle icon-purple">
+                        <i class="fas fa-user-tie fa-2x"></i>
+                    </div>
+                    <h3 class="feature-title">Human Resource Management</h3>
+                    <p class="feature-description">Effectively handle your people to maximize their performance and productivity</p>
+                    <div class="feature-tools">
+                        <span class="tool-badge"><i class="fas fa-money-check-alt"></i> Payroll</span>
+                        <span class="tool-badge"><i class="fas fa-clock"></i> Attendance & Leave</span>
+                        <span class="tool-badge"><i class="fas fa-file-contract"></i> Policy Centre</span>
+                    </div>
+                    <a href="{% url 'hrms' %}" class="feature-link">
+                        Explore HRM Tools <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 mb-4">
+                <div class="feature-card">
+                    <div class="icon-circle icon-orange">
+                        <i class="fas fa-building fa-2x"></i>
+                    </div>
+                    <h3 class="feature-title">Real Estate CRM</h3>
+                    <p class="feature-description">Gain the right technologies to monitor, analyze and boost your team's efficiency</p>
+                    <div class="feature-tools">
+                        <span class="tool-badge"><i class="fas fa-project-diagram"></i> Project Mgmt</span>
+                        <span class="tool-badge"><i class="fas fa-tasks"></i> Task Tracking</span>
+                        <span class="tool-badge"><i class="fas fa-chart-pie"></i> Analytics</span>
+                    </div>
+                    <a href="{% url 'crm' %}" class="feature-link">
+                        Explore CRM Tools <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =================== SECONDARY PRODUCTS =================== -->
+<section class="secondary-products-section">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h3 class="section-subtitle-alt">Also give a view to Sky ERP's other Products</h3>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-6 mb-3">
+                <div class="secondary-product-card">
+                    <div class="secondary-icon">
+                        <i class="fas fa-boxes fa-3x"></i>
+                    </div>
+                    <div class="secondary-content">
+                        <h4>Stock Inventory</h4>
+                        <a href="{% url 'stock' %}" class="secondary-link">
+                            Explore Product <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6 mb-3">
+                <div class="secondary-product-card">
+                    <div class="secondary-icon">
+                        <i class="fas fa-industry fa-3x"></i>
+                    </div>
+                    <div class="secondary-content">
+                        <h4>Manufacturing</h4>
+                        <a href="{% url 'manufacturing' %}" class="secondary-link">
+                            Explore Product <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =================== BRAND TRUST =================== -->
+<section class="brand-trust-section">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2 class="section-title">Brand That Trusted Us</h2>
+            <p class="section-subtitle">Small & Large Businesses That Are Flourishing With Sky ERP Products</p>
+        </div>
+        <div class="trust-description text-center">
+            <p>Whether you are a Fortune 500 company or an innovative startup, we have perfect solutions to amplify your business growth at affordable rates</p>
+        </div>
+        <div class="row justify-content-center align-items-center g-4">
+            <div class="col-lg-2 col-md-3 col-4"><div class="brand-placeholder">Logo 1</div></div>
+            <div class="col-lg-2 col-md-3 col-4"><div class="brand-placeholder">Logo 2</div></div>
+            <div class="col-lg-2 col-md-3 col-4"><div class="brand-placeholder">Logo 3</div></div>
+            <div class="col-lg-2 col-md-3 col-4"><div class="brand-placeholder">Logo 4</div></div>
+            <div class="col-lg-2 col-md-3 col-4"><div class="brand-placeholder">Logo 5</div></div>
+            <div class="col-lg-2 col-md-3 col-4"><div class="brand-placeholder">Logo 6</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- =================== INDUSTRIES TAB SECTION =================== -->
+<section class="industries-tab-section">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2 class="section-title">Who Can Use Sky ERP?</h2>
+            <p class="section-subtitle">Which Businesses Can Leverage Sky ERP To Grow Beyond Limits</p>
+        </div>
+
+        <ul class="nav nav-tabs custom-tabs mb-5" role="tablist">
+            <li class="nav-item">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#industry" type="button">
+                    <i class="fas fa-building"></i> By Industry
+                </button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#business" type="button">
+                    <i class="fas fa-briefcase"></i> By Business Size
+                </button>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="industry">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <h3 class="tab-content-title">Who can adopt Sky ERP and become a global leader today?</h3>
+                        <p class="tab-content-description mb-4">Sky ERP is useful for everyone. It is a complete Business Automation Software to manage leads, monitor remote teams, and manage HR operations across multiple business domains.</p>
+                        
+                        <div class="industry-list">
+                            <div class="industry-item">
+                                <div class="industry-icon"><i class="fas fa-industry"></i></div>
+                                <div class="industry-text">
+                                    <strong>Manufacturing:</strong> Optimize production, inventory, and supply chain.
+                                </div>
+                            </div>
+                            <div class="industry-item">
+                                <div class="industry-icon"><i class="fas fa-heartbeat"></i></div>
+                                <div class="industry-text">
+                                    <strong>Healthcare:</strong> Enhance patient care and manage compliance seamlessly.
+                                </div>
+                            </div>
+                            <div class="industry-item">
+                                <div class="industry-icon"><i class="fas fa-shopping-cart"></i></div>
+                                <div class="industry-text">
+                                    <strong>Retail:</strong> Drive smarter sales and manage multi-location inventory.
+                                </div>
+                            </div>
+                            <div class="industry-item">
+                                <div class="industry-icon"><i class="fas fa-graduation-cap"></i></div>
+                                <div class="industry-text">
+                                    <strong>Education:</strong> Simplify academic administration and student records.
+                                </div>
+                            </div>
+                            <div class="industry-item">
+                                <div class="industry-icon"><i class="fas fa-university"></i></div>
+                                <div class="industry-text">
+                                    <strong>Finance:</strong> Ensure regulatory compliance with high-level security.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="{% static 'images/erp.jpg' %}" alt="Industries" class="tab-illustration">
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="business">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <h3 class="tab-content-title">Which size of industries can leverage Sky ERP?</h3>
+                        <p class="tab-content-description mb-4">Sky ERP is an extremely scalable business automation solution that can fit all types of organizations.</p>
+                        
+                        <div class="business-size-cards">
+                            <div class="size-card">
+                                <div class="size-icon"><i class="fas fa-store"></i></div>
+                                <h4>Micro & Small</h4>
+                                <p>Highly affordable solutions for small business entities.</p>
+                            </div>
+                            <div class="size-card">
+                                <div class="size-icon"><i class="fas fa-building"></i></div>
+                                <h4>Medium Enterprises</h4>
+                                <p>Streamline your operations effectively with our bundle.</p>
+                            </div>
+                            <div class="size-card">
+                                <div class="size-icon"><i class="fas fa-city"></i></div>
+                                <h4>Large Enterprises</h4>
+                                <p>Full success suite ready with all management solutions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="{% static 'images/erp.jpg' %}" alt="Business" class="tab-illustration">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =================== SUPPORT HIGHLIGHTS =================== -->
+<section class="support-highlights-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                <div class="support-item">
+                    <div class="support-icon"><i class="fas fa-headset"></i></div>
+                    <h4>24/7 Support</h4>
+                    <p>Round the clock assistance</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                <div class="support-item">
+                    <div class="support-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h4>Demo Specialist</h4>
+                    <p>Expert guidance for your needs</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                <div class="support-item">
+                    <div class="support-icon"><i class="fas fa-cogs"></i></div>
+                    <h4>Custom Solutions</h4>
+                    <p>Tailored to your business</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="support-item">
+                    <div class="support-icon"><i class="fas fa-sync-alt"></i></div>
+                    <h4>Free Upgrades</h4>
+                    <p>Regular feature updates</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =================== TESTIMONIALS =================== -->
+<section class="testimonials-section">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2 class="section-title">Client's Testimonials</h2>
+            <p class="section-subtitle">Don't Listen To Us - Here are some Words By Our Clients</p>
+        </div>
+
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="testimonial-card">
+                        <div class="company-logo-placeholder">Company Logo</div>
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="testimonial-text">"Sky ERP has transformed how we manage our operations. The integrated system has made our workflow seamless and efficient."</p>
+                        <div class="testimonial-author">
+                            <h5>John Doe</h5>
+                            <p>CEO, Tech Solutions Inc</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="testimonial-card">
+                        <div class="company-logo-placeholder">Company Logo</div>
+                        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="testimonial-text">"The best ERP solution we've implemented. The support team is exceptional and the features are exactly what we needed."</p>
+                        <div class="testimonial-author">
+                            <h5>Jane Smith</h5>
+                            <p>Operations Manager, Global Enterprises</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =================== CTA BANNER =================== -->
+<section class="cta-banner-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mb-3 mb-lg-0">
+                <h2 class="cta-title">Give a Push To Your Business Today</h2>
+                <p class="cta-subtitle">Easy to use and robust Sky ERP solutions - Start your Demo Today</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="{% url 'schedule_demo' %}" class="btn-primary-orange btn-large">Request a Demo</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =================== BLOG & MEDIA =================== -->
+<section class="blog-media-section">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2 class="section-title">Our Latest Resources</h2>
+            <p class="section-subtitle">Thought leadership, insights, and stories from Sky ERP</p>
+        </div>
+
+        <div class="blog-media-tabs">
+            <ul class="nav nav-pills justify-content-center mb-5" role="tablist">
+                <li class="nav-item">
+                    <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#blog-content" type="button">
+                        Our Recent Blogs
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#media-content" type="button">
+                        Sky ERP In Media
+                    </button>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="blog-content">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="blog-card">
+                                <div class="blog-image-placeholder"></div>
+                                <div class="blog-content">
+                                    <h4>Understanding ERP Systems for Modern Business</h4>
+                                    <p>Explore how ERP systems are transforming businesses...</p>
+                                    <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="blog-card">
+                                <div class="blog-image-placeholder"></div>
+                                <div class="blog-content">
+                                    <h4>5 Benefits of Cloud-Based ERP Solutions</h4>
+                                    <p>Discover why businesses are moving to cloud ERP...</p>
+                                    <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="blog-card">
+                                <div class="blog-image-placeholder"></div>
+                                <div class="blog-content">
+                                    <h4>Implementing ERP: Best Practices</h4>
+                                    <p>Learn the key strategies for successful ERP implementation...</p>
+                                    <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="{% url 'about' %}" class="btn-outline-primary">Explore All Blogs</a>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="media-content">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="media-card">
+                                <div class="media-logo-placeholder">Media Logo</div>
+                                <div class="media-content">
+                                    <h5>Business Magazine</h5>
+                                    <h4>Sky ERP Featured in Leading Publication</h4>
+                                    <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="media-card">
+                                <div class="media-logo-placeholder">Media Logo</div>
+                                <div class="media-content">
+                                    <h5>Tech News Portal</h5>
+                                    <h4>Innovation in ERP: Sky ERP Leads the Way</h4>
+                                    <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="media-card">
+                                <div class="media-logo-placeholder">Media Logo</div>
+                                <div class="media-content">
+                                    <h5>Business Daily</h5>
+                                    <h4>Transforming Enterprises with Smart Automation</h4>
+                                    <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="{% url 'portfolio' %}" class="btn-outline-primary">Check All Media Coverage</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =================== CONTACT CTA =================== -->
+<section class="contact-cta-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="{% static 'images/erp.jpg' %}" alt="Contact" class="contact-illustration">
+            </div>
             <div class="col-lg-6">
-                <h2 class="wow fadeInUp">Enterprise Resource Planning Software</h2>
-                <p class="wow fadeInUp" data-wow-delay="0.3s" style="text-align: justify;">
-                   
-					Sky ERP unifies your Core Business Processes — Accounting, Procurement, Inventory, Supply-Chain, HRMS, CRM, and more into a Single Intelligent Platform.
-					With Real-time Insights, Automated workflows, and a Centralized database, ERPNext eliminates silos, reduces manual effort, and empowers faster, data-driven decisions.
-					Experience seamless collaboration, improved efficiency, and secure, consistent data management across every department. So your business can scale smarter, not harder.
-                </p>
-               
-                <a href="overview" class="theme_btn wow fadeInUp" data-wow-delay="0.7s">Know More</a>
-            </div>
-            <div class="col-lg-6 banner_i">
-                <img src="{% static 'images/erp.jpg' %}" alt="" class="rs_banner" style="height:500px; width:auto;">
-                <img src="{% static 'images/erp.jpg' %}" alt="" class="images_1" style="height:500px; width:auto;">
-                
+                <div class="contact-content">
+                    <h2>Do You Have Any Queries?</h2>
+                    <p>Share your queries and our representative will get in touch with you</p>
+                    <a href="{% url 'contact' %}" class="btn-primary-orange btn-large">Contact Us</a>
+                </div>
             </div>
         </div>
     </div>
 </section>
-<!-- End Banner Area --> 
 
-<section class="tv-about-section mt-60">
-   <div class="container">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.main-header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+</script>
 
-      <!-- First Title -->
-      <div class="row mb-4">
-         <div class="col-12 text-center">
-            <h2 class="section-title">From Complexity to Clarity: ERPNext That Works for You</h2>
-         </div>
-      </div>
-
-      <!-- Second Title -->
-      <div class="row mb-5">
-         <div class="col-12 text-center">
-            <h3 class="section-subtitle">ERPNext Modules</h3>
-         </div>
-      </div>
-
-<!-- ================= Modules Section ================= -->
-<br><br>
-      <div class="row align-items-center">
-
-         <!-- Accounting -->
-         <div class="col-xl-3 col-lg-6 col-md-6 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-            <div class="tv-about-left text-center">
-               <div class="single-icon-box">
-                  <span><i class="fas fa-calculator fa-3x text-primary mb-3"></i></span>
-                  <div class="icon-box-content">
-                     <h3>Accounting</h3>
-                     <p>Manage financial transactions, reports, and accounts seamlessly.</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-
-         <!-- Selling -->
-         <div class="col-xl-3 col-lg-6 col-md-6 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".4s">
-            <div class="tv-about-left text-center">
-               <div class="single-icon-box">
-                  <span><i class="fas fa-shopping-cart fa-3x text-primary mb-3"></i></span>
-                  <div class="icon-box-content">
-                     <h3>Selling</h3>
-                     <p>Track sales, generate invoices, and manage customers efficiently.</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-<br>
-         <!-- Buying -->
-         <div class="col-xl-3 col-lg-6 col-md-6 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".5s">
-            <div class="tv-about-left text-center">
-               <div class="single-icon-box">
-                  <span><i class="fas fa-shopping-bag fa-3x text-primary mb-3"></i></span>
-                  <div class="icon-box-content">
-                     <h3>Buying</h3>
-                     <p>Handle purchases, vendor management, and procurement easily.</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-<br>
-         <!-- HRMS -->
-         <div class="col-xl-3 col-lg-6 col-md-6 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".6s">
-            <div class="tv-about-left text-center">
-               <div class="single-icon-box">
-                  <span><i class="fas fa-user-tie fa-3x text-primary mb-3"></i></span>
-                  <div class="icon-box-content">
-                     <h3>HRMS</h3>
-                     <p>Manage employees, attendance, payroll, and performance efficiently.</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-<br>
-         <!-- CRM -->
-         <div class="col-xl-3 col-lg-6 col-md-6 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
-            <div class="tv-about-left text-center">
-               <div class="single-icon-box">
-                  <span><i class="fas fa-handshake fa-3x text-primary mb-3"></i></span>
-                  <div class="icon-box-content">
-                     <h3>CRM</h3>
-                     <p>Track leads, customer interactions, and sales pipelines effectively.</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-<br>
-         <!-- Stock -->
-         <div class="col-xl-3 col-lg-6 col-md-6 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".8s">
-            <div class="tv-about-left text-center">
-               <div class="single-icon-box">
-                  <span><i class="fas fa-boxes fa-3x text-primary mb-3"></i></span>
-                  <div class="icon-box-content">
-                     <h3>Stock</h3>
-                     <p>Manage inventory, stock levels, and warehouses efficiently.</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-<br>
-         <!-- Project -->
-         <div class="col-xl-3 col-lg-6 col-md-6 wow itfadeUp" data-wow-duration=".9s" data-wow-delay=".9s">
-            <div class="tv-about-left text-center">
-               <div class="single-icon-box">
-                  <span><i class="fas fa-project-diagram fa-3x text-primary mb-3"></i></span>
-                  <div class="icon-box-content">
-                     <h3>Project</h3>
-                     <p>Plan, track, and manage projects with timelines and resources.</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-<br>
-         <!-- Asset -->
-         <div class="col-xl-3 col-lg-6 col-md-6 wow itfadeUp" data-wow-duration=".9s" data-wow-delay="1s">
-            <div class="tv-about-left text-center">
-               <div class="single-icon-box">
-                  <span><i class="fas fa-building fa-3x text-primary mb-3"></i></span>
-                  <div class="icon-box-content">
-                     <h3>Asset</h3>
-                     <p>Track and manage company assets and depreciation efficiently.</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-<br>
-         <!-- Manufacturing -->
-         <div class="col-xl-3 col-lg-6 col-md-6 wow itfadeUp" data-wow-duration=".9s" data-wow-delay="1.1s">
-            <div class="tv-about-left text-center">
-               <div class="single-icon-box">
-                  <span><i class="fas fa-industry fa-3x text-primary mb-3"></i></span>
-                  <div class="icon-box-content">
-                     <h3>Manufacturing</h3>
-                     <p>Oversee production, raw materials, and process efficiency.</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-<br>
-         <!-- Dashboard -->
-         <div class="col-xl-3 col-lg-6 col-md-6 wow itfadeUp" data-wow-duration=".9s" data-wow-delay="1.2s">
-            <div class="tv-about-left text-center">
-               <div class="single-icon-box">
-                  <span><i class="fas fa-tachometer-alt fa-3x text-primary mb-3"></i></span>
-                  <div class="icon-box-content">
-                     <h3>Dashboard</h3>
-                     <p>Visualize key metrics and performance through dashboards.</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-<br>
-         <!-- Report -->
-         <div class="col-xl-3 col-lg-6 col-md-6 wow itfadeUp" data-wow-duration=".9s" data-wow-delay="1.3s">
-            <div class="tv-about-left text-center">
-               <div class="single-icon-box">
-                  <span><i class="fas fa-file-alt fa-3x text-primary mb-3"></i></span>
-                  <div class="icon-box-content">
-                     <h3>Report</h3>
-                     <p>Generate detailed reports for analytics and decision-making.</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-<br>
-         <!-- Support -->
-         <div class="col-xl-3 col-lg-6 col-md-6 wow itfadeUp" data-wow-duration=".9s" data-wow-delay="1.4s">
-            <div class="tv-about-left text-center">
-               <div class="single-icon-box">
-                  <span><i class="fas fa-headset fa-3x text-primary mb-3"></i></span>
-                  <div class="icon-box-content">
-                     <h3>Support</h3>
-                     <p>Provide timely support and assistance to customers and users.</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-
-      </div>
-   </div>
-</section>
-
-<section class="integration_services" style="margin-bottom:0; padding-bottom:0;">
-  <div class="container">
-    <h2>Our Industries</h2>
-    <div class="row services_row">
-
-      <div class="col-lg-4 col-md-6 wow fadeIn">
-        <div class="services_item" id="manufacturing">
-          <a href="#"><i class="fas fa-industry fa-lg text-primary me-2"></i>Manufacturing</a>
-          <p>Optimize production, inventory, and supply chain with our ERP for manufacturing.</p>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.3s">
-        <div class="services_item" id="healthcare">
-          <a href="#"><i class="fas fa-heartbeat fa-lg text-primary me-2"></i>Healthcare</a>
-          <p>Enhance patient care, manage compliance, and integrate clinical and administrative systems seamlessly.</p>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.3s">
-        <div class="services_item" id="retail">
-          <a href="#"><i class="fas fa-shopping-cart fa-lg text-primary me-2"></i>Retail</a>
-          <p>Drive smarter sales, manage multi-location inventory, and deliver personalized customer experiences.</p>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.6s">
-        <div class="services_item" id="education">
-          <a href="#"><i class="fas fa-graduation-cap fa-lg text-primary me-2"></i>Education</a>
-          <p>Simplify academic administration, student records, and campus operations with end-to-end ERP integration.</p>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.9s">
-        <div class="services_item" id="construction">
-          <a href="#"><i class="fas fa-hard-hat fa-lg text-primary me-2"></i>Construction</a>
-          <p>Gain real-time project insights, control costs, and manage labor, equipment, and materials effectively.</p>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="1.2s">
-        <div class="services_item" id="finance">
-          <a href="#"><i class="fas fa-university fa-lg text-primary me-2"></i>Finance & Banking</a>
-          <p>Ensure regulatory compliance, manage risk, and automate financial operations with high-level security and accuracy.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-<section class="platform_facilitates pf_2">
-  <div class="container">
-    <b><h2 style="white-space: nowrap;">Key Functionalities of ERP Systems</h2></b>
-    <div class="row platform_row">
-
-      <div class="col-lg-4 col-md-6 wow fadeIn">
-        <div class="platform">
-          <div class="icons">
-            <i class="fas fa-project-diagram fa-3x text-primary"></i>
-          </div>
-          <a href="#">Integrated System</a>
-          <p>Consolidates all business processes into a single, unified system for seamless operations.</p>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.3s">
-        <div class="platform">
-          <div class="icons">
-            <i class="fas fa-chart-line fa-3x text-success"></i>
-          </div>
-          <a href="#">Real-Time Insights</a>
-          <p>Enables instant access to accurate data, supporting faster and smarter decision-making.</p>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.6s">
-        <div class="platform">
-          <div class="icons">
-            <i class="fas fa-database fa-3x text-warning"></i>
-          </div>
-          <a href="#">Centralized Data Hub</a>
-          <p>Secures all business information in one accessible and organized location.</p>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="0.8s">
-        <div class="platform">
-          <div class="icons">
-            <i class="fas fa-cubes fa-3x text-info"></i>
-          </div>
-          <a href="#">Modular Architecture</a>
-          <p>Customizable modules for Finance, HR, Sales, and Inventory tailored to your business needs.</p>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="1s">
-        <div class="platform">
-          <div class="icons">
-            <i class="fas fa-robot fa-3x text-danger"></i>
-          </div>
-          <a href="#">Process Automation</a>
-          <p>Minimizes manual intervention by automating repetitive tasks, improving productivity.</p>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 wow fadeIn" data-wow-delay="1.2s">
-        <div class="platform">
-          <div class="icons">
-            <i class="fas fa-chart-pie fa-3x text-secondary"></i>
-          </div>
-          <a href="#">Reporting & Analytics</a>
-          <p>Generates actionable insights through comprehensive reports and dashboards.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-      <!-- Get in touch -->
-		<section class="get_touch">
-			<div class="container">
-				<h2>Discover More or Register Now</h2>
-				<h6>Succeed More</h6>
-				<p>Explore your options, and map out your path to success.</p>
-				<a href="product" class="theme_btn">Explore your Options</a>
-				<a href="https://demo.itfarmer.in/#login" class="theme_btn create">Create Account</a>
-			</div>
-		</section>
-
-
-    <!-- Scroll Top Button -->
-    <button class="scroll-top">
-        <i class="fas fa-angle-up"></i>
-    </button>
-
-    <!-- Preloader -->  
-	<div class="preloader"><img src="images/preloder.png" alt=""></div>
-    
-    <!-- jQuery v3.3.1 -->
-    <script src="js/jquery-3.3.1.min.js"></script>    
-    <!-- Bootstrap v4.0.0 -->
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>  
-    <!-- Extra Plugin -->
-    <script src="vendors/animate-css/wow.min.js"></script> 
-    <script src="vendors/owl-carousel/owl.carousel.min.js"></script>     
-    
-    <!-- Theme js / Custom js -->
-    <script src="js/theme.js"></script> 
 </body>
+</html>
 
 {% include 'footer.html' %}

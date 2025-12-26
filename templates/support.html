@@ -1,188 +1,652 @@
-{% include 'header.html' %}
+{% include 'header.html' with active_page='modules' %}
 {% load static %}
-  <!-- Top Banner Section -->
-  <section class="banner_area ba_2">
-    <div class="container">
-      <div class="row">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  .support-page {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    color: #0f172a;
+  }
+
+  .support-hero {
+    background: linear-gradient(135deg, #F2F6FF 0%, #E6ECF5 100%);
+    padding: 120px 20px;
+  }
+
+  .support-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .support-hero-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .support-hero-text {
+    flex: 1 1 340px;
+  }
+
+  .support-hero-title {
+    font-size: clamp(2.5rem, 4vw, 3.75rem);
+    font-weight: 800;
+    color: #0b1a3a;
+    margin-bottom: 24px;
+    line-height: 1.15;
+  }
+
+  .support-hero-description {
+    font-size: 1.125rem;
+    color: #566075;
+    line-height: 1.9;
+    margin-bottom: 32px;
+  }
+
+  .support-hero-visual {
+    flex: 1 1 340px;
+    position: relative;
+  }
+
+  .support-hero-visual img {
+    width: 100%;
+    display: block;
+    border-radius: 28px;
+    box-shadow: 0 25px 60px rgba(15, 41, 66, 0.18);
+  }
+
+  .support-hero-bubble {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.6;
+    z-index: 0;
+  }
+
+  .support-hero-bubble.orange {
+    width: 240px;
+    height: 240px;
+    background: rgba(255, 122, 33, 0.35);
+    right: -40px;
+    bottom: -40px;
+  }
+
+  .support-hero-bubble.blue {
+    width: 200px;
+    height: 200px;
+    background: rgba(99, 102, 241, 0.25);
+    left: -40px;
+    top: -40px;
+  }
+
+  .support-content {
+    padding: 110px 20px;
+  }
+
+  .support-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+  }
+
+  .support-main {
+    flex: 1 1 640px;
+  }
+
+  .support-sidebar {
+    flex: 0 0 320px;
+    position: sticky;
+    top: 32px;
+    align-self: flex-start;
+  }
+
+  .support-section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #0b1a3a;
+  }
+
+  .support-section-description {
+    font-size: 1.0625rem;
+    color: #5f6b81;
+    line-height: 1.9;
+  }
+
+  .support-subheading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #111c3c;
+    margin-bottom: 16px;
+  }
+
+  .support-card {
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 18px 40px rgba(12, 23, 62, 0.10);
+    padding: 32px;
+    margin-bottom: 36px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .support-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(15, 41, 66, 0.18);
+  }
+
+  .support-card--soft {
+    background: linear-gradient(135deg, #fdf4ff, #e0f2fe);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.15);
+  }
+
+  .support-card-head {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+
+  .support-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: rgba(255, 122, 33, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FF7A21;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .support-card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #0b1a3a;
+  }
+
+  .support-card-text {
+    color: #5f6b81;
+    line-height: 1.85;
+  }
+
+  .support-card-media {
+    margin-top: 24px;
+  }
+
+  .support-card-media img {
+    width: 100%;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(15, 41, 66, 0.12);
+  }
+
+  .support-thumbs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-bottom: 64px;
+  }
+
+  .support-thumb {
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 12px 28px rgba(15, 41, 66, 0.10);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .support-thumb:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(15, 41, 66, 0.16);
+  }
+
+  .support-thumb img {
+    width: 100%;
+    display: block;
+  }
+
+  .support-faq {
+    margin-top: 80px;
+  }
+
+  .support-faq-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 32px;
+    color: #0b1a3a;
+  }
+
+  .support-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .support-accordion-item {
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 14px 30px rgba(12, 23, 62, 0.10);
+    overflow: hidden;
+  }
+
+  .support-accordion-button {
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: 22px 28px;
+    text-align: left;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #101e3f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .support-accordion-button:hover {
+    background: rgba(255, 122, 33, 0.08);
+  }
+
+  .support-accordion-button i {
+    color: #FF7A21;
+    transition: transform 0.3s ease;
+  }
+
+  .support-accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 28px;
+    transition: max-height 0.4s ease;
+  }
+
+  .support-accordion-content.active {
+    max-height: 240px;
+    padding-bottom: 20px;
+  }
+
+  .support-accordion-content p {
+    margin: 0;
+    color: #5f6b81;
+    line-height: 1.8;
+  }
+
+  .support-sidebar-card {
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 16px 36px rgba(12, 23, 62, 0.12);
+    padding: 32px;
+  }
+
+  .support-sidebar-card h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0b1a3a;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e5e7f0;
+  }
+
+  .support-sidebar-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .support-sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 16px;
+    text-decoration: none;
+    color: #4b5670;
+    font-weight: 600;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  }
+
+  .support-sidebar-link:hover {
+    background: rgba(255, 122, 33, 0.12);
+    color: #FF7A21;
+    transform: translateX(4px);
+  }
+
+  .support-sidebar-link i {
+    color: #FF7A21;
+    font-size: 1.1rem;
+  }
+
+  .support-page .section-animate {
+    animation: fadeUp 0.6s ease forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .support-page .delay-100 { animation-delay: 0.1s; }
+  .support-page .delay-200 { animation-delay: 0.2s; }
+  .support-page .delay-300 { animation-delay: 0.3s; }
+
+  @media (max-width: 991px) {
+    .support-grid {
+      flex-direction: column;
+    }
+    .support-sidebar {
+      position: static;
+      flex: 1 1 auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .support-hero {
+      padding: 90px 20px;
+    }
+    .support-hero-title {
+      font-size: 2.25rem;
+    }
+    .support-card {
+      padding: 24px;
+    }
+    .support-accordion-button {
+      padding: 18px 22px;
+    }
+    .support-accordion-content {
+      padding: 0 22px;
+    }
+  }
+</style>
+
+<div class="support-page">
+  <!-- Hero Section -->
+  <section class="support-hero section-animate">
+    <div class="support-container">
+      <div class="support-hero-grid">
         <!-- Left Content -->
-        <div class="col-lg-6 banner_con">
-          <h2 class="wow fadeInUp">Support</h2>
-          <p>Our Support module empowers businesses to efficiently manage post-sales service operations. It centralizes issue tracking, warranty management, and service contracts under a unified platform. Designed to improve customer satisfaction, it ensures timely resolutions and service accountability.</p>
+        <div class="support-hero-text">
+          <h2 class="support-hero-title">Support</h2>
+          <p class="support-hero-description">Our Support module empowers businesses to efficiently manage post-sales service operations. It centralizes issue tracking, warranty management, and service contracts under a unified platform. Designed to improve customer satisfaction, it ensures timely resolutions and service accountability.</p>
         </div>
 
         <!-- Right Image -->
-        <div class="col-lg-6">
-          <div class="banner_i">
-            <img src="{% static 'images/support.png' %}" alt="Reports Banner" class="images_1" style="height:500px; width:auto;" />
-          </div>
+        <div class="support-hero-visual">
+          <img src="{% static 'images/support.png' %}" alt="Support Banner" />
+          <span class="support-hero-bubble orange"></span>
+          <span class="support-hero-bubble blue"></span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Main Content Area -->
-  <div class="tv-blog-area tv-single-service pt-130 pb-130">
-    <div class="container">
-      <div class="row">
+  <section class="support-content">
+    <div class="support-container">
+      <div class="support-grid">
+
         <!-- Left/Main Content -->
-        <div class="col-xl-8 col-lg-8 col-12">
-          <div class="tv-blog-list-wrap">
-            <div class="tv-blog-details">
-              <h2 class="title">Support Features</h2>
-              <div class="tv-blog-details-content">
-                <p>Enhance customer satisfaction and streamline service operations with intelligent support tools. From issue tracking to SLA enforcement, our ERP ensures fast, reliable, and measurable support delivery.</p>
-                <div class="tv-service-list-item">
-                  <ul>
-                    <p>
-                      <strong>Core Support Modules</strong>
-                    </p>
+        <div class="support-main">
 
-                    <li>
-                      <strong>Issue:-</strong> Log, assign, and track customer issues or service requests with a built-in ticketing system. Improve response times and accountability through status updates, priority levels, and user assignments.
-                    </li>
-                    <div class="tv-blog-details-thumb mb-40">
-                      <img src="{% static 'images/zDMkpfe.png' %}" alt="ERP Dashboard" style="height:380px; width:auto;" />
-                    </div>
-                    <li>
-                      <strong>Maintenance:-</strong> Plan, schedule, and track preventive or corrective maintenance activities across assets or services. Reduce downtime and extend asset life by ensuring timely service and task completion.
-                    </li>
+          <!-- Section Title -->
+          <div class="mb-12 section-animate delay-100">
+            <h2 class="support-section-title">Support Features</h2>
+            <p class="support-section-description">Enhance customer satisfaction and streamline service operations with intelligent support tools. From issue tracking to SLA enforcement, our ERP ensures fast, reliable, and measurable support delivery.</p>
+          </div>
 
-                    <li>
-                      <strong>Service Level Agreement (SLA):-</strong> Define service response and resolution times based on customer agreements and ticket types. Monitor SLA adherence with automated alerts, escalations, and compliance tracking.
-                    </li>
-                    <div class="tv-blog-details-thumb mb-40">
-                      <img src="{% static 'images/sla-setting.png' %}" alt="ERP Dashboard" style="height:400px; width:auto;" />
-                    </div>
-                    <li>
-                      <strong>Warranty:-</strong> Manage product and service warranties, including validation, claim processing, and expiration tracking. Ensure accurate service delivery within warranty periods and reduce unauthorized service costs.
-                    </li>
-                    <div class="tv-blog-details-thumb mb-40">
-                      <img src="{% static 'images/warranty-claim.png' %}" alt="ERP Dashboard" style="height:400px; width:auto;" />
-                    </div>
-                    <li>
-                      <strong>Support Settings:-</strong> Customize categories, escalation paths, user permissions, and notification workflows. Align support configurations with your business processes for more efficient operations.
-                    </li>
-                    <div class="tv-blog-details-thumb mb-40">
-                      <img src="{% static 'images/support-settings.png' %}" alt="ERP Dashboard" style="height:400px; width:auto;" />
-                    </div>
-                    <li>
-                      <strong>Reports:-</strong> Generate detailed reports on ticket volume, SLA compliance, team performance, and resolution timelines.
-                    </li>
-                    <div class="tv-blog-details-thumb mb-40">
-                      <img src="{% static 'images/issue-analytics.png' %}" alt="ERP Dashboard" style="height:400px; width:auto;" />
-                    </div>
-                  </ul>
-                </div>
+          <!-- Core Support Modules Header -->
+          <div class="mb-8 section-animate delay-200">
+            <h3 class="support-subheading">Core Support Modules</h3>
+          </div>
 
-                <!-- Image Thumbnails -->
-                <div class="tv-blog-details-thumb-img d-flex justify-content-between mt-4">
-                  <div>
-                    <img src="{% static 'images/report-thumb-1.png' %}" alt="" />
-                  </div>
-                  <div>
-                    <img src="{% static 'images/report-thumb-2.png' %}" alt="" />
-                  </div>
-                </div>
+          <!-- Feature 1: Issue -->
+          <div class="support-card section-animate delay-300">
+            <div class="support-card-head">
+              <div class="support-icon">
+                <i class="fas fa-ticket-alt"></i>
+              </div>
+              <div>
+                <h4 class="support-card-title">Issue</h4>
+                <p class="support-card-text">Log, assign, and track customer issues or service requests with a built-in ticketing system. Improve response times and accountability through status updates, priority levels, and user assignments.</p>
+              </div>
+            </div>
+            <div class="support-card-media">
+              <img src="{% static 'images/zDMkpfe.png' %}" alt="Issue Management Dashboard" />
+            </div>
+          </div>
 
-                <!-- FAQ Section -->
-                <h3 class="faq-title mt-5">Frequently Asked Questions</h3>
-                <div class="tv-custom-accordion">
-                  <div class="accordion" id="reportFAQs">
-                    <!-- FAQ 1 -->
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="faqRep1"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRep1">Can I manage Customer issues with a Ticketing system?</button></h2>
-                      <div id="collapseRep1" class="accordion-collapse collapse" data-bs-parent="#reportFAQs">
-                        <div class="accordion-body">
-                          <p>Yes, Every issue is logged as a Ticket, Assignable to agents with status tracking.</p>
-                        </div>
-                      </div>
-                    </div>
+          <!-- Feature 2: Maintenance -->
+          <div class="support-card support-card--soft section-animate">
+            <div class="support-card-head">
+              <div class="support-icon">
+                <i class="fas fa-tools"></i>
+              </div>
+              <div>
+                <h4 class="support-card-title">Maintenance</h4>
+                <p class="support-card-text">Plan, schedule, and track preventive or corrective maintenance activities across assets or services. Reduce downtime and extend asset life by ensuring timely service and task completion.</p>
+              </div>
+            </div>
+          </div>
 
-                    <!-- FAQ 2 -->
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="faqRep2"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRep2">Does it Support SLA and response time tracking?</button></h2>
-                      <div id="collapseRep2" class="accordion-collapse collapse" data-bs-parent="#reportFAQs">
-                        <div class="accordion-body">
-                          <p>Yes, SLAs can be defined, and the system Auto-tracks Resolution and Response times.</p>
-                        </div>
-                      </div>
-                    </div>
+          <!-- Feature 3: SLA -->
+          <div class="support-card section-animate">
+            <div class="support-card-head">
+              <div class="support-icon">
+                <i class="fas fa-stopwatch"></i>
+              </div>
+              <div>
+                <h4 class="support-card-title">Service Level Agreement (SLA)</h4>
+                <p class="support-card-text">Define service response and resolution times based on customer agreements and ticket types. Monitor SLA adherence with automated alerts, escalations, and compliance tracking.</p>
+              </div>
+            </div>
+            <div class="support-card-media">
+              <img src="{% static 'images/sla-setting.png' %}" alt="SLA Settings" />
+            </div>
+          </div>
 
-                    <!-- FAQ 3 -->
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="faqRep3"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRep3">Can Customers raise tickets through Email or Portal?</button></h2>
-                      <div id="collapseRep3" class="accordion-collapse collapse" data-bs-parent="#reportFAQs">
-                        <div class="accordion-body">
-                          <p>Yes, Issues can be created via Customer portal, Email, or manually by agents.</p>
-                        </div>
-                      </div>
-                    </div>
+          <!-- Feature 4: Warranty -->
+          <div class="support-card section-animate">
+            <div class="support-card-head">
+              <div class="support-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <div>
+                <h4 class="support-card-title">Warranty</h4>
+                <p class="support-card-text">Manage product and service warranties, including validation, claim processing, and expiration tracking. Ensure accurate service delivery within warranty periods and reduce unauthorized service costs.</p>
+              </div>
+            </div>
+            <div class="support-card-media">
+              <img src="{% static 'images/warranty-claim.png' %}" alt="Warranty Claim" />
+            </div>
+          </div>
 
-                    <!-- FAQ 4 -->
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="faqRep4"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRep4">Does it Integrate with Knowledge Base or FAQs?</button></h2>
-                      <div id="collapseRep4" class="accordion-collapse collapse" data-bs-parent="#reportFAQs">
-                        <div class="accordion-body">
-                          <p>Yes, Common solutions can be linked to issues and shared as knowledge articles.</p>
-                        </div>
-                      </div>
-                    </div>
+          <!-- Feature 5: Support Settings -->
+          <div class="support-card section-animate">
+            <div class="support-card-head">
+              <div class="support-icon">
+                <i class="fas fa-cogs"></i>
+              </div>
+              <div>
+                <h4 class="support-card-title">Support Settings</h4>
+                <p class="support-card-text">Customize categories, escalation paths, user permissions, and notification workflows. Align support configurations with your business processes for more efficient operations.</p>
+              </div>
+            </div>
+            <div class="support-card-media">
+              <img src="{% static 'images/support-settings.png' %}" alt="Support Settings" />
+            </div>
+          </div>
 
+          <!-- Feature 6: Reports -->
+          <div class="support-card section-animate">
+            <div class="support-card-head">
+              <div class="support-icon">
+                <i class="fas fa-chart-pie"></i>
+              </div>
+              <div>
+                <h4 class="support-card-title">Reports</h4>
+                <p class="support-card-text">Generate detailed reports on ticket volume, SLA compliance, team performance, and resolution timelines.</p>
+              </div>
+            </div>
+            <div class="support-card-media">
+              <img src="{% static 'images/issue-analytics.png' %}" alt="Issue Analytics" />
+            </div>
+          </div>
 
-                    <!-- FAQ 5 -->
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="faqRep5"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRep5">Can Support link directly with CRM and Projects?</button></h2>
-                      <div id="collapseRep5" class="accordion-collapse collapse" data-bs-parent="#reportFAQs">
-                        <div class="accordion-body">
-                          <p>Yes, Tickets can be tied to Customers, Opportunities, or Projects for 360° Visibility.</p>
-                        </div>
-                      </div>
-                    </div>
+          <!-- Image Thumbnails -->
+          <div class="support-thumbs section-animate">
+            <div class="support-thumb">
+              <img src="{% static 'images/report-thumb-1.png' %}" alt="Report Thumbnail 1" />
+            </div>
+            <div class="support-thumb">
+              <img src="{% static 'images/report-thumb-2.png' %}" alt="Report Thumbnail 2" />
+            </div>
+          </div>
 
-                  </div>
+          <!-- FAQ Section -->
+          <div class="support-faq section-animate">
+            <h3 class="support-faq-title">Frequently Asked Questions</h3>
+            <div class="support-accordion">
+
+              <!-- FAQ 1 -->
+              <div class="support-accordion-item">
+                <button class="support-accordion-button" onclick="toggleAccordion(this)">
+                  <span>Can I manage customer issues with a ticketing system?</span>
+                  <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="support-accordion-content">
+                  <p>Yes, every issue is logged as a ticket, assignable to agents with status tracking.</p>
                 </div>
               </div>
+
+              <!-- FAQ 2 -->
+              <div class="support-accordion-item">
+                <button class="support-accordion-button" onclick="toggleAccordion(this)">
+                  <span>Does it support SLA and response time tracking?</span>
+                  <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="support-accordion-content">
+                  <p>Yes, SLAs can be defined and the system auto-tracks resolution and response times.</p>
+                </div>
+              </div>
+
+              <!-- FAQ 3 -->
+              <div class="support-accordion-item">
+                <button class="support-accordion-button" onclick="toggleAccordion(this)">
+                  <span>Can customers raise tickets through email or portal?</span>
+                  <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="support-accordion-content">
+                  <p>Yes, issues can be created via customer portal, email, or manually by agents.</p>
+                </div>
+              </div>
+
+              <!-- FAQ 4 -->
+              <div class="support-accordion-item">
+                <button class="support-accordion-button" onclick="toggleAccordion(this)">
+                  <span>Does it integrate with Knowledge Base or FAQs?</span>
+                  <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="support-accordion-content">
+                  <p>Yes, common solutions can be linked to issues and shared as knowledge articles.</p>
+                </div>
+              </div>
+
+              <!-- FAQ 5 -->
+              <div class="support-accordion-item">
+                <button class="support-accordion-button" onclick="toggleAccordion(this)">
+                  <span>Can support link directly with CRM and Projects?</span>
+                  <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="support-accordion-content">
+                  <p>Yes, tickets can be tied to customers, opportunities, or projects for 360° visibility.</p>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
 
         <!-- Right Sidebar -->
-        <div class="col-xl-4 col-lg-4 col-12">
-          <div class="tv-sidebar-area">
-            <div class="tv-widget widget mb-40">
-              <ul>
-                <li class="cat-item">
-                  <strong>Core Support Modules</strong>
-                </li>
-
-                <li class="cat-item">
-                  <a href="#"><i class="fas fa-ticket-alt fa-lg text-primary me-2"></i> Issue</a>
-                </li>
-
-                <li class="cat-item">
-                  <a href="#"><i class="fas fa-tools fa-lg text-primary me-2"></i> Maintenance</a>
-                </li>
-
-                <li class="cat-item">
-                  <a href="#"><i class="fas fa-stopwatch fa-lg text-primary me-2"></i> Service Level Agreement (SLA)</a>
-                </li>
-
-                <li class="cat-item">
-                  <a href="#"><i class="fas fa-shield-alt fa-lg text-primary me-2"></i> Warranty</a>
-                </li>
-
-                <li class="cat-item">
-                  <a href="#"><i class="fas fa-cogs fa-lg text-primary me-2"></i> Support Settings</a>
-                </li>
-
-                <li class="cat-item">
-                  <a href="#"><i class="fas fa-chart-pie fa-lg text-primary me-2"></i> Reports</a>
-                </li>
-              </ul>
-            </div>
+        <div class="support-sidebar">
+          <div class="support-sidebar-card section-animate delay-100">
+            <h4>Core Support Modules</h4>
+            <ul class="support-sidebar-list">
+              <li>
+                <a href="#" class="support-sidebar-link">
+                  <i class="fas fa-ticket-alt"></i>
+                  <span>Issue</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="support-sidebar-link">
+                  <i class="fas fa-tools"></i>
+                  <span>Maintenance</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="support-sidebar-link">
+                  <i class="fas fa-stopwatch"></i>
+                  <span>Service Level Agreement (SLA)</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="support-sidebar-link">
+                  <i class="fas fa-shield-alt"></i>
+                  <span>Warranty</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="support-sidebar-link">
+                  <i class="fas fa-cogs"></i>
+                  <span>Support Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="support-sidebar-link">
+                  <i class="fas fa-chart-pie"></i>
+                  <span>Reports</span>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
+
       </div>
     </div>
-  </div>
+  </section>
+</div>
+
+<script>
+  function toggleAccordion(button) {
+    const content = button.nextElementSibling;
+    const icon = button.querySelector('i');
+    const isActive = content.classList.contains('active');
+
+    document.querySelectorAll('.support-accordion-content').forEach(item => {
+      item.classList.remove('active');
+    });
+
+    document.querySelectorAll('.support-accordion-button i').forEach(item => {
+      item.style.transform = 'rotate(0deg)';
+    });
+
+    if (!isActive) {
+      content.classList.add('active');
+      icon.style.transform = 'rotate(180deg)';
+    }
+  }
+</script>
+
 {% include 'footer.html' %}

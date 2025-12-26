@@ -1,142 +1,514 @@
-{% include 'header.html' %}
+{% include 'header.html' with active_page='portfolio' %}
 {% load static %}
 
-<!-- Banner Area -->    
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-  <!-- Hero Banner Section -->
-  <section class="banner_area ba_2">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 banner_con">
-          <h2 style="white-space: nowrap;">Introduction</h2>
-          <p>SkyERP is a modern, cloud-based ERP system designed to streamline business operations and drive growth. 
-			It integrates functionalities like finance, inventory, CRM, and reporting into a unified platform, enabling smarter decisions and operational efficiency.</p>
-        </div>
-        <div class="col-lg-6">
-          <div class="banner_i">
-            <img src="{% static 'images/portfolio.png' %}" alt="" class="images_1" style="height: 400px; width: auto;" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-<!-- End Banner Area -->  
-<br><br>
-
-<section class="easily_engage ee_2">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-7"> 
-                <h2>Industrial Clients of Sky ERP</h2>
-                <p class="t_p">SkyERP empowers leading industrial clients by streamlining operations, enhancing productivity, and driving growth through seamless ERP integration.</p>
-                <div class="media">
-                    <i class="fas fa-chart-pie"></i>
-                    <div class="media-body"><p>Uzzala Bio Energy Solutions</p></div>
-                </div> 
-                <div class="media c_4"> 
-                    <i class="fas fa-microphone"></i>
-                    <div class="media-body"><p>Verdict Group</p></div>
-                </div> 
-                <div class="media c_2">
-                    <i class="fas fa-cog"></i>
-                    <div class="media-body"><p>Shree Life Care</p></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - SkyERP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1F2937;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background-color: #FFF1E6;
+            padding: 80px 0;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-label {
+            color: #F97316;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+        
+        .hero-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 24px;
+            line-height: 1.3;
+        }
+        
+        .hero-text {
+            font-size: 16px;
+            color: #6B7280;
+            line-height: 1.8;
+            margin-bottom: 0;
+        }
+        
+        .hero-illustration {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        
+        .hero-illustration svg {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+        }
+        
+        /* Mission Section */
+        .mission-section {
+            background-color: #F6F9FF;
+            padding: 80px 0;
+        }
+        
+        .section-heading {
+            color: #F97316;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #F97316;
+        }
+        
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 24px;
+        }
+        
+        .section-text {
+            font-size: 16px;
+            color: #6B7280;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .illustration-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        
+        /* Vision Section */
+        .vision-section {
+            background-color: #F6F9FF;
+            padding: 80px 0;
+        }
+        
+        /* Core Values Section */
+        .values-section {
+            background-color: #2563EB;
+            padding: 80px 0;
+            color: white;
+        }
+        
+        .values-label {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+        
+        .values-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 60px;
+        }
+        
+        .value-card {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .value-icon {
+            width: 56px;
+            height: 56px;
+            background-color: #FFF1E6;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .value-icon i {
+            font-size: 24px;
+            color: #F97316;
+        }
+        
+        .value-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1F2937;
+            margin-bottom: 12px;
+        }
+        
+        .value-description {
+            font-size: 15px;
+            color: #6B7280;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+        
+        /* Clients Section */
+        .clients-section {
+            background-color: white;
+            padding: 80px 0;
+        }
+        
+        .client-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 24px;
+            padding: 20px;
+            background: #F6F9FF;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .client-item:hover {
+            background: #EEF3FF;
+            transform: translateX(5px);
+        }
+        
+        .client-icon {
+            width: 48px;
+            height: 48px;
+            background: #2563EB;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+        
+        .client-icon i {
+            font-size: 20px;
+            color: white;
+        }
+        
+        .client-text {
+            font-size: 15px;
+            color: #1F2937;
+            font-weight: 500;
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #F6F9FF;
+            padding: 60px 0 30px;
+            border-top: 1px solid #E5E7EB;
+        }
+        
+        .footer-heading {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1F2937;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #6B7280;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #F97316;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #E5E7EB;
+            padding-top: 24px;
+            margin-top: 40px;
+            text-align: center;
+            color: #6B7280;
+            font-size: 14px;
+        }
+        
+        .app-buttons img {
+            width: 140px;
+            margin-bottom: 12px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .values-title {
+                font-size: 28px;
+            }
+            
+            .section-title {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <p class="hero-label">Who Are We?</p>
+                    <h1 class="hero-title">Introduction</h1>
+                    <p class="hero-text">SkyERP is a modern, cloud-based ERP system designed to streamline business operations and drive growth. It integrates functionalities like finance, inventory, CRM, and reporting into a unified platform, enabling smarter decisions and operational efficiency.</p>
                 </div>
-				 
+                <div class="col-lg-6">
+                    <div class="hero-illustration">
+                        <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="400" height="300" fill="white"/>
+                            <circle cx="200" cy="150" r="80" fill="#FFF1E6"/>
+                            <rect x="160" y="100" width="80" height="100" rx="8" fill="#2563EB"/>
+                            <circle cx="200" cy="80" r="25" fill="#F97316"/>
+                            <path d="M175 120h50M175 140h50M175 160h50" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                            <rect x="120" y="180" width="40" height="40" rx="6" fill="#F97316" opacity="0.3"/>
+                            <rect x="240" y="180" width="40" height="40" rx="6" fill="#F97316" opacity="0.3"/>
+                        </svg>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-5 engage_img">
-                <img src="{% static 'images/engage-customers.png' %}" alt="">
-            </div> 
         </div>
-    </div>
-</section>
-
-
-<section class="digital_modules">
-    	<div class="container">
-    		<div class="tittle"> 
-				<h2>Educational Clients</h2>
-				<p>Cloud management is how admins have control over everything that operates in a cloud: the users, data, applications</p>
-    		</div>
-    	<div class="row modules_inner justify-content-center">
-    <!-- modules -->
-    <div class="col-lg-4 col-md-6 media wow fadeIn" data-wow-delay="0.6s">
-        <i class="fas fa-cloud"></i>
-        <div class="media-body">
-            <a href="#">District Institute of Education & Training (DIET's), Gujrat</a>
-        </div>
-    </div>
-    <!-- modules -->
-    <div class="col-lg-4 col-md-6 media wow fadeIn" data-wow-delay="0.3s">
-        <i class="fas fa-hospital-alt c_2"></i>
-        <div class="media-body">
-            <a href="#">Chaudhary Bansi Lal University</a>
-        </div>
-    </div>
-</div>
-
-    			</div>
-    			<!-- modules -->
-    			
-    		</div>
-    		</div>
-    	</div>
     </section>
-<!-- A platform that facilitates -->  
-  <section class="easily_engage">
-    <div class="container">
-      <h2 style="text-align: center;">Empowering IT Companies to Scale Engineering Talent</h2><br />
 
-      <div class="row">
-        <!-- Commitment to Quality -->
-        <div class="col-12">
-          <div class="media c_3">
-            <i class="fas fa-check-circle"></i>
-            <div class="media-body">
-              <p>
-                <strong>Railway Clients:</strong> NAIR, IRISET, IRIMEE, IRIDM, ZRTI, Udaipur, MDDTI[Bengaluru], STTI[Byculla], STTI [Pandu], STTI [Podanur], Diesel Loco Shed [West Bengal]
-              </p>
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <p class="section-heading">Our Mission</p>
+                    <h2 class="section-title">We Are Redefining Business Operations for Better Tomorrow</h2>
+                    <p class="section-text">We are on a mission to empower businesses around the globe.</p>
+                    <p class="section-text">Our highly experienced team is working day and night to create innovative solutions that help organizations streamline their operations, enhance productivity, and achieve sustainable growth through seamless ERP integration.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="illustration-card">
+                        <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="150" cy="150" r="100" fill="#FFF1E6"/>
+                            <rect x="120" y="120" width="60" height="80" rx="6" fill="#2563EB"/>
+                            <circle cx="150" cy="100" r="30" fill="#F97316"/>
+                            <path d="M135 100 L150 85 L165 100" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="150" cy="115" r="8" fill="#FFF"/>
+                        </svg>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
+    </section>
 
-        <!-- Strategic Team Expansion -->
-        <div class="col-lg-6">
-          <div class="media">
-            <i class="fas fa-users-cog"></i>
-            <div class="media-body">
-              <p>
-                <strong>Strategic Team Expansion:</strong> We help build and grow engineering teams that align with your business objectives, ensuring the right talent is in place for success.
-              </p>
+    <!-- Vision Section -->
+    <section class="vision-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-1 order-2">
+                    <div class="illustration-card" style="background: #FFF1E6;">
+                        <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M50 250 L150 100 L250 250" stroke="#2563EB" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M80 250 L150 150 L220 250" stroke="#F97316" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="150" cy="120" r="20" fill="#2563EB"/>
+                            <rect x="135" y="140" width="30" height="50" rx="4" fill="#2563EB"/>
+                            <path d="M100 200 L120 180 M180 180 L200 200" stroke="#F97316" stroke-width="4" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-2 order-1">
+                    <p class="section-heading">Our Vision</p>
+                    <h2 class="section-title">Empowering IT Companies to Scale Engineering Talent</h2>
+                    <p class="section-text">We envision a future where businesses of all sizes can leverage cutting-edge technology to achieve operational excellence. Our goal is to be the trusted partner for organizations seeking to transform their business processes and drive digital innovation.</p>
+                </div>
             </div>
-          </div>
         </div>
+    </section>
 
-        <!-- Process Optimization -->
-        <div class="col-lg-6">
-          <div class="media c_2">
-            <i class="fas fa-cogs"></i>
-            <div class="media-body">
-              <p>
-                <strong>Process Optimization:</strong> We implement best practices to streamline workflows, improve efficiency, and enhance overall productivity.
-              </p>
+    <!-- Core Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <div class="text-center">
+                <p class="values-label">Our Core Values</p>
+                <h2 class="values-title">Principles We Follow By Heart</h2>
             </div>
-          </div>
-        </div>
-
-        <!-- End-to-End Support -->
-        <div class="col-12">
-          <div class="media c_3">
-            <i class="fas fa-headset"></i>
-            <div class="media-body">
-              <p>
-                <strong>End-to-End Support:</strong> From initial consultation to post-deployment maintenance, we provide comprehensive support to ensure every project is successful.
-              </p>
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="value-title">Commitment to Quality</h3>
+                        <p class="value-description">We deliver high-quality engineering services that meet the evolving needs of modern businesses, ensuring every solution is built to last and perform.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="value-title">Strategic Team Expansion</h3>
+                        <p class="value-description">We help build and grow engineering teams that align with your business objectives, ensuring the right talent is in place for success.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3 class="value-title">Process Optimization</h3>
+                        <p class="value-description">We implement best practices to streamline workflows, improve efficiency, and enhance overall productivity across your organization.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3 class="value-title">End-to-End Support</h3>
+                        <p class="value-description">From initial consultation to post-deployment maintenance, we provide comprehensive support to ensure every project is successful.</p>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
+    <!-- Clients Section -->
+    <section class="clients-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Industrial Clients of Sky ERP</h2>
+                    <p class="section-text">SkyERP empowers leading industrial clients by streamlining operations, enhancing productivity, and driving growth through seamless ERP integration.</p>
+                    
+                    <div class="client-item">
+                        <div class="client-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <div>
+                            <p class="client-text">Uzzala Bio Energy Solutions</p>
+                        </div>
+                    </div>
+                    
+                    <div class="client-item">
+                        <div class="client-icon">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                        <div>
+                            <p class="client-text">Verdict Group</p>
+                        </div>
+                    </div>
+                    
+                    <div class="client-item">
+                        <div class="client-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <div>
+                            <p class="client-text">Shree Life Care</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <h2 class="section-title">Educational Clients</h2>
+                    <p class="section-text">Cloud management is how admins have control over everything that operates in a cloud: the users, data, applications.</p>
+                    
+                    <div class="client-item">
+                        <div class="client-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div>
+                            <p class="client-text">District Institute of Education & Training (DIET's), Gujarat</p>
+                        </div>
+                    </div>
+                    
+                    <div class="client-item">
+                        <div class="client-icon">
+                            <i class="fas fa-hospital-alt"></i>
+                        </div>
+                        <div>
+                            <p class="client-text">Chaudhary Bansi Lal University</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h2 class="section-title">Railway Clients</h2>
+                    <div class="client-item">
+                        <div class="client-icon">
+                            <i class="fas fa-train"></i>
+                        </div>
+                        <div>
+                            <p class="client-text">NAIR, IRISET, IRIMEE, IRIDM, ZRTI Udaipur, MDDTI [Bengaluru], STTI [Byculla], STTI [Pandu], STTI [Podanur], Diesel Loco Shed [West Bengal]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
 {% include 'footer.html' %}

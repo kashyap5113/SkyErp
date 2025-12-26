@@ -1,194 +1,443 @@
-{% include 'header.html' %}
+{% include 'header.html' with active_page='modules' %}
 {% load static %}
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Main Banner -->
-  <section class="banner_area ba_2">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 banner_con">
-          <h2 class="wow fadeInUp">Selling</h2>
-          <p class="wow fadeInUp" data-wow-delay="0.3s">Our Selling Module is a comprehensive solution designed to streamline your entire sales process. It empowers businesses to efficiently manage products, track orders, and handle customer interactions all from a single, intuitive platform. With real-time analytics, automated workflows, and secure payment integration, it enables smarter decision-making and faster transactions. Built for scalability and ease of use, this module ensures a seamless selling experience that drives growth and enhances customer satisfaction.</p>
-        </div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-        <div class="col-lg-6">
-          <div class="banner_i">
-            <img src="{% static 'images/sales.png' %}" alt="" class="images_1" style="height:500px; width:auto;" />
+  body {
+    font-family: 'Inter', sans-serif;
+    color: #111827;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  .hero-section {
+    background: linear-gradient(135deg, #F2F6FF 0%, #E8EFFF 100%);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-bg-number {
+    position: absolute;
+    font-size: 280px;
+    font-weight: 900;
+    color: #000;
+    opacity: 0.03;
+    z-index: 1;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .hero-bg-1 {
+    top: -50px;
+    right: 10%;
+    transform: rotate(-5deg);
+  }
+
+  .hero-bg-2 {
+    bottom: -80px;
+    left: 5%;
+    font-size: 200px;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-title {
+    font-size: 56px;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 24px;
+    line-height: 1.2;
+  }
+
+  .hero-description {
+    font-size: 16px;
+    color: #6B7280;
+    line-height: 1.8;
+    margin-bottom: 0;
+  }
+
+  .hero-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  .hero-visual img {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.1));
+  }
+
+  .content-area {
+    padding: 80px 0;
+    background: #fff;
+  }
+
+  .section-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #0EA5E9;
+    margin-bottom: 24px;
+  }
+
+  .section-subtitle {
+    font-size: 16px;
+    color: #6B7280;
+    line-height: 1.8;
+    margin-bottom: 40px;
+  }
+
+  .feature-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .feature-section {
+    margin-bottom: 50px;
+  }
+
+  .feature-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+
+  .feature-image {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 30px;
+  }
+
+  .sidebar-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .sidebar-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 24px;
+  }
+
+  .sidebar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar-list li {
+    margin-bottom: 16px;
+  }
+
+  .sidebar-list a {
+    display: flex;
+    align-items: center;
+    color: #374151;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .sidebar-list a:hover {
+    background: #F2F6FF;
+    color: #0EA5E9;
+    transform: translateX(5px);
+  }
+
+  .sidebar-list i {
+    margin-right: 12px;
+    font-size: 18px;
+    color: #0EA5E9;
+  }
+
+  .faq-section {
+    background: #fff;
+    padding: 80px 0;
+  }
+
+  .faq-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #0EA5E9;
+    margin-bottom: 40px;
+  }
+
+  .accordion-item {
+    background: #fff;
+    border: 1px solid #E6ECF5;
+    border-radius: 12px !important;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+
+  .accordion-button {
+    font-size: 16px;
+    font-weight: 600;
+    color: #0EA5E9;
+    padding: 20px 24px;
+    background: #F0F9FF;
+    border: none;
+    border-radius: 12px !important;
+  }
+
+  .accordion-button:not(.collapsed) {
+    background: #F0F9FF;
+    color: #0EA5E9;
+    box-shadow: none;
+  }
+
+  .accordion-button:focus {
+    box-shadow: none;
+    border: none;
+  }
+
+  .accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230EA5E9'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  }
+
+  .accordion-body {
+    padding: 20px 24px;
+    font-size: 15px;
+    color: #6B7280;
+    line-height: 1.7;
+    background: #fff;
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 36px;
+    }
+
+    .section-title {
+      font-size: 26px;
+    }
+
+    .sidebar {
+      position: static;
+      margin-top: 40px;
+    }
+
+    .hero-bg-number {
+      font-size: 180px;
+    }
+  }
+</style>
+
+<section class="hero-section">
+  <div class="hero-bg-number hero-bg-1">4x2000</div>
+  <div class="hero-bg-number hero-bg-2">x789</div>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 hero-content">
+        <h1 class="hero-title">Selling</h1>
+        <p class="hero-description">
+          Our Selling Module is a comprehensive solution designed to streamline your entire sales process. It empowers businesses to efficiently manage products, track orders, and handle customer interactions all from a single, intuitive platform. With real-time analytics, automated workflows, and secure payment integration, it enables smarter decision-making and faster transactions. Built for scalability and ease of use, this module ensures a seamless selling experience that drives growth and enhances customer satisfaction.
+        </p>
+      </div>
+      <div class="col-lg-6 hero-visual">
+        <svg viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width: 100%; height: auto;">
+          <rect width="600" height="500" fill="transparent" />
+          <rect x="180" y="140" width="280" height="200" rx="12" fill="#2563EB" />
+          <rect x="200" y="160" width="240" height="140" rx="8" fill="#fff" />
+          <text x="220" y="195" font-size="18" font-weight="700" fill="#0EA5E9">INVOICE</text>
+          <line x1="220" y1="215" x2="420" y2="215" stroke="#E5E7EB" stroke-width="2" />
+          <line x1="220" y1="235" x2="380" y2="235" stroke="#E5E7EB" stroke-width="2" />
+          <rect x="390" y="225" width="30" height="15" rx="4" fill="#0EA5E9" />
+          <circle cx="140" cy="320" r="45" fill="#FFF7ED" />
+          <rect x="120" y="310" width="40" height="30" rx="4" fill="#0EA5E9" />
+          <path d="M125 320 L135 325 L145 315" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+          <circle cx="480" cy="340" r="40" fill="#10B981" opacity="0.8" />
+          <text x="460" y="350" font-size="32" fill="#fff">$</text>
+          <rect x="250" y="370" width="120" height="60" rx="8" fill="#0EA5E9" opacity="0.7" />
+          <circle cx="280" cy="395" r="8" fill="#fff" />
+          <circle cx="300" cy="395" r="8" fill="#fff" />
+          <circle cx="320" cy="395" r="8" fill="#fff" />
+          <rect x="265" y="410" width="70" height="15" rx="4" fill="#fff" opacity="0.5" />
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <h2 class="section-title">Why Choose our Selling Module?</h2>
+        <p class="section-subtitle">
+          Our Selling Module simplifies your sales process, making transactions faster and more efficient. With intuitive design and powerful features, it helps you manage products, orders, and customers effortlessly. Real-time analytics provide insights to boost your business growth. Experience seamless, secure, and scalable selling like never before.
+        </p>
+
+        <div class="feature-card">
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 30px;">Core Selling Modules</h3>
+
+          <div class="feature-section">
+            <p class="feature-title"><strong>Quotation:-</strong> Create and share professional quotations quickly. Track revisions, convert quotations into orders, and manage customer negotiations seamlessly.</p>
+            <img src="https://placehold.co/800x400/E8EFFF/0EA5E9?text=Quotation+Module" alt="Quotation" class="feature-image" />
+          </div>
+
+          <div class="feature-section">
+            <p class="feature-title"><strong>Sales Order:-</strong> Turn approved quotations into sales orders with a single click. Monitor order status, deliveries, and payments while ensuring accuracy in every transaction.</p>
+            <img src="https://placehold.co/800x400/F2F6FF/2563EB?text=Sales+Order+Interface" alt="Sales Order" class="feature-image" />
+          </div>
+
+          <div class="feature-section">
+            <p class="feature-title"><strong>Sales Invoice:-</strong> Generate invoices instantly from sales orders or deliveries. Automate billing, manage payments, and maintain compliance with tax rules.</p>
+            <img src="https://placehold.co/800x400/FFF7ED/F97316?text=Sales+Invoice" alt="Sales Invoice" class="feature-image" />
+          </div>
+
+          <div class="feature-section">
+            <p class="feature-title"><strong>Point of Sales (POS):-</strong> Run your retail operations with an easy-to-use POS system. Process walk-in sales, manage discounts, and print receipts while syncing inventory in real time.</p>
+            <img src="https://placehold.co/800x500/E0F2FE/0EA5E9?text=POS+Checkout" alt="Point of Sales" class="feature-image" />
+          </div>
+
+          <div class="feature-section">
+            <p class="feature-title"><strong>Sales Taxes & Charges Templates:-</strong> Automate tax calculations and apply predefined charges across invoices and quotations. Ensure compliance and reduce manual errors.</p>
+            <img src="https://placehold.co/800x450/F0FDF4/10B981?text=Sales+Taxes+Templates" alt="Sales Taxes" class="feature-image" />
+          </div>
+
+          <div class="feature-section">
+            <p class="feature-title"><strong>Sales Analytics:-</strong> Gain actionable insights with real-time reports on sales trends, revenue, customer behavior, and product performance. Improve decision-making with accurate data.</p>
+            <img src="https://placehold.co/800x400/FEF3C7/F59E0B?text=Sales+Analytics+Dashboard" alt="Sales Analytics" class="feature-image" />
+          </div>
+
+          <div class="feature-section">
+            <p class="feature-title"><strong>Sales Funnel:-</strong> Visualize the customer journey from lead to conversion. Identify bottlenecks, track deal progress, and optimize your sales strategy for higher conversions.</p>
+            <img src="https://placehold.co/800x350/DBEAFE/3B82F6?text=Sales+Funnel+View" alt="Sales Funnel" class="feature-image" />
+          </div>
+
+          <div class="feature-section">
+            <p class="feature-title"><strong>Reports:-</strong> Access detailed sales reports including order history, invoices, tax reports, and revenue forecasts to keep track of business performance.</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- breadcrumb-area-end -->
-
-  <div class="tv-blog-area tv-single-service pt-130 pb-130">
-    <div class="container">
-      <div class="row">
-        <!-- Main Content Area -->
-        <div class="col-xl-8 col-lg-8 col-12">
-          <div class="tv-blog-list-wrap">
-            <div class="tv-blog-details">
-              <div class="tv-blog-details-thumb mb-40">
-                <img src="{% static 'assets/img/service/single-service.png' %}" alt="" />
-              </div>
-              <h2 class="title">Why Choose our Selling Module?</h2>
-              <div class="tv-blog-details-content">
-                <p>Our Selling Module simplifies your sales process, making transactions faster and more efficient. With intuitive design and powerful features, it helps you manage products, orders, and customers effortlessly. Real-time analytics provide insights to boost your business growth. Experience seamless, secure, and scalable selling like never before.</p>
-
-                <div class="tv-service-list-item">
-                  <ul>
-                    <p>
-                      <strong>Core Sellling Modules</strong>
-                    </p>
-                    <li>
-                      <strong>Quotation:-</strong> Create and share professional quotations quickly. Track revisions, convert quotations into orders, and manage customer negotiations seamlessly.
-                    </li>
-                    <div class="banner_i">
-                      <img src="{% static 'images/quotation.png' %}" alt="" class="images_1" style="height:400px; width:auto;" />
-                    </div><br />
-                    <li>
-                      <strong>Sales Order:-</strong> Turn approved quotations into sales orders with a single click. Monitor order status, deliveries, and payments while ensuring accuracy in every transaction.
-                    </li>
-                    <div class="banner_i">
-                      <img src="{% static 'images/salesorder.gif' %}" alt="" class="images_1" style="height:400px; width:auto;" />
-                    </div><br />
-                    <li>
-                      <strong>Sales Invoice:-</strong> Generate invoices instantly from sales orders or deliveries. Automate billing, manage payments, and maintain compliance with tax rules.
-                    </li>
-                    <div class="banner_i">
-                      <img src="{% static 'images/salesinvoice.png' %}" alt="" class="images_1" style="height:400px; width:auto;" />
-                    </div><br />
-                    <li>
-                      <strong>Point of Sales (POS):-</strong> Run your retail operations with an easy-to-use POS system. Process walk-in sales, manage discounts, and print receipts while syncing inventory in real time.
-                    </li>
-                    <div class="banner_i">
-                      <img src="{% static 'images/pos-checkout.gif' %}" alt="" class="images_1" style="height:500px; width:auto;" />
-                    </div><br />
-                    <li>
-                      <strong>Sales Taxes & Charges Templates:-</strong> Automate tax calculations and apply predefined charges across invoices and quotations. Ensure compliance and reduce manual errors.
-                    </li>
-                    <div class="banner_i">
-                      <img src="{% static 'images/salestaxes.png' %}" alt="" class="images_1" style="height:450px; width:auto;" />
-                    </div><br />
-                    <li>
-                      <strong>Sales Analytics:-</strong> Gain actionable insights with real-time reports on sales trends, revenue, customer behavior, and product performance. Improve decision-making with accurate data.
-                    </li>
-                    <div class="banner_i">
-                      <img src="{% static 'images/sales-analytics-data-window.gif' %}" alt="" class="images_1" style="height:400px; width:auto;" />
-                    </div><br />
-                    <li>
-                      <strong>Sales Funnel:-</strong> Visualize the customer journey from lead to conversion. Identify bottlenecks, track deal progress, and optimize your sales strategy for higher conversions.
-                    </li>
-                    <div class="banner_i">
-                      <img src="{% static 'images/sales-funnel.png' %}" alt="" class="images_1" style="height:350px; width:auto;" />
-                    </div><br />
-                    <li>
-                      <strong>Reports:-</strong> Access detailed sales reports including order history, invoices, tax reports, and revenue forecasts to keep track of business performance.
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="tv-blog-details-thumb-img d-flex justify-content-between">
-                  <div>
-                    <img src="{% static 'assets/img/blog/blog-details-thumb-1-2.png' %}" alt="" />
-                  </div>
-                  <div>
-                    <img src="{% static 'assets/img/blog/blog-details-thumb-1-3.png' %}" alt="" />
-                  </div>
-                </div>
-                <h3 class="faq-title">Frequently Asked Questions</h3>
-
-                <div class="tv-custom-accordion">
-                  <div class="accordion" id="accordionExample">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingOne"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Can I Manage Complex Pricing rules and Discounts?</button></h2>
-                      <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                          <p>Yes, you can set Item-wise, Customer-wise, or Region-wise pricing rules with layered Discounts and Validity periods.</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingTwo"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Does it Support Sales team Targets and Commissions?</button></h2>
-                      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                          <p>Yes, targets can be assigned, tracked, and linked to automatic commission calculations.</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingThree"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">How does it handle Quotations and Sales orders in large volumes?</button></h2>
-                      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                          <p>The system supports bulk uploads, templates, and seamless conversion from quotation → order → invoice.</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingFour"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Can I Integrate the Selling module with CRM and Inventory?</button></h2>
-                      <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                          <p>Yes, leads and opportunities flow into quotations, while stock is auto-checked at order confirmation.</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingFive"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">Does it work with multiple currencies and international sales?</button></h2>
-                      <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                          <p>Yes, it manages multi-currency quotations, taxes, shipping rules, and consolidates into base currency.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-xl-4 col-lg-4 col-12">
-          <div class="tv-sidebar-area">
-            <div class="tv-widget widget mb-40 wow-itfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
-              <ul>
-                <li class="cat-item">
-                  <strong>Core Selling Modules</strong>
-                </li>
-
-                <li class="cat-item">
-                  <a href="#"><i class="fas fa-file-signature fa-lg text-primary me-2"></i> Quotation</a>
-                </li>
-                <li class="cat-item">
-                  <a href="#"><i class="fas fa-file-contract fa-lg text-primary me-2"></i> Sales Order</a>
-                </li>
-                <li class="cat-item">
-                  <a href="#"><i class="fas fa-file-invoice-dollar fa-lg text-primary me-2"></i> Sales Invoice</a>
-                </li>
-                <li class="cat-item">
-                  <a href="#"><i class="fas fa-cash-register fa-lg text-primary me-2"></i> Point of Sales (POS)</a>
-                </li>
-                <li class="cat-item">
-                  <a href="#"><i class="fas fa-receipt fa-lg text-primary me-2"></i> Sales Taxes & Charges Templates</a>
-                </li>
-                <li class="cat-item">
-                  <a href="#"><i class="fas fa-chart-line fa-lg text-primary me-2"></i> Sales Analytics</a>
-                </li>
-                <li class="cat-item">
-                  <a href="#"><i class="fas fa-filter fa-lg text-primary me-2"></i> Sales Funnel</a>
-                </li>
-                <li class="cat-item">
-                  <a href="#"><i class="fas fa-file-lines fa-lg text-primary me-2"></i> Reports</a>
-                </li>
-              </ul>
-            </div>
+      <div class="col-lg-4">
+        <div class="sidebar">
+          <div class="sidebar-card">
+            <h3 class="sidebar-title">Core Selling Modules</h3>
+            <ul class="sidebar-list">
+              <li><a href="#"><i class="fas fa-file-signature"></i> Quotation</a></li>
+              <li><a href="#"><i class="fas fa-file-contract"></i> Sales Order</a></li>
+              <li><a href="#"><i class="fas fa-file-invoice-dollar"></i> Sales Invoice</a></li>
+              <li><a href="#"><i class="fas fa-cash-register"></i> Point of Sales (POS)</a></li>
+              <li><a href="#"><i class="fas fa-receipt"></i> Sales Taxes & Charges Templates</a></li>
+              <li><a href="#"><i class="fas fa-chart-line"></i> Sales Analytics</a></li>
+              <li><a href="#"><i class="fas fa-filter"></i> Sales Funnel</a></li>
+              <li><a href="#"><i class="fas fa-file-lines"></i> Reports</a></li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </div>
+</section>
+
+<section class="faq-section">
+  <div class="container">
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Can I Manage Complex Pricing rules and Discounts?
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes, you can set Item-wise, Customer-wise, or Region-wise pricing rules with layered Discounts and Validity periods.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Does it Support Sales team Targets and Commissions?
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes, targets can be assigned, tracked, and linked to automatic commission calculations.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            How does it handle Quotations and Sales orders in large volumes?
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            The system supports bulk uploads, templates, and seamless conversion from quotation → order → invoice.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            Can I Integrate the Selling module with CRM and Inventory?
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes, leads and opportunities flow into quotations, while stock is auto-checked at order confirmation.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFive">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+            Does it work with multiple currencies and international sales?
+          </button>
+        </h2>
+        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes, it manages multi-currency quotations, taxes, shipping rules, and consolidates into base currency.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 {% include 'footer.html' %}
+

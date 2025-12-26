@@ -1,73 +1,350 @@
-{% include 'header.html' %}
+{% include 'header.html' with active_page='contact' %}
 {% load static %}
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <!-- Banner Area with Background Image -->
-  <section class="pages_banner b_angle bagle_2" style="position: relative; padding: 100px 0; border: none; outline: none; box-shadow: none;">
-    <div class="container text-center text-black position-relative" style="z-index: 2;">
-      <h2 style="font-size: 48px; font-weight: bold; color: white;">Contact Us</h2>
-      <p style="font-size: 18px; color: white;">We're Here to Help!</p>
-    </div>
-  </section>
 
-  <section class="got_problem contact_p py-5">
-  <div class="container">
-    <div class="row gy-5">
-      <!-- Left: Contact Form -->
-      <div class="col-lg-5 p-4 border rounded shadow-sm">
-        <h2>Get in Touch</h2><br />
-        <b><p>Let’s get in Touch! Kindly Provide a few details before we begin.</p><br /></b>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-{{ message.tags }}" role="alert">
-                    {{ message }}
+    body {
+        font-family: 'Inter', sans-serif;
+        color: #1F2937;
+        background-color: #fff;
+    }
+
+    .hero-gradient {
+        background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+    }
+
+    .form-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    .theme-btn {
+        background: #F97316;
+        color: white;
+        padding: 14px 32px;
+        border-radius: 8px;
+        border: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .theme-btn:hover {
+        background: #EA580C;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+    }
+
+    .contact-card {
+        background: white;
+        border-radius: 10px;
+        padding: 24px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+    }
+
+    .contact-card:hover {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        transform: translateY(-4px);
+    }
+
+    .icon-circle {
+        width: 56px;
+        height: 56px;
+        background: #FFF1E6;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 16px;
+    }
+
+    .icon-circle i {
+        color: #F97316;
+        font-size: 24px;
+    }
+
+    .section-label {
+        color: #F97316;
+        font-weight: 600;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 12px;
+    }
+
+    input, textarea {
+        border: 1px solid #E5E7EB;
+        border-radius: 8px;
+        padding: 12px 16px;
+        width: 100%;
+        font-size: 14px;
+        transition: all 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+        outline: none;
+        border-color: #2563EB;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .illustration-container {
+        position: relative;
+    }
+
+    .fade-in {
+        animation: fadeInUp 0.6s ease-out;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<main>
+    <!-- Hero Section with Form -->
+    <section class="hero-gradient py-5" style="min-height: 600px;">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Left: Text & Illustration -->
+                <div class="col-lg-6 text-white fade-in">
+                    <h1 class="display-4 fw-bold mb-4">Welcome to NivaSync!</h1>
+                    <h2 class="h3 fw-semibold mb-4">Tell Us Your Queries,<br>We are here to assist you</h2>
+                    <p class="fs-5 mb-5" style="line-height: 1.7;">If you have any queries or want to get further information then please connect with us by filling out this form</p>
+                    
+                    <!-- Illustration SVG -->
+                    <div class="illustration-container mt-5">
+                        <svg viewBox="0 0 500 300" style="max-width: 450px;">
+                            <!-- Orange platform -->
+                            <ellipse cx="120" cy="280" rx="60" ry="8" fill="rgba(249, 115, 22, 0.3)"/>
+                            <ellipse cx="380" cy="280" rx="60" ry="8" fill="rgba(249, 115, 22, 0.3)"/>
+                            
+                            <!-- Orange envelope shape -->
+                            <path d="M 150 150 L 350 150 L 350 250 L 150 250 Z" fill="#F97316" opacity="0.9"/>
+                            <path d="M 150 150 L 250 200 L 350 150" fill="#EA580C"/>
+                            <circle cx="200" cy="130" r="15" fill="#FFF1E6"/>
+                            <circle cx="420" cy="170" r="12" fill="#FFF1E6"/>
+                            
+                            <!-- Left person - woman with laptop -->
+                            <ellipse cx="120" cy="275" rx="25" ry="5" fill="#2563EB" opacity="0.3"/>
+                            <rect x="100" y="235" width="40" height="40" rx="5" fill="#2563EB"/>
+                            <circle cx="120" cy="210" r="18" fill="#FCD6A0"/>
+                            <path d="M 105 205 Q 120 195 135 205" fill="#1F2937"/>
+                            <rect x="108" y="230" width="24" height="35" fill="white"/>
+                            
+                            <!-- Right person - man -->
+                            <ellipse cx="380" cy="275" rx="25" ry="5" fill="#2563EB" opacity="0.3"/>
+                            <rect x="365" y="240" width="30" height="35" rx="3" fill="white"/>
+                            <circle cx="380" cy="220" r="18" fill="#FCD6A0"/>
+                            <path d="M 368 215 Q 380 210 392 215" fill="#1F2937"/>
+                            <rect x="360" y="235" width="40" height="5" fill="#2563EB"/>
+                            
+                            <!-- Paper airplane -->
+                            <path d="M 420 130 L 450 145 L 425 150 Z" fill="white" opacity="0.9"/>
+                            <path d="M 380 120 L 420 130 L 410 135" stroke="white" stroke-width="2" stroke-dasharray="5,5" fill="none" opacity="0.6"/>
+                            
+                            <!-- Location pin -->
+                            <path d="M 80 180 C 80 170 90 165 90 165 C 90 165 100 170 100 180 C 100 187 95 192 90 195 C 85 192 80 187 80 180 Z" fill="#F97316"/>
+                            <circle cx="90" cy="178" r="4" fill="white"/>
+                        </svg>
+                    </div>
                 </div>
-            {% endfor %}
-        {% endif %}
-
-        <form action="" method="post" id="phpcontactform" novalidate>
-          {% csrf_token %}
-          
-          <input type="text" class="form-control mb-3" id="name" name="name" placeholder="Name *" required />
-          <input type="email" class="form-control mb-3" id="email" name="email" placeholder="Email *" required />
-          <textarea class="form-control mb-3" id="message" name="message" rows="5" placeholder="Message *" required></textarea>
-          <button class="theme_btn w-100" type="submit">Submit</button>
-          <div id="js-contact-result" class="mt-3"></div>
-        </form>
-      </div>
-
-      <!-- Right: Map + Info -->
-      <div class="col-lg-7">
-        <!-- Map -->
-        <div class="mb-4 border rounded shadow-sm" style="height: 350px; overflow: hidden;">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.1981807331087!2d72.5079276153859!3d23.033741784945534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9bdf0e77d1e9%3A0x3f87d0834c930098!2sZion%20Z1!5e0!3m2!1sen!2sin!4v1694867888888!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                
+                <!-- Right: Form Card -->
+                <div class="col-lg-6 fade-in">
+                    <div class="form-card p-4 p-lg-5">
+                        <h3 class="h4 fw-bold mb-2">Get In Touch With Us By Filling This Form</h3>
+                        
+                        <form method="post" class="mt-4">
+                            {% csrf_token %}
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold" style="font-size: 13px;">Full Name*</label>
+                                    <input type="text" name="name" placeholder="Please enter Full Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold" style="font-size: 13px;">Mobile*</label>
+                                    <input type="tel" name="mobile" placeholder="+91" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold" style="font-size: 13px;">Email*</label>
+                                    <input type="email" name="email" placeholder="Please enter Email" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold" style="font-size: 13px;">Company Name*</label>
+                                    <input type="text" name="company" placeholder="Please enter Company Name" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold" style="font-size: 13px;">Select Product You Interested On*</label>
+                                    <select class="form-select" name="product" style="border: 1px solid #E5E7EB; border-radius: 8px; padding: 12px 16px;">
+                                        <option>ERP Solutions</option>
+                                        <option>Custom Software Development</option>
+                                        <option>Cloud Services</option>
+                                        <option>IT Consulting</option>
+                                        <option>Other Services</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold" style="font-size: 13px;">Describe Us About Your Query (Optional)</label>
+                                    <textarea name="message" rows="4" placeholder="Please enter your message"></textarea>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="theme-btn w-100">Submit your Query</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- Contact Info Boxes -->
-        <div class="row g-4">
-          <div class="col-md-6 border rounded shadow-sm p-4 text-center">
-            <i class="fa-solid fa-envelope" style="font-size: 32px; color:#007bff;"></i>
-            <h4 class="mt-2">Email Address :</h4>
-            <a href="mailto:hello@nivasync.com" class="d-block">hello@nivasync.com</a>
-            <a href="mailto:hello@skydotinfotech.com" class="d-block">hello@skydotinfotech.com</a><br />
-            <i class="fa-solid fa-location-crosshairs" style="font-size: 32px; color:#007bff;"></i>
-            <h4 class="mt-2">Office Location :</h4>
-            <b>603, ZION Z1, Nr. Regenta Hotel, <br />Ramdas Road, SindhuBhavan Road,<br />Bodakdev, Ahmedabad, Gujarat - 380059<br /></b><br />
-          </div>
-
-          <div class="col-md-6 border rounded shadow-sm p-4 text-center d-flex flex-column justify-content-center">
-            <h3 style="text-align: center;">
-              <i class="fa-solid fa-phone" style="font-size: 32px; color:#007bff; display: block; margin-bottom: 8px;"></i>
-              Quick Call ?
-            </h3>
-            <a href="tel:+919714490600" class="name d-inline-block my-3"></a>
-            <p>Have Questions? Schedule a Quick Call with our ERP Experts.</p><br />
-            <a href="tel:+919714490600" class="theme_btn" style="display: block; margin: 0 auto; max-width: 150px;">Contact Us</a>
-          </div>
+    <!-- Contact Details Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5 fade-in">
+                <p class="section-label">Contact Details</p>
+                <h2 class="h2 fw-bold">You Can Also Connect With Us In Other Ways</h2>
+            </div>
+            
+            <div class="row g-4 align-items-center">
+                <!-- Left: Illustration -->
+                <div class="col-lg-5 fade-in">
+                    <div class="contact-card text-center p-5">
+                        <svg viewBox="0 0 300 280" style="max-width: 280px; margin: 0 auto;">
+                            <!-- Background circle -->
+                            <circle cx="150" cy="140" r="120" fill="#FFF1E6" opacity="0.5"/>
+                            
+                            <!-- Desk -->
+                            <rect x="70" y="200" width="160" height="8" rx="4" fill="#D1D5DB"/>
+                            
+                            <!-- Laptop -->
+                            <rect x="110" y="170" width="80" height="50" rx="4" fill="#2563EB"/>
+                            <rect x="115" y="175" width="70" height="40" rx="2" fill="#60A5FA"/>
+                            
+                            <!-- Person -->
+                            <circle cx="150" cy="120" r="28" fill="#FCD6A0"/>
+                            <path d="M 130 140 Q 150 155 170 140" fill="#2563EB"/>
+                            <circle cx="142" cy="115" r="3" fill="#1F2937"/>
+                            <circle cx="158" cy="115" r="3" fill="#1F2937"/>
+                            <path d="M 145 125 Q 150 128 155 125" stroke="#1F2937" stroke-width="2" fill="none"/>
+                            
+                            <!-- Headset -->
+                            <path d="M 125 110 Q 125 95 150 95 Q 175 95 175 110" stroke="#1F2937" stroke-width="4" fill="none"/>
+                            <circle cx="125" cy="115" r="8" fill="#1F2937"/>
+                            <circle cx="175" cy="115" r="8" fill="#1F2937"/>
+                            
+                            <!-- Communication icons -->
+                            <g transform="translate(200, 80)">
+                                <rect x="0" y="0" width="40" height="28" rx="4" fill="white" stroke="#2563EB" stroke-width="2"/>
+                                <path d="M 5 8 L 20 18 L 35 8" stroke="#2563EB" stroke-width="2" fill="none"/>
+                            </g>
+                            
+                            <g transform="translate(50, 100)">
+                                <circle cx="15" cy="15" r="15" fill="white" stroke="#F97316" stroke-width="2"/>
+                                <path d="M 10 10 L 10 20 L 20 20" stroke="#F97316" stroke-width="2" fill="none"/>
+                            </g>
+                            
+                            <g transform="translate(210, 160)">
+                                <rect x="0" y="0" width="28" height="32" rx="4" fill="#F97316"/>
+                                <circle cx="14" cy="8" r="3" fill="white"/>
+                                <rect x="8" y="14" width="12" height="2" fill="white"/>
+                                <rect x="8" y="19" width="12" height="2" fill="white"/>
+                                <rect x="8" y="24" width="8" height="2" fill="white"/>
+                            </g>
+                        </svg>
+                        
+                        <div class="mt-4">
+                            <p class="text-muted mb-3" style="line-height: 1.7;">If you have any queries regarding NivaSync service & product, then you can fill out this form</p>
+                            <p class="text-muted" style="line-height: 1.7;">To instantly and get in touch with our team personally. Our team is fully trained to provide you satisfactory answers without any delay. Connecting with us is now one step away!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right: Contact Info Cards -->
+                <div class="col-lg-7 fade-in">
+                    <div class="row g-4">
+                        <!-- Location Card -->
+                        <div class="col-12">
+                            <div class="contact-card">
+                                <div class="d-flex align-items-start">
+                                    <div class="icon-circle flex-shrink-0">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="ms-4 flex-grow-1">
+                                        <h4 class="h5 fw-bold mb-3">We Are Located At -</h4>
+                                        <p class="mb-0 text-muted">603, ZION Z1, Nr. Regenta Hotel, Ramdas Road, SindhuBhavan Road, Bodakdev, Ahmedabad, Gujarat - 380059</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Phone Card -->
+                        <div class="col-md-6">
+                            <div class="contact-card text-center h-100">
+                                <div class="icon-circle">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <h4 class="h5 fw-bold mb-3">You Can Also Call Our Representatives -</h4>
+                                <a href="tel:+919714490600" class="d-block fw-semibold mb-2" style="color: #2563EB; text-decoration: none; font-size: 18px;">+91 97144 90600</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Email Card -->
+                        <div class="col-md-6">
+                            <div class="contact-card text-center h-100">
+                                <div class="icon-circle">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <h4 class="h5 fw-bold mb-3">Mail Us & We Will Get In Touch With You</h4>
+                                <a href="mailto:hello@nivasync.com" class="d-block mb-2" style="color: #2563EB; text-decoration: none;">hello@nivasync.com</a>
+                                <a href="mailto:hello@skydotinfotech.com" class="d-block" style="color: #2563EB; text-decoration: none;">hello@skydotinfotech.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Map Section -->
+            <div class="mt-5 fade-in">
+                <div class="rounded-3 overflow-hidden shadow" style="height: 400px;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.1981807331087!2d72.5079276153859!3d23.033741784945534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9bdf0e77d1e9%3A0x3f87d0834c930098!2sZion%20Z1!5e0!3m2!1sen!2sin!4v1694867888888!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
 {% include 'footer.html' %}
+</main>
+
+<script>
+    // Fade in animation on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        observer.observe(el);
+    });
+</script>
