@@ -46,43 +46,43 @@
   }
   .core-module-list {
     flex: 0 0 320px;
+  }
+  .module-sidebar-card {
     background: #fff;
-    border-radius: 16px;
-    padding: 32px 28px;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+    border-radius: 32px;
+    padding: 28px;
+    box-shadow: 0 22px 50px rgba(22, 33, 107, 0.12);
     border: 1px solid #E6ECF5;
   }
-  .core-module-list h4 {
-    font-size: 1.125rem;
+  .module-sidebar-title {
+    font-size: 1.1rem;
     font-weight: 700;
-    margin-bottom: 1.5rem;
     color: #16216B;
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e4e9f4;
   }
-  .core-module-list ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  .module-sidebar-list {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 16px;
   }
-  .core-module-item {
-    display: flex;
-    align-items: center;
-    gap: 0.85rem;
-    font-weight: 500;
+  .module-sidebar-pill {
+    display: block;
+    padding: 16px 20px;
+    border-radius: 20px;
+    border: 1.5px solid #dfe6f5;
+    text-decoration: none;
     color: #16216B;
+    font-weight: 600;
+    background: #fff;
+    transition: all 0.3s ease;
   }
-  .core-module-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    background: #F2F6FF;
-    color: #1D4ED8;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.95rem;
+  .module-sidebar-pill:hover {
+    border-color: #FF7A21;
+    background: #fff5ed;
+    box-shadow: 0 14px 34px rgba(255, 122, 33, 0.18);
+    transform: translateY(-2px);
   }
   .btn-primary {
     background: #FF7A21;
@@ -238,56 +238,31 @@
           <p class="text-gray-600 leading-relaxed mb-10">
             Track every stage of an employee's journey—from joining to exit. Maintain digital records of personal details, job history, documents, appraisals, and resignation formalities. Ensure smooth onboarding and structured offboarding with automated workflows.
           </p>
-          <div class="bg-white rounded-2xl shadow-card overflow-hidden">
+          <div class="bg-white rounded-2xl shadow-card overflow-hidden" id="hrms-employee-lifecycle">
             <img src="{% static 'assets/img/service/single-service.png' %}" alt="HRMS Analytics" class="w-full">
           </div>
         </div>
-        <aside class="core-module-list">
-          <h4>Core HRMS Modules</h4>
-          <ul>
-            <li class="core-module-item">
-              <span class="core-module-icon"><i class="fas fa-user-cog"></i></span>
-              Employee Lifecycle Management
-            </li>
-            <li class="core-module-item">
-              <span class="core-module-icon"><i class="fas fa-user-plus"></i></span>
-              Recruitment
-            </li>
-            <li class="core-module-item">
-              <span class="core-module-icon"><i class="fas fa-calendar-check"></i></span>
-              Shift & Attendance
-            </li>
-            <li class="core-module-item">
-              <span class="core-module-icon"><i class="fas fa-receipt"></i></span>
-              Expense Claims
-            </li>
-            <li class="core-module-item">
-              <span class="core-module-icon"><i class="fas fa-plane-departure"></i></span>
-              Leave Management
-            </li>
-            <li class="core-module-item">
-              <span class="core-module-icon"><i class="fas fa-money-bill-wave"></i></span>
-              Payroll & Salary Payout
-            </li>
-            <li class="core-module-item">
-              <span class="core-module-icon"><i class="fas fa-chart-line"></i></span>
-              Performance Management
-            </li>
-            <li class="core-module-item">
-              <span class="core-module-icon"><i class="fas fa-file-invoice-dollar"></i></span>
-              Tax & Benefits
-            </li>
-            <li class="core-module-item">
-              <span class="core-module-icon"><i class="fas fa-chart-bar"></i></span>
-              Reports & Analytics
-            </li>
-          </ul>
-        </aside>
+        <div class="core-module-list fade-up">
+          <div class="module-sidebar-card">
+            <h4 class="module-sidebar-title">Core HRMS Modules</h4>
+            <div class="module-sidebar-list">
+              <a href="#hrms-employee-lifecycle" class="module-sidebar-pill module-link">Employee Lifecycle Management</a>
+              <a href="#hrms-recruitment" class="module-sidebar-pill module-link">Recruitment</a>
+              <a href="#hrms-shift" class="module-sidebar-pill module-link">Shift & Attendance</a>
+              <a href="#hrms-expense" class="module-sidebar-pill module-link">Expense Claims</a>
+              <a href="#hrms-leave" class="module-sidebar-pill module-link">Leave Management</a>
+              <a href="#hrms-payroll" class="module-sidebar-pill module-link">Payroll & Salary Payout</a>
+              <a href="#hrms-performance" class="module-sidebar-pill module-link">Performance Management</a>
+              <a href="#hrms-tax" class="module-sidebar-pill module-link">Tax & Benefits</a>
+              <a href="#hrms-reports" class="module-sidebar-pill module-link">Reports & Analytics</a>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- DETAILED MODULES -->
       <div class="max-w-6xl mx-auto space-y-16 mt-16">
-        <div class="feature-card shadow-card">
+        <div class="feature-card shadow-card" id="">
           <div class="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h3 class="text-2xl font-bold text-navy mb-4"><i class="fas fa-user-cog text-orange mr-3"></i>Employee Lifecycle Management</h3>
@@ -299,21 +274,21 @@
           </div>
         </div>
 
-        <div class="feature-card shadow-card bg-gray-50">
+        <div class="feature-card shadow-card bg-gray-50" id="hrms-shift">
           <div class="grid md:grid-cols-2 gap-8 items-center">
             <div class="order-2 md:order-1 bg-white rounded-xl p-4">
               <div class="h-64 bg-gradient-to-br from-blue-100 to-orange-100 rounded-lg flex items-center justify-center">
                 <i class="fas fa-user-plus text-6xl text-orange"></i>
               </div>
             </div>
-            <div class="order-1 md:order-2">
+            <div class="order-1 md:order-2" id="hrms-recruitment">
               <h3 class="text-2xl font-bold text-navy mb-4"><i class="fas fa-user-plus text-orange mr-3"></i>Recruitment</h3>
               <p class="text-gray-600 leading-relaxed">Automate the hiring process. Publish job openings, shortlist candidates, schedule interviews, and roll out offers from within the system. Streamlined recruitment ensures you hire the right talent, faster.</p>
             </div>
           </div>
         </div>
 
-        <div class="feature-card shadow-card">
+        <div class="feature-card shadow-card" id="hrms-shift">
           <div class="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h3 class="text-2xl font-bold text-navy mb-4"><i class="fas fa-calendar-check text-orange mr-3"></i>Shift & Attendance</h3>
@@ -330,7 +305,7 @@
             <div class="order-2 md:order-1 bg-white rounded-xl p-4">
               <img src="{% static 'images/expense_claim.png' %}" alt="Expense Claim" class="w-full rounded-lg" />
             </div>
-            <div class="order-1 md:order-2">
+            <div class="order-1 md:order-2" id="hrms-expense">
               <h3 class="text-2xl font-bold text-navy mb-4"><i class="fas fa-receipt text-orange mr-3"></i>Expense Claims</h3>
               <p class="text-gray-600 leading-relaxed">Simplify employee reimbursements. Employees can submit travel, food, or project-related claims with receipts. Managers approve digitally, ensuring faster settlements with complete audit trails.</p>
             </div>
@@ -339,7 +314,7 @@
 
         <div class="feature-card shadow-card">
           <div class="grid md:grid-cols-2 gap-8 items-center">
-            <div>
+            <div id="hrms-leave">
               <h3 class="text-2xl font-bold text-navy mb-4"><i class="fas fa-plane-departure text-orange mr-3"></i>Leave Management</h3>
               <p class="text-gray-600 leading-relaxed">Give employees the flexibility to request leave through a self-service portal. HR and managers can approve, reject, or track leave balances instantly. Configure multiple leave types with carry-forward, encashment, or custom policies.</p>
             </div>
@@ -354,7 +329,7 @@
             <div class="order-2 md:order-1 bg-white rounded-xl p-4">
               <img src="{% static 'images/salarypayout.png' %}" alt="Salary Payout" class="w-full rounded-lg" />
             </div>
-            <div class="order-1 md:order-2">
+            <div class="order-1 md:order-2" id="hrms-payroll">
               <h3 class="text-2xl font-bold text-navy mb-4"><i class="fas fa-money-bill-wave text-orange mr-3"></i>Payroll & Salary Payout</h3>
               <p class="text-gray-600 leading-relaxed">Automate payroll generation with accuracy. Define salary structures, tax slabs, and deductions. Process salary slips, manage incentives, retention bonuses, and generate statutory reports—without errors or delays.</p>
             </div>
@@ -366,7 +341,7 @@
             <div class="module-icon flex-shrink-0">
               <i class="fas fa-chart-line"></i>
             </div>
-            <div>
+            <div id="hrms-performance"> 
               <h3 class="text-2xl font-bold text-navy mb-3">Performance Management</h3>
               <p class="text-gray-600 leading-relaxed">Set performance goals, assign KPIs, and run appraisal cycles. Capture 360° feedback and performance reviews to recognize top performers and plan growth paths.</p>
             </div>
@@ -378,7 +353,7 @@
             <div class="module-icon flex-shrink-0">
               <i class="fas fa-file-invoice-dollar"></i>
             </div>
-            <div>
+            <div id="hrms-tax">
               <h3 class="text-2xl font-bold text-navy mb-3">Tax & Benefits</h3>
               <p class="text-gray-600 leading-relaxed">Handle statutory compliance with ease. Manage income tax slabs, deductions, PF, ESI, and other employee benefits with automated calculations and reporting.</p>
             </div>
@@ -390,7 +365,7 @@
             <div class="module-icon flex-shrink-0">
               <i class="fas fa-chart-bar"></i>
             </div>
-            <div>
+            <div id="hrms-reports">
               <h3 class="text-2xl font-bold text-navy mb-3">Reports & Analytics</h3>
               <p class="text-gray-600 leading-relaxed">Access real-time dashboards for workforce insights. From salary registers to leave balances and performance trends, make data-driven HR decisions.</p>
             </div>
@@ -469,13 +444,23 @@
           <h3 class="text-3xl font-bold mb-2">Ready to Transform Your HR Operations?</h3>
           <p class="text-lg opacity-90">Get started with our HRMS today and experience the difference.</p>
         </div>
-        <a href="{% url 'contact' %}" class="bg-white text-orange font-bold px-8 py-4 rounded-lg hover:bg-gray-100 transition-all whitespace-nowrap">Schedule a Demo</a>
+        <a href="{% url 'schedule_demo' %}" class="bg-white text-orange font-bold px-8 py-4 rounded-lg hover:bg-gray-100 transition-all whitespace-nowrap">Schedule a Demo</a>
       </div>
     </div>
   </section>
 </main>
 
 <script>
+  document.querySelectorAll('.module-link').forEach(link => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
   function toggleAccordion(button) {
     const content = button.nextElementSibling;
     const icon = button.querySelector('i');

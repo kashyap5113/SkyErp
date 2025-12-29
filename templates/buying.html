@@ -146,12 +146,66 @@
         box-shadow: 0 15px 30px rgba(15, 41, 66, 0.15);
     }
 
+    .cta-btn-dark-hover {
+        background: #ffffff;
+        color: #FF7A21;
+        border: 2px solid transparent;
+    }
+
+    .cta-btn-dark-hover:hover {
+        background: #ffffff;
+        color: #0f2942;
+        border-color: rgba(15, 41, 66, 0.2);
+        box-shadow: 0 20px 35px rgba(255, 255, 255, 0.35);
+    }
+
     .blob-bg {
         background: linear-gradient(135deg, #FDF8F3 0%, #F2F6FF 100%);
     }
 
     .section-bg {
         background: #F2F6FF;
+    }
+
+    .module-sidebar-card {
+        background: #ffffff;
+        border-radius: 32px;
+        padding: 28px;
+        box-shadow: 0 24px 60px rgba(15, 41, 66, 0.12);
+    }
+
+    .module-sidebar-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #0f2942;
+        margin-bottom: 20px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #e4e9f4;
+    }
+
+    .module-sidebar-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .module-sidebar-pill {
+        display: block;
+        padding: 16px 22px;
+        border-radius: 20px;
+        border: 1.5px solid #e0e5f4;
+        text-decoration: none;
+        color: #1f2a44;
+        font-weight: 600;
+        background: #fff;
+        transition: all 0.3s ease;
+    }
+
+    .module-sidebar-pill:hover {
+        border-color: #ff7a21;
+        background: #fff5ee;
+        box-shadow: 0 16px 36px rgba(255, 122, 33, 0.2);
+        transform: translateY(-2px);
     }
 
     @media (max-width: 1024px) {
@@ -223,33 +277,17 @@
                     </div>
                 </div>
                 <div class="animate-fadeUp delay-100">
-                    <h3 class="text-xl font-bold text-[#0f2942] mb-6">Core Buying Modules</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-center gap-3">
-                            <div class="icon-circle feature-icon"><i class="fas fa-box-open"></i></div>
-                            <a href="#material-request" class="text-base font-medium text-[#2563EB] hover:text-[#FF7A21] transition">Material Request</a>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <div class="icon-circle feature-icon"><i class="fas fa-truck-loading"></i></div>
-                            <a href="#purchase-order" class="text-base font-medium text-[#2563EB] hover:text-[#FF7A21] transition">Purchase Order</a>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <div class="icon-circle feature-icon"><i class="fas fa-file-invoice"></i></div>
-                            <a href="#purchase-invoice" class="text-base font-medium text-[#2563EB] hover:text-[#FF7A21] transition">Purchase Invoice</a>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <div class="icon-circle feature-icon"><i class="fas fa-chart-bar"></i></div>
-                            <a href="#purchase-analysis" class="text-base font-medium text-[#2563EB] hover:text-[#FF7A21] transition">Purchase Order Analysis</a>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <div class="icon-circle feature-icon"><i class="fas fa-money-check-alt"></i></div>
-                            <a href="#payment-entry" class="text-base font-medium text-[#2563EB] hover:text-[#FF7A21] transition">Payment Entry</a>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <div class="icon-circle feature-icon"><i class="fas fa-file-lines"></i></div>
-                            <a href="#reports" class="text-base font-medium text-[#2563EB] hover:text-[#FF7A21] transition">Reports</a>
-                        </li>
-                    </ul>
+                    <div class="module-sidebar-card">
+                        <h3 class="module-sidebar-title">Core Buying Modules</h3>
+                        <div class="module-sidebar-list">
+                            <a href="#material-request" class="module-sidebar-pill module-link">Material Request</a>
+                            <a href="#purchase-order" class="module-sidebar-pill module-link">Purchase Order</a>
+                            <a href="#purchase-invoice" class="module-sidebar-pill module-link">Purchase Invoice</a>
+                            <a href="#purchase-analysis" class="module-sidebar-pill module-link">Purchase Order Analysis</a>
+                            <a href="#payment-entry" class="module-sidebar-pill module-link">Payment Entry</a>
+                            <a href="#reports" class="module-sidebar-pill module-link">Reports</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -424,7 +462,7 @@
                     <p class="text-lg text-white/90">Transform your procurement process today.</p>
                 </div>
                 <div class="flex flex-wrap gap-4">
-                    <a href="{% url 'schedule_demo' %}" class="cta-btn bg-white text-[#FF7A21] px-8 py-3 rounded-xl font-semibold hover:bg-[#16216B] hover:text-white">
+                    <a href="{% url 'schedule_demo' %}" class="cta-btn cta-btn-dark-hover bg-white text-[#FF7A21] px-8 py-3 rounded-xl font-semibold">
                         Request a demo
                     </a>
                     <a href="https://demo.itfarmer.in/#login" target="_blank" class="cta-btn border-2 border-white text-white px-8 py-3 rounded-xl font-semibold hover:bg-white hover:text-[#0f2942]">

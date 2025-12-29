@@ -171,32 +171,45 @@
     }
   }
 
-  .sidebar-item {
-    padding: 1rem;
-    border-radius: 12px;
-    background: white;
-    margin-bottom: 0.75rem;
-    transition: all 0.3s ease;
-    border: 1px solid #E6ECF5;
+  .module-sidebar-card {
+    background: #ffffff;
+    border-radius: 32px;
+    padding: 28px;
+    box-shadow: 0 24px 60px rgba(15, 41, 66, 0.12);
+  }
+
+  .module-sidebar-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e4eaf5;
+  }
+
+  .module-sidebar-list {
     display: flex;
-    align-items: center;
-    gap: 0.75rem;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .module-sidebar-pill {
+    display: block;
+    padding: 16px 20px;
+    border-radius: 20px;
+    border: 1.5px solid #e1e8f6;
+    background: #fff;
     text-decoration: none;
-  }
-
-  .sidebar-item:hover {
-    background: #FFF5EF;
-    border-color: #FF7A21;
-    transform: translateX(5px);
-  }
-
-  .sidebar-item i {
-    color: #FF7A21;
+    color: #1f2a44;
+    font-weight: 600;
     transition: all 0.3s ease;
   }
 
-  .sidebar-item:hover i {
-    transform: scale(1.2);
+  .module-sidebar-pill:hover {
+    border-color: #ff7a21;
+    background: #fff5ee;
+    box-shadow: 0 16px 36px rgba(255, 122, 33, 0.18);
+    transform: translateY(-2px);
   }
 </style>
 
@@ -233,7 +246,7 @@
         <div class="space-y-8">
           <h3 class="text-3xl font-bold text-gray-900">Core Stock Modules</h3>
 
-          <div class="feature-card card-hover feature-item">
+          <div class="feature-card card-hover feature-item" id="stock-item-catalogue">
             <div class="flex items-start space-x-4 mb-6">
               <div class="icon-wrapper">
                 <i class="fas fa-box-open"></i>
@@ -248,7 +261,7 @@
             </div>
           </div>
 
-          <div class="feature-card card-hover feature-item" style="background: #FAFBFF;">
+          <div class="feature-card card-hover feature-item" id="stock-material-request" style="background: #FAFBFF;">
             <div class="flex items-start space-x-4 mb-6">
               <div class="icon-wrapper">
                 <i class="fas fa-clipboard-list"></i>
@@ -263,7 +276,7 @@
             </div>
           </div>
 
-          <div class="feature-card card-hover feature-item">
+          <div class="feature-card card-hover feature-item" id="stock-entry">
             <div class="flex items-start space-x-4 mb-6">
               <div class="icon-wrapper">
                 <i class="fas fa-dolly-flatbed"></i>
@@ -278,7 +291,7 @@
             </div>
           </div>
 
-          <div class="feature-card card-hover feature-item" style="background: #FAFBFF;">
+          <div class="feature-card card-hover feature-item" style="background: #FAFBFF;" id="stock-receipt">
             <div class="flex items-start space-x-4 mb-6">
               <div class="icon-wrapper">
                 <i class="fas fa-file-invoice"></i>
@@ -293,7 +306,7 @@
             </div>
           </div>
 
-          <div class="feature-card card-hover feature-item">
+          <div class="feature-card card-hover feature-item" id="stock-delivery">
             <div class="flex items-start space-x-4 mb-6">
               <div class="icon-wrapper">
                 <i class="fas fa-truck-loading"></i>
@@ -308,7 +321,7 @@
             </div>
           </div>
 
-          <div class="feature-card card-hover feature-item" style="background: #FAFBFF;">
+          <div class="feature-card card-hover feature-item" style="background: #FAFBFF;" id="stock-ledger">
             <div class="flex items-start space-x-4 mb-6">
               <div class="icon-wrapper">
                 <i class="fas fa-book"></i>
@@ -323,7 +336,7 @@
             </div>
           </div>
 
-          <div class="feature-card card-hover feature-item">
+          <div class="feature-card card-hover feature-item" id="stock-balance">
             <div class="flex items-start space-x-4 mb-6">
               <div class="icon-wrapper">
                 <i class="fas fa-balance-scale"></i>
@@ -397,39 +410,16 @@
 
       <!-- Sidebar -->
       <div class="lg:col-span-4">
-        <div class="sticky top-24">
-          <div class="bg-white rounded-2xl p-6 shadow-lg">
-            <h4 class="text-xl font-bold text-gray-900 mb-6">Core Stock Modules</h4>
-            <div class="space-y-2">
-              <a href="#" class="sidebar-item">
-                <i class="fas fa-box-open text-xl"></i>
-                <span class="text-gray-700 font-medium">Item Catalogue</span>
-              </a>
-              <a href="#" class="sidebar-item">
-                <i class="fas fa-clipboard-list text-xl"></i>
-                <span class="text-gray-700 font-medium">Material Request</span>
-              </a>
-              <a href="#" class="sidebar-item">
-                <i class="fas fa-dolly-flatbed text-xl"></i>
-                <span class="text-gray-700 font-medium">Stock Entry</span>
-              </a>
-              <a href="#" class="sidebar-item">
-                <i class="fas fa-file-invoice text-xl"></i>
-                <span class="text-gray-700 font-medium">Purchase Receipt</span>
-              </a>
-              <a href="#" class="sidebar-item">
-                <i class="fas fa-truck-loading text-xl"></i>
-                <span class="text-gray-700 font-medium">Delivery Note</span>
-              </a>
-              <a href="#" class="sidebar-item">
-                <i class="fas fa-book text-xl"></i>
-                <span class="text-gray-700 font-medium">Stock Ledger</span>
-              </a>
-              <a href="#" class="sidebar-item">
-                <i class="fas fa-balance-scale text-xl"></i>
-                <span class="text-gray-700 font-medium">Stock Balance</span>
-              </a>
-            </div>
+        <div class="module-sidebar-card sticky top-24">
+          <h4 class="module-sidebar-title">Core Stock Modules</h4>
+          <div class="module-sidebar-list">
+            <a href="#stock-item-catalogue" class="module-sidebar-pill module-link">Item Catalogue</a>
+            <a href="#stock-material-request" class="module-sidebar-pill module-link">Material Request</a>
+            <a href="#stock-entry" class="module-sidebar-pill module-link">Stock Entry</a>
+            <a href="#stock-receipt" class="module-sidebar-pill module-link">Purchase Receipt</a>
+            <a href="#stock-delivery" class="module-sidebar-pill module-link">Delivery Note</a>
+            <a href="#stock-ledger" class="module-sidebar-pill module-link">Stock Ledger</a>
+            <a href="#stock-balance" class="module-sidebar-pill module-link">Stock Balance</a>
           </div>
         </div>
       </div>
@@ -454,6 +444,16 @@
 
 {% include 'footer.html' %}
 <script>
+  document.querySelectorAll('.module-link').forEach(link => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
   function toggleAccordion(button) {
     const content = button.nextElementSibling;
     const isActive = content.classList.contains('active');

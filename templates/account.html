@@ -70,6 +70,19 @@
         transform: translateY(-4px);
         box-shadow: 0 15px 30px rgba(15, 41, 66, 0.15);
     }
+
+    .cta-btn-dark-hover {
+        background: #ffffff;
+        color: #FF7A21;
+        border: none;
+    }
+
+    .cta-btn-dark-hover:hover {
+        background: #ffffff;
+        color: #0f2942;
+        box-shadow: 0 20px 35px rgba(255, 255, 255, 0.35);
+        border: 2px solid rgba(15, 41, 66, 0.2);
+    }
 </style>
 
 <main class="accounting-page bg-[#F2F6FF]">
@@ -429,7 +442,7 @@
                     <p class="text-lg text-white/90">Request a guided walkthrough or launch your 7-day free trial.</p>
                 </div>
                 <div class="flex flex-wrap gap-4">
-                    <a href="{% url 'schedule_demo' %}" class="cta-btn bg-white text-[#FF7A21] px-8 py-3 rounded-xl font-semibold hover:bg-[#16216B] hover:text-white">
+                    <a href="{% url 'schedule_demo' %}" class="cta-btn cta-btn-dark-hover bg-white text-[#FF7A21] px-8 py-3 rounded-xl font-semibold">
                         Schedule a demo
                     </a>
                     <a href="https://demo.itfarmer.in/#login" target="_blank" class="cta-btn border-2 border-white text-white px-8 py-3 rounded-xl font-semibold hover:bg-white/10">

@@ -171,32 +171,45 @@
     }
   }
 
-  .sidebar-item {
-    padding: 1rem;
-    border-radius: 12px;
-    background: white;
-    margin-bottom: 0.75rem;
-    transition: all 0.3s ease;
-    border: 1px solid #E6ECF5;
+  .module-sidebar-card {
+    background: #ffffff;
+    border-radius: 32px;
+    padding: 28px;
+    box-shadow: 0 24px 60px rgba(15, 41, 66, 0.12);
+  }
+
+  .module-sidebar-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e4e9f4;
+  }
+
+  .module-sidebar-list {
     display: flex;
-    align-items: center;
-    gap: 0.75rem;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .module-sidebar-pill {
+    display: block;
+    padding: 16px 20px;
+    border-radius: 20px;
+    border: 1.5px solid #e1e8f6;
+    background: #fff;
     text-decoration: none;
-  }
-
-  .sidebar-item:hover {
-    background: #FFF5EF;
-    border-color: #FF7A21;
-    transform: translateX(5px);
-  }
-
-  .sidebar-item i {
-    color: #FF7A21;
+    color: #1f2a44;
+    font-weight: 600;
     transition: all 0.3s ease;
   }
 
-  .sidebar-item:hover i {
-    transform: scale(1.2);
+  .module-sidebar-pill:hover {
+    border-color: #ff7a21;
+    background: #fff5ef;
+    box-shadow: 0 14px 34px rgba(255, 122, 33, 0.18);
+    transform: translateY(-2px);
   }
 </style>
 
@@ -233,7 +246,7 @@
         <div class="space-y-8">
           <h3 class="text-3xl font-bold text-gray-900">Core Project Modules</h3>
 
-          <div class="feature-card card-hover feature-item">
+          <div class="feature-card card-hover feature-item" id="projects-types">
             <div class="flex items-start space-x-4 mb-4">
               <div class="icon-wrapper">
                 <i class="fas fa-th-list"></i>
@@ -245,7 +258,7 @@
             </div>
           </div>
 
-          <div class="feature-card card-hover feature-item" style="background: #FAFBFF;">
+          <div class="feature-card card-hover feature-item" id="projects-tasks" style="background: #FAFBFF;">
             <div class="flex items-start space-x-4 mb-6">
               <div class="icon-wrapper">
                 <i class="fas fa-tasks"></i>
@@ -260,7 +273,7 @@
             </div>
           </div>
 
-          <div class="feature-card card-hover feature-item">
+          <div class="feature-card card-hover feature-item" id="projects-timesheets">
             <div class="flex items-start space-x-4 mb-6">
               <div class="icon-wrapper">
                 <i class="fas fa-clock"></i>
@@ -275,7 +288,7 @@
             </div>
           </div>
 
-          <div class="feature-card card-hover feature-item" style="background: #FAFBFF;">
+          <div class="feature-card card-hover feature-item" style="background: #FAFBFF;" id="projects-summary">
             <div class="flex items-start space-x-4 mb-6">
               <div class="icon-wrapper">
                 <i class="fas fa-file-invoice-dollar"></i>
@@ -290,7 +303,7 @@
             </div>
           </div>
 
-          <div class="feature-card card-hover feature-item">
+          <div class="feature-card card-hover feature-item" id="projects-activity">
             <div class="flex items-start space-x-4 mb-6">
               <div class="icon-wrapper">
                 <i class="fas fa-info-circle"></i>
@@ -364,35 +377,14 @@
 
       <!-- Sidebar -->
       <div class="lg:col-span-4">
-        <div class="sticky top-24">
-          <div class="bg-white rounded-2xl p-6 shadow-lg">
-            <h4 class="text-xl font-bold text-gray-900 mb-6">Core Project Modules</h4>
-            <div class="space-y-2">
-              <a href="#" class="sidebar-item">
-                <i class="fas fa-th-list text-xl"></i>
-                <span class="text-gray-700 font-medium">Project Types</span>
-              </a>
-              <a href="#" class="sidebar-item">
-                <i class="fas fa-tasks text-xl"></i>
-                <span class="text-gray-700 font-medium">Tasks</span>
-              </a>
-              <a href="#" class="sidebar-item">
-                <i class="fas fa-clock text-xl"></i>
-                <span class="text-gray-700 font-medium">Timesheet</span>
-              </a>
-              <a href="#" class="sidebar-item">
-                <i class="fas fa-file-invoice-dollar text-xl"></i>
-                <span class="text-gray-700 font-medium">Project Billing Summary</span>
-              </a>
-              <a href="#" class="sidebar-item">
-                <i class="fas fa-info-circle text-xl"></i>
-                <span class="text-gray-700 font-medium">Activity Types</span>
-              </a>
-              <a href="#" class="sidebar-item">
-                <i class="fas fa-user text-xl"></i>
-                <span class="text-gray-700 font-medium">Project Views</span>
-              </a>
-            </div>
+        <div class="module-sidebar-card sticky top-24">
+          <h4 class="module-sidebar-title">Core Project Modules</h4>
+          <div class="module-sidebar-list">
+            <a href="#projects-types" class="module-sidebar-pill module-link">Project Types</a>
+            <a href="#projects-tasks" class="module-sidebar-pill module-link">Tasks</a>
+            <a href="#projects-timesheets" class="module-sidebar-pill module-link">Timesheet</a>
+            <a href="#projects-summary" class="module-sidebar-pill module-link">Project Billing Summary</a>
+            <a href="#projects-activity" class="module-sidebar-pill module-link">Activity Types</a>
           </div>
         </div>
       </div>

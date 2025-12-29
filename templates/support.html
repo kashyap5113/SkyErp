@@ -274,52 +274,45 @@
     line-height: 1.8;
   }
 
-  .support-sidebar-card {
+  .module-sidebar-card {
     background: #ffffff;
-    border-radius: 24px;
-    box-shadow: 0 16px 36px rgba(12, 23, 62, 0.12);
-    padding: 32px;
+    border-radius: 32px;
+    box-shadow: 0 24px 60px rgba(12, 23, 62, 0.12);
+    padding: 28px;
   }
 
-  .support-sidebar-card h4 {
-    font-size: 1.25rem;
+  .module-sidebar-title {
+    font-size: 1.1rem;
     font-weight: 700;
     color: #0b1a3a;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     padding-bottom: 16px;
     border-bottom: 1px solid #e5e7f0;
   }
 
-  .support-sidebar-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  .module-sidebar-list {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 16px;
   }
 
-  .support-sidebar-link {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 16px;
-    border-radius: 16px;
+  .module-sidebar-pill {
+    display: block;
+    padding: 16px 20px;
+    border-radius: 20px;
+    border: 1.5px solid #e1e6f4;
     text-decoration: none;
-    color: #4b5670;
+    color: #1f2a44;
     font-weight: 600;
-    transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    transition: all 0.3s ease;
+    background: #fff;
   }
 
-  .support-sidebar-link:hover {
-    background: rgba(255, 122, 33, 0.12);
-    color: #FF7A21;
-    transform: translateX(4px);
-  }
-
-  .support-sidebar-link i {
-    color: #FF7A21;
-    font-size: 1.1rem;
+  .module-sidebar-pill:hover {
+    border-color: #ff8936;
+    background: #fff5ee;
+    box-shadow: 0 14px 34px rgba(255, 122, 33, 0.2);
+    transform: translateY(-2px);
   }
 
   .support-page .section-animate {
@@ -412,7 +405,7 @@
           </div>
 
           <!-- Feature 1: Issue -->
-          <div class="support-card section-animate delay-300">
+          <div class="support-card section-animate delay-300" id="support-issue">
             <div class="support-card-head">
               <div class="support-icon">
                 <i class="fas fa-ticket-alt"></i>
@@ -428,7 +421,7 @@
           </div>
 
           <!-- Feature 2: Maintenance -->
-          <div class="support-card support-card--soft section-animate">
+          <div class="support-card support-card--soft section-animate" id="support-maintenance">
             <div class="support-card-head">
               <div class="support-icon">
                 <i class="fas fa-tools"></i>
@@ -441,7 +434,7 @@
           </div>
 
           <!-- Feature 3: SLA -->
-          <div class="support-card section-animate">
+          <div class="support-card section-animate" id="support-sla">
             <div class="support-card-head">
               <div class="support-icon">
                 <i class="fas fa-stopwatch"></i>
@@ -457,7 +450,7 @@
           </div>
 
           <!-- Feature 4: Warranty -->
-          <div class="support-card section-animate">
+          <div class="support-card section-animate" id="support-warranty">
             <div class="support-card-head">
               <div class="support-icon">
                 <i class="fas fa-shield-alt"></i>
@@ -473,7 +466,7 @@
           </div>
 
           <!-- Feature 5: Support Settings -->
-          <div class="support-card section-animate">
+          <div class="support-card section-animate" id="support-settings">
             <div class="support-card-head">
               <div class="support-icon">
                 <i class="fas fa-cogs"></i>
@@ -489,7 +482,7 @@
           </div>
 
           <!-- Feature 6: Reports -->
-          <div class="support-card section-animate">
+          <div class="support-card section-animate" id="support-reports">
             <div class="support-card-head">
               <div class="support-icon">
                 <i class="fas fa-chart-pie"></i>
@@ -580,46 +573,16 @@
 
         <!-- Right Sidebar -->
         <div class="support-sidebar">
-          <div class="support-sidebar-card section-animate delay-100">
-            <h4>Core Support Modules</h4>
-            <ul class="support-sidebar-list">
-              <li>
-                <a href="#" class="support-sidebar-link">
-                  <i class="fas fa-ticket-alt"></i>
-                  <span>Issue</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="support-sidebar-link">
-                  <i class="fas fa-tools"></i>
-                  <span>Maintenance</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="support-sidebar-link">
-                  <i class="fas fa-stopwatch"></i>
-                  <span>Service Level Agreement (SLA)</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="support-sidebar-link">
-                  <i class="fas fa-shield-alt"></i>
-                  <span>Warranty</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="support-sidebar-link">
-                  <i class="fas fa-cogs"></i>
-                  <span>Support Settings</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="support-sidebar-link">
-                  <i class="fas fa-chart-pie"></i>
-                  <span>Reports</span>
-                </a>
-              </li>
-            </ul>
+          <div class="module-sidebar-card section-animate delay-100">
+            <h4 class="module-sidebar-title">Core Support Modules</h4>
+            <div class="module-sidebar-list">
+              <a href="#support-issue" class="module-sidebar-pill module-link">Issue</a>
+              <a href="#support-maintenance" class="module-sidebar-pill module-link">Maintenance</a>
+              <a href="#support-sla" class="module-sidebar-pill module-link">Service Level Agreement (SLA)</a>
+              <a href="#support-warranty" class="module-sidebar-pill module-link">Warranty</a>
+              <a href="#support-settings" class="module-sidebar-pill module-link">Support Settings</a>
+              <a href="#support-reports" class="module-sidebar-pill module-link">Reports</a>
+            </div>
           </div>
         </div>
 
@@ -629,20 +592,31 @@
 </div>
 
 <script>
+  document.querySelectorAll('.module-link').forEach(link => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
   function toggleAccordion(button) {
-    const content = button.nextElementSibling;
+    const item = button.closest('.support-accordion-item');
+    const content = item.querySelector('.support-accordion-content');
     const icon = button.querySelector('i');
-    const isActive = content.classList.contains('active');
+    const accordion = button.closest('.support-accordion');
+    const isOpen = item.classList.contains('open');
 
-    document.querySelectorAll('.support-accordion-content').forEach(item => {
-      item.classList.remove('active');
+    accordion.querySelectorAll('.support-accordion-item').forEach(entry => {
+      entry.classList.remove('open');
+      entry.querySelector('.support-accordion-content').classList.remove('active');
+      entry.querySelector('i').style.transform = 'rotate(0deg)';
     });
 
-    document.querySelectorAll('.support-accordion-button i').forEach(item => {
-      item.style.transform = 'rotate(0deg)';
-    });
-
-    if (!isActive) {
+    if (!isOpen) {
+      item.classList.add('open');
       content.classList.add('active');
       icon.style.transform = 'rotate(180deg)';
     }

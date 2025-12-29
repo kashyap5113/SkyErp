@@ -18,9 +18,9 @@
   }
 
   .hero-section {
-    background:linear-gradient(135deg, #0f1f3d 0%, #1b2f59 45%, #253c73 100%);
     background-image:
-      url("{% static 'images/modules.jpg' %}"),
+      linear-gradient(135deg, #0f1f3d 0%, #1b2f59 45%, #253c73 100%),
+      url("{% static 'images/modules.jpg' %}");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -167,57 +167,47 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
 
-  .sidebar {
+  .module-sidebar-card {
+    background: #fff;
+    border-radius: 32px;
+    padding: 28px;
+    box-shadow: 0 22px 50px rgba(15, 41, 66, 0.12);
     position: sticky;
     top: 30px;
   }
 
-  .sidebar-card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 32px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  }
-
-  .sidebar-title {
-    font-size: 18px;
+  .module-sidebar-title {
+    font-size: 1.1rem;
     font-weight: 700;
     color: #111827;
-    margin-bottom: 24px;
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e4e9f4;
   }
 
-  .sidebar-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .sidebar-list li {
-    margin-bottom: 16px;
-  }
-
-  .sidebar-list a {
+  .module-sidebar-list {
     display: flex;
-    align-items: center;
-    color: #374151;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .module-sidebar-pill {
+    display: block;
+    padding: 16px 20px;
+    border-radius: 20px;
+    border: 1.5px solid #e3e8f6;
+    background: #fff;
     text-decoration: none;
-    font-weight: 500;
-    font-size: 15px;
-    padding: 12px;
-    border-radius: 8px;
+    color: #1f2a44;
+    font-weight: 600;
     transition: all 0.3s ease;
   }
 
-  .sidebar-list a:hover {
-    background: #F2F6FF;
-    color: #0EA5E9;
-    transform: translateX(5px);
-  }
-
-  .sidebar-list i {
-    margin-right: 12px;
-    font-size: 18px;
-    color: #0EA5E9;
+  .module-sidebar-pill:hover {
+    border-color: #0ea5e9;
+    background: #f0f7ff;
+    box-shadow: 0 14px 34px rgba(14, 165, 233, 0.18);
+    transform: translateY(-2px);
   }
 
   .faq-section {
@@ -322,45 +312,45 @@
           Our Selling Module simplifies your sales process, making transactions faster and more efficient. With intuitive design and powerful features, it helps you manage products, orders, and customers effortlessly. Real-time analytics provide insights to boost your business growth. Experience seamless, secure, and scalable selling like never before.
         </p>
 
-        <div class="feature-card">
+        <div class="feature-card" id="selling-modules">
           <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 30px;">Core Selling Modules</h3>
 
-          <div class="feature-section">
+          <div class="feature-section" id="selling-quotation">
             <p class="feature-title"><strong>Quotation:-</strong> Create and share professional quotations quickly. Track revisions, convert quotations into orders, and manage customer negotiations seamlessly.</p>
             <img src="{% static 'images/sales-analytics-data-window.gif' %}" alt="Quotation workspace" class="feature-image" loading="lazy" />
           </div>
 
-          <div class="feature-section">
+          <div class="feature-section" id="selling-sales-order">
             <p class="feature-title"><strong>Sales Order:-</strong> Turn approved quotations into sales orders with a single click. Monitor order status, deliveries, and payments while ensuring accuracy in every transaction.</p>
             <img src="{% static 'images/salesorder.gif' %}" alt="Sales order interface" class="feature-image" loading="lazy" />
           </div>
 
-          <div class="feature-section">
+          <div class="feature-section" id="selling-sales-invoice">
             <p class="feature-title"><strong>Sales Invoice:-</strong> Generate invoices instantly from sales orders or deliveries. Automate billing, manage payments, and maintain compliance with tax rules.</p>
             <img src="{% static 'images/salesinvoice.png' %}" alt="Sales invoice document" class="feature-image" loading="lazy" />
           </div>
 
-          <div class="feature-section">
+          <div class="feature-section" id="selling-pos">
             <p class="feature-title"><strong>Point of Sales (POS):-</strong> Run your retail operations with an easy-to-use POS system. Process walk-in sales, manage discounts, and print receipts while syncing inventory in real time.</p>
             <img src="{% static 'images/pos-checkout.gif' %}" alt="POS checkout experience" class="feature-image" loading="lazy" />
           </div>
 
-          <div class="feature-section">
+          <div class="feature-section" id="selling-taxes">
             <p class="feature-title"><strong>Sales Taxes & Charges Templates:-</strong> Automate tax calculations and apply predefined charges across invoices and quotations. Ensure compliance and reduce manual errors.</p>
             <img src="{% static 'images/salestaxes.png' %}" alt="Sales tax template" class="feature-image" loading="lazy" />
           </div>
 
-          <div class="feature-section">
+          <div class="feature-section" id="selling-analytics">
             <p class="feature-title"><strong>Sales Analytics:-</strong> Gain actionable insights with real-time reports on sales trends, revenue, customer behavior, and product performance. Improve decision-making with accurate data.</p>
             <img src="{% static 'images/sales_dashboard.png' %}" alt="Sales analytics dashboard" class="feature-image" loading="lazy" />
           </div>
 
-          <div class="feature-section">
+          <div class="feature-section" id="selling-funnel">
             <p class="feature-title"><strong>Sales Funnel:-</strong> Visualize the customer journey from lead to conversion. Identify bottlenecks, track deal progress, and optimize your sales strategy for higher conversions.</p>
             <img src="{% static 'images/sales-funnel.png' %}" alt="Sales funnel view" class="feature-image" loading="lazy" />
           </div>
 
-          <div class="feature-section">
+          <div class="feature-section" id="selling-reports">
             <p class="feature-title"><strong>Reports:-</strong> Access detailed sales reports including order history, invoices, tax reports, and revenue forecasts to keep track of business performance.</p>
             <img src="{% static 'images/sales-analytics-sections.png' %}" alt="Sales reports summary" class="feature-image" loading="lazy" />
           </div>
@@ -368,19 +358,17 @@
       </div>
 
       <div class="col-lg-4">
-        <div class="sidebar">
-          <div class="sidebar-card">
-            <h3 class="sidebar-title">Core Selling Modules</h3>
-            <ul class="sidebar-list">
-              <li><a href="#"><i class="fas fa-file-signature"></i> Quotation</a></li>
-              <li><a href="#"><i class="fas fa-file-contract"></i> Sales Order</a></li>
-              <li><a href="#"><i class="fas fa-file-invoice-dollar"></i> Sales Invoice</a></li>
-              <li><a href="#"><i class="fas fa-cash-register"></i> Point of Sales (POS)</a></li>
-              <li><a href="#"><i class="fas fa-receipt"></i> Sales Taxes & Charges Templates</a></li>
-              <li><a href="#"><i class="fas fa-chart-line"></i> Sales Analytics</a></li>
-              <li><a href="#"><i class="fas fa-filter"></i> Sales Funnel</a></li>
-              <li><a href="#"><i class="fas fa-file-lines"></i> Reports</a></li>
-            </ul>
+        <div class="module-sidebar-card">
+          <h3 class="module-sidebar-title">Core Selling Modules</h3>
+          <div class="module-sidebar-list">
+            <a href="#selling-quotation" class="module-sidebar-pill module-link">Quotation</a>
+            <a href="#selling-sales-order" class="module-sidebar-pill module-link">Sales Order</a>
+            <a href="#selling-sales-invoice" class="module-sidebar-pill module-link">Sales Invoice</a>
+            <a href="#selling-pos" class="module-sidebar-pill module-link">Point of Sales (POS)</a>
+            <a href="#selling-taxes" class="module-sidebar-pill module-link">Sales Taxes &amp; Charges Templates</a>
+            <a href="#selling-analytics" class="module-sidebar-pill module-link">Sales Analytics</a>
+            <a href="#selling-funnel" class="module-sidebar-pill module-link">Sales Funnel</a>
+            <a href="#selling-reports" class="module-sidebar-pill module-link">Reports</a>
           </div>
         </div>
       </div>
@@ -461,5 +449,17 @@
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.querySelectorAll('.module-link').forEach(link => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      const targetId = link.getAttribute('href');
+      const target = document.querySelector(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
 {% include 'footer.html' %}
 
