@@ -58,20 +58,21 @@
         }
         
         .hero-illustration {
-            background: white;
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            /* background: white; */
+            border-radius: 20px;
+            padding: 32px;
+            /* box-shadow: 0 35px 80px rgba(15, 41, 66, 0.12); */
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100%;
         }
         
-        .hero-illustration svg {
+        .hero-illustration img {
             width: 100%;
-            max-width: 400px;
-            height: auto;
+            max-width: 2000px;
+            height: 300px;
+            border-radius: 16px;
         }
         
         /* Mission Section */
@@ -157,7 +158,6 @@
             background: white;
             border-radius: 12px;
             padding: 32px;
-            margin-bottom: 24px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             height: 100%;
@@ -197,6 +197,11 @@
             line-height: 1.7;
             margin-bottom: 0;
         }
+
+        .values-grid {
+            --bs-gutter-x: 2.5rem;
+            --bs-gutter-y: 2.5rem;
+        }
         
         /* Clients Section */
         .clients-section {
@@ -208,6 +213,94 @@
         .map-section {
             background: #F6F9FF;
             padding: 60px 0 80px;
+        }
+
+        .digital-modules {
+            background: #ffffff;
+            padding: 80px 0;
+        }
+
+        .digital-modules .tittle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .digital-modules .tittle h2 {
+            font-size: 34px;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 12px;
+        }
+
+        .digital-modules .tittle p {
+            color: #6B7280;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .digital-card {
+            background: #f6f9ff;
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 24px;
+            border: 1px solid #e0e7ff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .digital-card i {
+            font-size: 26px;
+            color: #2563EB;
+        }
+
+        .digital-card a {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1F2937;
+            text-decoration: none;
+        }
+
+        .digital-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 35px rgba(37, 99, 235, 0.15);
+            background: #fff;
+        }
+
+        .easily-engage {
+            background: linear-gradient(135deg, #1f3b73 0%, #2563eb 100%);
+            padding: 80px 0;
+            color: #fff;
+        }
+
+        .easily-engage h2 {
+            font-size: 34px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .easily-engage .media {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 22px;
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .easily-engage .media i {
+            font-size: 28px;
+            color: #FBBF24;
+        }
+
+        .easily-engage .media p {
+            margin: 0;
+            line-height: 1.7;
+            font-size: 15px;
         }
 
         .map-wrapper {
@@ -350,7 +443,6 @@
                 font-size: 26px;
             }
         }
-        <style>
     /* Map with sidebar */
    /* Force map + sidebar alignment inside the existing card */
     .map-wrapper {
@@ -422,17 +514,9 @@
                     <h1 class="hero-title">Introduction</h1>
                     <p class="hero-text">SkyERP is a modern, cloud-based ERP system designed to streamline business operations and drive growth. It integrates functionalities like finance, inventory, CRM, and reporting into a unified platform, enabling smarter decisions and operational efficiency.</p>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 mt-5 mt-lg-0">
                     <div class="hero-illustration">
-                        <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="400" height="300" fill="white"/>
-                            <circle cx="200" cy="150" r="80" fill="#FFF1E6"/>
-                            <rect x="160" y="100" width="80" height="100" rx="8" fill="#2563EB"/>
-                            <circle cx="200" cy="80" r="25" fill="#F97316"/>
-                            <path d="M175 120h50M175 140h50M175 160h50" stroke="white" stroke-width="4" stroke-linecap="round"/>
-                            <rect x="120" y="180" width="40" height="40" rx="6" fill="#F97316" opacity="0.3"/>
-                            <rect x="240" y="180" width="40" height="40" rx="6" fill="#F97316" opacity="0.3"/>
-                        </svg>
+                        <img src="{% static 'images/portfolio.png' %}" alt="Sky ERP portfolio overview" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -449,14 +533,14 @@
                     <p class="section-text">We are on a mission to empower businesses around the globe.</p>
                     <p class="section-text">Our highly experienced team is working day and night to create innovative solutions that help organizations streamline their operations, enhance productivity, and achieve sustainable growth through seamless ERP integration.</p>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 row-lg-6">
                     <div class="illustration-card">
                         <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="150" cy="150" r="100" fill="#FFF1E6"/>
-                            <rect x="120" y="120" width="60" height="80" rx="6" fill="#2563EB"/>
-                            <circle cx="150" cy="100" r="30" fill="#F97316"/>
-                            <path d="M135 100 L150 85 L165 100" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="150" cy="115" r="8" fill="#FFF"/>
+                            <circle cx="150" cy="150" r="100" fill="#FFF1E6"></circle>
+                            <rect x="120" y="120" width="60" height="80" rx="6" fill="#2563EB"></rect>
+                            <circle cx="150" cy="100" r="30" fill="#F97316"></circle>
+                            <path d="M135 100 L150 85 L165 100" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <circle cx="150" cy="115" r="8" fill="#FFF"></circle>
                         </svg>
                     </div>
                 </div>
@@ -471,11 +555,11 @@
                 <div class="col-lg-6 order-lg-1 order-2">
                     <div class="illustration-card" style="background: #FFF1E6;">
                         <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M50 250 L150 100 L250 250" stroke="#2563EB" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M80 250 L150 150 L220 250" stroke="#F97316" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="150" cy="120" r="20" fill="#2563EB"/>
-                            <rect x="135" y="140" width="30" height="50" rx="4" fill="#2563EB"/>
-                            <path d="M100 200 L120 180 M180 180 L200 200" stroke="#F97316" stroke-width="4" stroke-linecap="round"/>
+                            <path d="M50 250 L150 100 L250 250" stroke="#2563EB" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M80 250 L150 150 L220 250" stroke="#F97316" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <circle cx="150" cy="120" r="20" fill="#2563EB"></circle>
+                            <rect x="135" y="140" width="30" height="50" rx="4" fill="#2563EB"></rect>
+                            <path d="M100 200 L120 180 M180 180 L200 200" stroke="#F97316" stroke-width="4" stroke-linecap="round"></path>
                         </svg>
                     </div>
                 </div>
@@ -483,6 +567,7 @@
                     <p class="section-heading">Our Vision</p>
                     <h2 class="section-title">Empowering IT Companies to Scale Engineering Talent</h2>
                     <p class="section-text">We envision a future where businesses of all sizes can leverage cutting-edge technology to achieve operational excellence. Our goal is to be the trusted partner for organizations seeking to transform their business processes and drive digital innovation.</p>
+                
                 </div>
             </div>
         </div>
@@ -495,7 +580,7 @@
                 <p class="values-label">Our Core Values</p>
                 <h2 class="values-title">Principles We Follow By Heart</h2>
             </div>
-            <div class="row">
+            <div class="row values-grid">
                 <div class="col-lg-6 col-md-6">
                     <div class="value-card">
                         <div class="value-icon">
@@ -536,75 +621,70 @@
         </div>
     </section>
 
-    <!-- Clients Section -->
-    <section class="clients-section">
+    <!-- Educational Clients -->
+    <section class="digital-modules">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <h2 class="section-title">Industrial Clients of Sky ERP</h2>
-                    <p class="section-text">SkyERP empowers leading industrial clients by streamlining operations, enhancing productivity, and driving growth through seamless ERP integration.</p>
-                    
-                    <div class="client-item">
-                        <div class="client-icon">
-                            <i class="fas fa-chart-pie"></i>
-                        </div>
-                        <div>
-                            <p class="client-text">Uzzala Bio Energy Solutions</p>
-                        </div>
-                    </div>
-                    
-                    <div class="client-item">
-                        <div class="client-icon">
-                            <i class="fas fa-microphone"></i>
-                        </div>
-                        <div>
-                            <p class="client-text">Verdict Group</p>
-                        </div>
-                    </div>
-                    
-                    <div class="client-item">
-                        <div class="client-icon">
-                            <i class="fas fa-cog"></i>
-                        </div>
-                        <div>
-                            <p class="client-text">Shree Life Care</p>
+            <div class="tittle">
+                <h2>Educational Clients</h2>
+                <p>Cloud management is how admins maintain control over everything that operates in a cloud: users, data, and applications.</p>
+            </div>
+            <div class="row justify-content-center g-4">
+                <div class="col-lg-5 col-md-6">
+                    <div class="digital-card">
+                        <i class="fas fa-cloud"></i>
+                        <div class="media-body">
+                            <a href="#">District Institute of Education &amp; Training (DIET's), Gujarat</a>
                         </div>
                     </div>
                 </div>
-                
-                <div class="col-lg-6">
-                    <h2 class="section-title">Educational Clients</h2>
-                    <p class="section-text">Cloud management is how admins have control over everything that operates in a cloud: the users, data, applications.</p>
-                    
-                    <div class="client-item">
-                        <div class="client-icon">
-                            <i class="fas fa-cloud"></i>
-                        </div>
-                        <div>
-                            <p class="client-text">District Institute of Education & Training (DIET's), Gujarat</p>
-                        </div>
-                    </div>
-                    
-                    <div class="client-item">
-                        <div class="client-icon">
-                            <i class="fas fa-hospital-alt"></i>
-                        </div>
-                        <div>
-                            <p class="client-text">Chaudhary Bansi Lal University</p>
+                <div class="col-lg-5 col-md-6">
+                    <div class="digital-card">
+                        <i class="fas fa-hospital-alt"></i>
+                        <div class="media-body">
+                            <a href="#">Chaudhary Bansi Lal University</a>
+                          <p>     </p>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="row mt-5">
+        </div>
+    </section>
+
+    <!-- Empowering Section -->
+    <section class="easily-engage">
+        <div class="container">
+            <h2 class="text-center">Empowering IT Companies to Scale Engineering Talent</h2>
+            <div class="row">
                 <div class="col-12">
-                    <h2 class="section-title">Railway Clients</h2>
-                    <div class="client-item">
-                        <div class="client-icon">
-                            <i class="fas fa-train"></i>
+                    <div class="media">
+                        <i class="fas fa-train"></i>
+                        <div class="media-body">
+                            <p><strong>Railway Clients:</strong> NAIR, IRISET, IRIMEE, IRIDM, ZRTI Udaipur, MDDTI [Bengaluru], STTI [Byculla], STTI [Pandu], STTI [Podanur], Diesel Loco Shed [West Bengal]</p>
                         </div>
-                        <div>
-                            <p class="client-text">NAIR, IRISET, IRIMEE, IRIDM, ZRTI Udaipur, MDDTI [Bengaluru], STTI [Byculla], STTI [Pandu], STTI [Podanur], Diesel Loco Shed [West Bengal]</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="media">
+                        <i class="fas fa-users-cog"></i>
+                        <div class="media-body">
+                            <p><strong>Strategic Team Expansion:</strong> We help build and grow engineering teams that align with your business objectives, ensuring the right talent is in place for success.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="media">
+                        <i class="fas fa-cogs"></i>
+                        <div class="media-body">
+                            <p><strong>Process Optimization:</strong> We implement best practices to streamline workflows, improve efficiency, and enhance overall productivity.</p>
+                             <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="media">
+                        <i class="fas fa-headset"></i>
+                        <div class="media-body">
+                            <p><strong>End-to-End Support:</strong> From initial consultation to post-deployment maintenance, we provide comprehensive support to ensure every project is successful.</p>
                         </div>
                     </div>
                 </div>
@@ -652,7 +732,7 @@ function initMap() {
             "featureType": "all",
             "elementType": "labels.text.fill",
             "stylers": [{ "color": "#2c3e50" }]
-        },₹4
+        },
         {
             "featureType": "water",
             "elementType": "geometry.fill",

@@ -167,11 +167,52 @@
         background: #F2F6FF;
     }
 
+    .core-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .core-layout-content,
+    .core-layout-sidebar {
+        width: 100%;
+    }
+
+    .core-layout-sidebar {
+        position: sticky;
+        top: 100px;
+    }
+
+    .core-layout .module-sidebar-card {
+        align-self: flex-start;
+    }
+
+    @media (min-width: 1024px) {
+        .core-layout {
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 64px;
+        }
+
+        .core-layout-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .core-layout-sidebar {
+            flex: 0 0 360px;
+        }
+    }
+
     .module-sidebar-card {
         background: #ffffff;
         border-radius: 32px;
         padding: 28px;
         box-shadow: 0 24px 60px rgba(15, 41, 66, 0.12);
+        position: sticky;
+        top: 24px;
+        align-self: flex-start;
+
     }
 
     .module-sidebar-title {
@@ -253,33 +294,127 @@
         </div>
     </section>
 
-    <!-- Why Choose -->
+    <!-- Why Choose & Core Modules -->
     <section class="py-20 bg-white" id="core-modules">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-16 items-start">
-                <div class="animate-fadeUp">
-                    <p class="text-[#FF7A21] font-semibold uppercase tracking-[0.4rem] mb-4">Why Sky ERP</p>
-                    <h2 class="text-4xl font-bold text-[#0f2942] mb-6">Procurement teams stay in control</h2>
-                    <p class="text-lg text-[#6B7280] leading-relaxed mb-8">
-                        Automate procurement from request to reconciliation. The Buying module connects vendors, contracts, approvals, and inventory—giving your team reliable visibility and faster execution.
-                    </p>
-                    <div class="grid sm:grid-cols-2 gap-4">
-                        <div class="card-hover bg-[#F9FAFB] rounded-2xl p-5">
-                            <p class="text-sm uppercase text-[#6B7280]">Automation</p>
-                            <p class="text-2xl font-semibold text-[#0f2942]">65%</p>
-                            <p class="text-sm text-[#6B7280] mt-2">Manual tasks eliminated</p>
+            <div class="core-layout">
+                <div class="core-layout-content space-y-12">
+                    <div class="animate-fadeUp max-w-4xl text-center lg:text-left">
+                        <p class="text-[#FF7A21] font-semibold uppercase tracking-[0.4rem] mb-4">Why Sky ERP</p>
+                        <h2 class="text-4xl font-bold text-[#0f2942] mb-6">Procurement teams stay in control</h2>
+                        <p class="text-lg text-[#6B7280] leading-relaxed mb-8">
+                            Automate procurement from request to reconciliation. The Buying module connects vendors, contracts, approvals, and inventory—giving your team reliable visibility and faster execution.
+                        </p>
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div class="card-hover bg-[#F9FAFB] rounded-2xl p-5">
+                                <p class="text-sm uppercase text-[#6B7280]">Automation</p>
+                                <p class="text-2xl font-semibold text-[#0f2942]">65%</p>
+                                <p class="text-sm text-[#6B7280] mt-2">Manual tasks eliminated</p>
+                            </div>
+                            <div class="card-hover bg-[#F9FAFB] rounded-2xl p-5">
+                                <p class="text-sm uppercase text-[#6B7280]">Visibility</p>
+                                <p class="text-2xl font-semibold text-[#0f2942]">24/7</p>
+                                <p class="text-sm text-[#6B7280] mt-2">Live vendor KPIs</p>
+                            </div>
                         </div>
-                        <div class="card-hover bg-[#F9FAFB] rounded-2xl p-5">
-                            <p class="text-sm uppercase text-[#6B7280]">Visibility</p>
-                            <p class="text-2xl font-semibold text-[#0f2942]">24/7</p>
-                            <p class="text-sm text-[#6B7280] mt-2">Live vendor KPIs</p>
+                    </div>
+                    <div id="process-flow" class="bg-[#F2F6FF] rounded-3xl p-8 shadow-lg card-hover">
+                        <div class="md:flex md:items-center md:justify-between gap-6 mb-6">
+                            <div>
+                                <p class="text-sm uppercase text-[#6B7280] tracking-[0.4rem]">Workflow</p>
+                                <h3 class="text-2xl font-semibold text-[#0f2942] mt-2">Procurement Pipeline Visualized</h3>
+                                <p class="text-[#6B7280] mt-3">From request to reconciliation, monitor every approval, vendor touchpoint, and inventory update in one connected timeline.</p>
+                            </div>
+                        </div>
+                        <div class="card-hover bg-white rounded-2xl p-6 shadow-md screenshot-container">
+                            <img src="{% static 'images/material-request-flowchart.png' %}" alt="Buying process flow">
+                        </div>
+                    </div>
+
+                    <div id="material-request" class="bg-white rounded-2xl shadow-lg p-8 space-y-6 card-hover">
+                        <div>
+                            <h2 class="text-3xl font-semibold text-[#0f2942] mb-4">Material Request</h2>
+                            <p class="text-base text-[#6B7280] leading-relaxed">
+                                Create and track internal requests, capture approvals, and auto-route qualified requisitions into purchase workflows.
+                            </p>
+                        </div>
+                        <div class="screenshot-container card-hover bg-white p-6 shadow-md">
+                            <img src="{% static 'images/material-request.png' %}" alt="Material request screenshot">
+                        </div>
+                    </div>
+
+                    <div id="purchase-order" class="bg-[#F2F6FF] rounded-2xl shadow-lg p-8 card-hover">
+                        <div class="grid lg:grid-cols-2 gap-10 items-center">
+                            <div class="screenshot-container card-hover bg-white p-6 shadow-md">
+                                <img src="{% static 'images/purchaseorder.png' %}" alt="Purchase order screenshot">
+                            </div>
+                            <div>
+                                <h2 class="text-3xl font-semibold text-[#0f2942] mb-4">Purchase Order</h2>
+                                <p class="text-base text-[#6B7280] leading-relaxed">
+                                    Generate formal orders with supplier terms, delivery windows, and budget checks. Automate approvals and ensure policy compliance.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="purchase-invoice" class="bg-white rounded-2xl shadow-lg p-8 card-hover">
+                        <div class="grid lg:grid-cols-2 gap-10 items-center">
+                            <div>
+                                <h2 class="text-3xl font-semibold text-[#0f2942] mb-4">Purchase Invoice</h2>
+                                <p class="text-base text-[#6B7280] leading-relaxed">
+                                    Capture invoices with line-level validations, apply taxes automatically, and sync payable entries to finance.
+                                </p>
+                            </div>
+                            <div class="screenshot-container card-hover bg-white p-6 shadow-md">
+                                <img src="{% static 'images/purchase-invoice.png' %}" alt="Purchase invoice screenshot">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="purchase-analysis" class="bg-[#F2F6FF] rounded-2xl shadow-lg p-8 space-y-6 card-hover">
+                        <div>
+                            <h2 class="text-3xl font-semibold text-[#0f2942] mb-4">Purchase Order Analysis</h2>
+                            <p class="text-base text-[#6B7280] leading-relaxed">
+                                Monitor spend by vendor, item, and region. Detect variances, analyze delivery metrics, and fuel negotiations with real-time insights.
+                            </p>
+                        </div>
+                        <div class="screenshot-container card-hover bg-white p-6 shadow-md">
+                            <img src="{% static 'images/po_analysis.png' %}" alt="Purchase order analysis screenshot">
+                        </div>
+                    </div>
+
+                    <div id="payment-entry" class="bg-white rounded-2xl shadow-lg p-8 card-hover">
+                        <div class="grid lg:grid-cols-2 gap-10 items-center">
+                            <div class="screenshot-container card-hover bg-white p-6 shadow-md">
+                                <img src="{% static 'images/payment-entry-from-invoice (1).gif' %}" alt="Payment entry screenshot">
+                            </div>
+                            <div>
+                                <h2 class="text-3xl font-semibold text-[#0f2942] mb-4">Payment Entry</h2>
+                                <p class="text-base text-[#6B7280] leading-relaxed">
+                                    Record supplier payments, clear advances, and auto-reconcile with bank feeds to close the loop faster.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="reports" class="bg-[#F2F6FF] rounded-2xl shadow-lg p-8 space-y-6 card-hover">
+                        <div>
+                            <h2 class="text-3xl font-semibold text-[#0f2942] mb-4">Reports</h2>
+                            <p class="text-base text-[#6B7280] leading-relaxed">
+                                Generate detailed reports on procurement, inventory, vendor scorecards, and compliance—all export-ready.
+                            </p>
+                        </div>
+                        <div class="screenshot-container card-hover bg-white p-6 shadow-md">
+                            <img src="{% static 'images/sales-analytics-data-window.gif' %}" alt="Reports dashboard">
                         </div>
                     </div>
                 </div>
-                <div class="animate-fadeUp delay-100">
+
+                <aside class="core-layout-sidebar">
                     <div class="module-sidebar-card">
                         <h3 class="module-sidebar-title">Core Buying Modules</h3>
                         <div class="module-sidebar-list">
+                            <a href="#process-flow" class="module-sidebar-pill module-link">Procurement Flow</a>
                             <a href="#material-request" class="module-sidebar-pill module-link">Material Request</a>
                             <a href="#purchase-order" class="module-sidebar-pill module-link">Purchase Order</a>
                             <a href="#purchase-invoice" class="module-sidebar-pill module-link">Purchase Invoice</a>
@@ -288,112 +423,7 @@
                             <a href="#reports" class="module-sidebar-pill module-link">Reports</a>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Flow -->
-    <section class="py-20 bg-[#F2F6FF]">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="card-hover bg-white rounded-2xl shadow-lg p-8 screenshot-container">
-                <img src="{% static 'images/material-request-flowchart.png' %}" alt="Buying process flow">
-            </div>
-        </div>
-    </section>
-
-    <!-- Material Request -->
-    <section id="material-request" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-8">
-                <h2 class="text-3xl font-semibold text-[#0f2942] mb-4">Material Request</h2>
-                <p class="text-base text-[#6B7280] leading-relaxed">
-                    Create and track internal requests, capture approvals, and auto-route qualified requisitions into purchase workflows.
-                </p>
-            </div>
-            <div class="screenshot-container card-hover bg-white p-6 shadow-md">
-                <img src="{% static 'images/material-request.png' %}" alt="Material request screenshot">
-            </div>
-        </div>
-    </section>
-
-    <!-- Purchase Order -->
-    <section id="purchase-order" class="py-20 bg-[#F2F6FF]">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="screenshot-container card-hover bg-white p-6 shadow-md">
-                    <img src="{% static 'images/purchaseorder.png' %}" alt="Purchase order screenshot">
-                </div>
-                <div>
-                    <h2 class="text-3xl font-semibold text-[#0f2942] mb-4">Purchase Order</h2>
-                    <p class="text-base text-[#6B7280] leading-relaxed">
-                        Generate formal orders with supplier terms, delivery windows, and budget checks. Automate approvals and ensure policy compliance.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Purchase Invoice -->
-    <section id="purchase-invoice" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-3xl font-semibold text-[#0f2942] mb-4">Purchase Invoice</h2>
-                    <p class="text-base text-[#6B7280] leading-relaxed">
-                        Capture invoices with line-level validations, apply taxes automatically, and sync payable entries to finance.
-                    </p>
-                </div>
-                <div class="screenshot-container card-hover bg-white p-6 shadow-md">
-                    <img src="{% static 'images/purchase-invoice.png' %}" alt="Purchase invoice screenshot">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Purchase Order Analysis -->
-    <section id="purchase-analysis" class="py-20 bg-[#F2F6FF]">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-8">
-                <h2 class="text-3xl font-semibold text-[#0f2942] mb-4">Purchase Order Analysis</h2>
-                <p class="text-base text-[#6B7280] leading-relaxed">
-                    Monitor spend by vendor, item, and region. Detect variances, analyze delivery metrics, and fuel negotiations with real-time insights.
-                </p>
-            </div>
-            <div class="screenshot-container card-hover bg-white p-6 shadow-md">
-                <img src="{% static 'images/po_analysis.png' %}" alt="Purchase order analysis screenshot">
-            </div>
-        </div>
-    </section>
-
-    <!-- Payment Entry -->
-    <section id="payment-entry" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="screenshot-container card-hover bg-white p-6 shadow-md">
-                    <img src="{% static 'images/payment-entry-from-invoice (1).gif' %}" alt="Payment entry screenshot">
-                </div>
-                <div>
-                    <h2 class="text-3xl font-semibold text-[#0f2942] mb-4">Payment Entry</h2>
-                    <p class="text-base text-[#6B7280] leading-relaxed">
-                        Record supplier payments, clear advances, and auto-reconcile with bank feeds to close the loop faster.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reports -->
-    <section id="reports" class="py-20 bg-[#F2F6FF]">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-8">
-                <h2 class="text-3xl font-semibold text-[#0f2942] mb-4">Reports</h2>
-                <p class="text-base text-[#6B7280] leading-relaxed">
-                    Generate detailed reports on procurement, inventory, vendor scorecards, and compliance—all export-ready.
-                </p>
-            </div>
-            <div class="screenshot-container card-hover bg-white p-6 shadow-md">
-                <img src="{% static 'images/sales-analytics-data-window.gif' %}" alt="Reports dashboard">
+                </aside>
             </div>
         </div>
     </section>

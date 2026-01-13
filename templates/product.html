@@ -374,40 +374,49 @@
 
         /* Testimonial Section */
         .testimonial-section {
-            padding: 80px 0;
+            padding: 90px 0;
             background: var(--light-bg);
             position: relative;
+            overflow: hidden;
         }
 
         .testimonial-section::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 50%, rgba(47, 91, 255, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 122, 24, 0.03) 0%, transparent 50%);
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(47, 91, 255, 0.05) 0%, transparent 55%),
+                radial-gradient(circle at 80% 80%, rgba(255, 122, 24, 0.05) 0%, transparent 55%);
         }
 
         .testimonial-header {
-            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
         }
 
         .testimonial-badge {
-            display: inline-block;
-            background: var(--primary-blue);
-            color: var(--card-white);
-            padding: 0.5rem 1.25rem;
-            border-radius: 50px;
-            font-size: 0.875rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(76, 111, 255, 0.15);
+            color: var(--primary-blue);
+            padding: 0.45rem 1.25rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 1rem;
         }
 
+        .testimonial-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary-blue);
+        }
+
         .testimonial-header h2 {
-            font-size: 2.25rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: var(--text-dark);
             margin-bottom: 1rem;
@@ -416,74 +425,166 @@
         .testimonial-header p {
             font-size: 1rem;
             color: var(--text-muted);
-            line-height: 1.7;
-        }
-
-        .testimonial-card {
-            background: var(--card-white);
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-            height: 100%;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 32px rgba(47, 91, 255, 0.12);
-        }
-
-        .quote-icon {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            font-size: 3rem;
-            color: var(--light-bg);
-            opacity: 0.5;
-        }
-
-        .testimonial-text {
-            font-size: 1rem;
-            color: var(--text-muted);
             line-height: 1.8;
-            margin-bottom: 1.5rem;
-            font-style: italic;
+            max-width: 420px;
+        }
+
+        .testimonial-carousel-wrapper {
+            background: linear-gradient(135deg, #ffffff 0%, #f4f6ff 100%);
+            border-radius: 32px;
+            padding: 2.5rem;
+            box-shadow: 0 35px 80px rgba(8, 25, 52, 0.12);
             position: relative;
             z-index: 1;
         }
 
-        .author-info {
+        .testimonial-carousel-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 20px;
+            border-radius: 28px;
+            border: 1px dashed rgba(76, 111, 255, 0.3);
+            pointer-events: none;
+        }
+
+        .testimonial-message-card {
+            background: #fff;
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
+            position: relative;
+            overflow: hidden;
+            min-height: 320px;
+        }
+
+        .testimonial-message-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            background: linear-gradient(135deg, rgba(76, 111, 255, 0.08), rgba(255, 122, 24, 0.08));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .testimonial-message-card:hover::before {
+            opacity: 1;
+        }
+
+        .message-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .company-chip {
+            background: rgba(30, 58, 95, 0.08);
+            color: var(--primary-blue);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .message-badge {
+            font-size: 0.8rem;
+            color: var(--accent-orange);
+            font-weight: 600;
+        }
+
+        .message-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #111827;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+
+        .message-footer {
             display: flex;
             align-items: center;
             gap: 1rem;
-            border-top: 1px solid var(--border-gray);
-            padding-top: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
 
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+        .avatar-badge {
+            width: 54px;
+            height: 54px;
+            border-radius: 18px;
             background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange));
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--card-white);
-            font-weight: 600;
-            font-size: 1.25rem;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 700;
         }
 
-        .author-details h5 {
-            font-size: 1.05rem;
+        .message-footer h5 {
+            margin: 0;
+            font-size: 1.1rem;
             font-weight: 600;
             color: var(--text-dark);
-            margin-bottom: 0.25rem;
         }
 
-        .author-details span {
-            font-size: 0.875rem;
+        .message-footer span {
+            display: block;
+            font-size: 0.9rem;
             color: var(--text-muted);
+        }
+
+        .testimonial-carousel-wrapper .carousel-indicators {
+            margin-bottom: 0;
+            position: static;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .testimonial-carousel-wrapper .carousel-indicators [data-bs-target] {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: rgba(30, 58, 95, 0.2);
+            border: none;
+        }
+
+        .testimonial-carousel-wrapper .carousel-indicators .active {
+            background-color: var(--primary-blue);
+        }
+
+        .testimonial-carousel-wrapper .carousel-control-prev,
+        .testimonial-carousel-wrapper .carousel-control-next {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #fff;
+            border: 1px solid rgba(30, 58, 95, 0.15);
+            color: var(--primary-blue);
+            top: auto;
+            bottom: 24px;
+            opacity: 1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial-carousel-wrapper .carousel-control-prev:hover,
+        .testimonial-carousel-wrapper .carousel-control-next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.18);
+        }
+
+        .testimonial-carousel-wrapper .carousel-control-prev {
+            left: auto;
+            right: 84px;
+        }
+
+        .testimonial-carousel-wrapper .carousel-control-next {
+            right: 24px;
         }
 
         /* Responsive */
@@ -740,92 +841,112 @@
     <!-- ========== TESTIMONIAL SECTION ========== -->
     <section class="testimonial-section">
         <div class="container">
-            <div class="row">
-                
-                <!-- Left Header -->
-                <div class="col-lg-4 mb-5 mb-lg-0">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-4">
                     <div class="testimonial-header fade-in">
-                        <span class="testimonial-badge">Testimonial</span>
+                        <span class="testimonial-badge">Live messages</span>
                         <h2>What Our Clients Say About Us</h2>
-                        <p>Each demo built with Sky ERP will look different. You can customize almost anything in the appearance of your website.</p>
+                        <p>Each demo built with Sky ERP can be tailored to your needs. Here’s what teams have been sharing with us recently.</p>
                     </div>
                 </div>
-                
-                <!-- Right Testimonials -->
                 <div class="col-lg-8">
-                    <div class="row g-4">
-                        
-                        <!-- Testimonial 1 -->
-                        <div class="col-md-6 fade-in stagger-1">
-                            <div class="testimonial-card">
-                                <i class="fas fa-quote-right quote-icon"></i>
-                                <p class="testimonial-text">
-                                    "With the HRMS module of SKY ERP, AIIMS Jodhpur has achieved complete automation in staff management. Payroll and attendance are now seamless and error-free. It has enhanced accuracy and reduced administrative effort."
-                                </p>
-                                <div class="author-info">
-                                    <div class="author-avatar">AI</div>
-                                    <div class="author-details">
-                                        <h5>AIIMS Jodhpur</h5>
-                                        <span>DDA</span>
+                    <div class="testimonial-carousel-wrapper fade-in stagger-2">
+                        <div id="productTestimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="testimonial-message-card">
+                                        <div class="message-top">
+                                            <span class="company-chip">AIIMS Jodhpur</span>
+                                            <span class="message-badge">HRMS Suite</span>
+                                        </div>
+                                        <p class="message-text">
+                                            “With the HRMS module of SKY ERP, we’ve automated payroll, attendance, and staff records.
+                                            Accuracy has gone up and administrative effort has dropped dramatically.”
+                                        </p>
+                                        <div class="message-footer">
+                                            <div class="avatar-badge">AI</div>
+                                            <div>
+                                                <h5>AIIMS Jodhpur</h5>
+                                                <span>DDA</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="testimonial-message-card">
+                                        <div class="message-top">
+                                            <span class="company-chip">Uzzala Bio Energy</span>
+                                            <span class="message-badge">Stock & Accounting</span>
+                                        </div>
+                                        <p class="message-text">
+                                            “SKY ERP’s Stock and Accounting module transformed how we manage inventory and accounts.
+                                            Automation has reduced errors, saved hours, and given us real-time control.”
+                                        </p>
+                                        <div class="message-footer">
+                                            <div class="avatar-badge">UB</div>
+                                            <div>
+                                                <h5>Uzzala Bio Energy Solutions</h5>
+                                                <span>COO</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="testimonial-message-card">
+                                        <div class="message-top">
+                                            <span class="company-chip">Verdict Group</span>
+                                            <span class="message-badge">Operations</span>
+                                        </div>
+                                        <p class="message-text">
+                                            “Managing stock and accounts is now effortless. SKY ERP keeps everything accurate, on schedule,
+                                            and helps every department stay aligned with zero hassle.”
+                                        </p>
+                                        <div class="message-footer">
+                                            <div class="avatar-badge">VG</div>
+                                            <div>
+                                                <h5>Verdict Group</h5>
+                                                <span>CEO</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="testimonial-message-card">
+                                        <div class="message-top">
+                                            <span class="company-chip">Shree Life Care</span>
+                                            <span class="message-badge">Inventory</span>
+                                        </div>
+                                        <p class="message-text">
+                                            “Our stock data is finally precise and easy to access. SKY ERP has streamlined inventory across every location
+                                            and teams can respond faster than ever before.”
+                                        </p>
+                                        <div class="message-footer">
+                                            <div class="avatar-badge">SL</div>
+                                            <div>
+                                                <h5>Shree Life Care</h5>
+                                                <span>Managing Director</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Testimonial 2 -->
-                        <div class="col-md-6 fade-in stagger-2">
-                            <div class="testimonial-card">
-                                <i class="fas fa-quote-right quote-icon"></i>
-                                <p class="testimonial-text">
-                                    "SKY ERP's Stock and Accounting module has transformed how we manage inventory and accounts at Uzzala Bio Energy Solutions. Automation has reduced errors and saved time. It's a powerful tool for business growth."
-                                </p>
-                                <div class="author-info">
-                                    <div class="author-avatar">UB</div>
-                                    <div class="author-details">
-                                        <h5>Uzzala Bio Energy Solutions</h5>
-                                        <span>COO</span>
-                                    </div>
-                                </div>
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#productTestimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#productTestimonialCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#productTestimonialCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                <button type="button" data-bs-target="#productTestimonialCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
                             </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#productTestimonialCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#productTestimonialCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
                         </div>
-
-                        <!-- Testimonial 3 -->
-                        <div class="col-md-6 fade-in stagger-3">
-                            <div class="testimonial-card">
-                                <i class="fas fa-quote-right quote-icon"></i>
-                                <p class="testimonial-text">
-                                    "Managing stock and accounts is now simple with SKY ERP at Verdict Group. Everything is accurate and under control. Department operations run smoothly and hassle-free."
-                                </p>
-                                <div class="author-info">
-                                    <div class="author-avatar">VG</div>
-                                    <div class="author-details">
-                                        <h5>Verdict Group</h5>
-                                        <span>CEO</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Testimonial 4 -->
-                        <div class="col-md-6 fade-in stagger-4">
-                            <div class="testimonial-card">
-                                <i class="fas fa-quote-right quote-icon"></i>
-                                <p class="testimonial-text">
-                                    "The Stock module of SKY ERP has streamlined inventory management at Shree Life Care. All stock information is precise and easy to access. Departments can now work more efficiently."
-                                </p>
-                                <div class="author-info">
-                                    <div class="author-avatar">SL</div>
-                                    <div class="author-details">
-                                        <h5>Shree Life Care</h5>
-                                        <span>Managing Director</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
-
             </div>
         </div>
     </section>

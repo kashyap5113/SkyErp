@@ -232,142 +232,134 @@
   <section class="py-20 bg-gray-50">
     <div class="container mx-auto px-6">
       <div class="core-modules-wrapper">
-        <div class="core-modules-content">
-          <h3 class="text-sm font-semibold uppercase tracking-[0.35em] text-orange mb-4">Core HRMS Modules</h3>
-          <h2 class="text-4xl font-bold text-navy mb-6">Employee Lifecycle Management</h2>
-          <p class="text-gray-600 leading-relaxed mb-10">
-            Track every stage of an employee's journey—from joining to exit. Maintain digital records of personal details, job history, documents, appraisals, and resignation formalities. Ensure smooth onboarding and structured offboarding with automated workflows.
-          </p>
-          <div class="bg-white rounded-2xl shadow-card overflow-hidden" id="hrms-employee-lifecycle">
-            <img src="{% static 'assets/img/service/single-service.png' %}" alt="HRMS Analytics" class="w-full">
-          </div>
-        </div>
-        <div class="core-module-list fade-up">
-          <div class="module-sidebar-card">
-            <h4 class="module-sidebar-title">Core HRMS Modules</h4>
-            <div class="module-sidebar-list">
-              <a href="#hrms-employee-lifecycle" class="module-sidebar-pill module-link">Employee Lifecycle Management</a>
-              <a href="#hrms-recruitment" class="module-sidebar-pill module-link">Recruitment</a>
-              <a href="#hrms-shift" class="module-sidebar-pill module-link">Shift & Attendance</a>
-              <a href="#hrms-expense" class="module-sidebar-pill module-link">Expense Claims</a>
-              <a href="#hrms-leave" class="module-sidebar-pill module-link">Leave Management</a>
-              <a href="#hrms-payroll" class="module-sidebar-pill module-link">Payroll & Salary Payout</a>
-              <a href="#hrms-performance" class="module-sidebar-pill module-link">Performance Management</a>
-              <a href="#hrms-tax" class="module-sidebar-pill module-link">Tax & Benefits</a>
-              <a href="#hrms-reports" class="module-sidebar-pill module-link">Reports & Analytics</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- DETAILED MODULES -->
-      <div class="max-w-6xl mx-auto space-y-16 mt-16">
-        <div class="feature-card shadow-card" id="">
-          <div class="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 class="text-2xl font-bold text-navy mb-4"><i class="fas fa-user-cog text-orange mr-3"></i>Employee Lifecycle Management</h3>
-              <p class="text-gray-600 leading-relaxed">Track every stage of an employee's journey—from joining to exit. Maintain digital records of personal details, job history, documents, appraisals, and resignation formalities. Ensure smooth onboarding and structured offboarding.</p>
-            </div>
-            <div class="bg-gray-100 rounded-xl p-4">
-              <img src="{% static 'images/employee_onboarding.gif' %}" alt="Employee Onboarding" class="w-full rounded-lg" />
-            </div>
-          </div>
-        </div>
-
-        <div class="feature-card shadow-card bg-gray-50" id="hrms-shift">
-          <div class="grid md:grid-cols-2 gap-8 items-center">
-            <div class="order-2 md:order-1 bg-white rounded-xl p-4">
-              <div class="h-64 bg-gradient-to-br from-blue-100 to-orange-100 rounded-lg flex items-center justify-center">
-                <i class="fas fa-user-plus text-6xl text-orange"></i>
+        <div class="flex flex-col lg:flex-row gap-10 w-full">
+          <div class="core-module-list fade-up">
+            <div class="module-sidebar-card sticky top-24">
+              <h4 class="module-sidebar-title">Core HRMS Modules</h4>
+              <div class="module-sidebar-list">
+                <a href="#hrms-employee-lifecycle" class="module-sidebar-pill module-link">Employee Lifecycle Management</a>
+                <a href="#hrms-recruitment" class="module-sidebar-pill module-link">Recruitment</a>
+                <a href="#hrms-shift" class="module-sidebar-pill module-link">Shift & Attendance</a>
+                <a href="#hrms-expense" class="module-sidebar-pill module-link">Expense Claims</a>
+                <a href="#hrms-leave" class="module-sidebar-pill module-link">Leave Management</a>
+                <a href="#hrms-payroll" class="module-sidebar-pill module-link">Payroll & Salary Payout</a>
+                <a href="#hrms-performance" class="module-sidebar-pill module-link">Performance Management</a>
+                <a href="#hrms-tax" class="module-sidebar-pill module-link">Tax & Benefits</a>
+                <a href="#hrms-reports" class="module-sidebar-pill module-link">Reports & Analytics</a>
               </div>
             </div>
-            <div class="order-1 md:order-2" id="hrms-recruitment">
-              <h3 class="text-2xl font-bold text-navy mb-4"><i class="fas fa-user-plus text-orange mr-3"></i>Recruitment</h3>
-              <p class="text-gray-600 leading-relaxed">Automate the hiring process. Publish job openings, shortlist candidates, schedule interviews, and roll out offers from within the system. Streamlined recruitment ensures you hire the right talent, faster.</p>
-            </div>
           </div>
-        </div>
 
-        <div class="feature-card shadow-card" id="hrms-shift">
-          <div class="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 class="text-2xl font-bold text-navy mb-4"><i class="fas fa-calendar-check text-orange mr-3"></i>Shift & Attendance</h3>
-              <p class="text-gray-600 leading-relaxed">Manage shifts, rosters, and real-time attendance through biometric or manual entry. Get automated timesheets, late arrival reports, and overtime calculations—all synced with payroll.</p>
+          <!-- DETAILED MODULES -->
+          <div class="core-modules-content space-y-16 flex-1">
+            <div class="feature-card shadow-card" id="">
+              <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h3 class="text-2xl font-bold text-navy mb-4"><i class="fas fa-user-cog text-orange mr-3"></i>Employee Lifecycle Management</h3>
+                  <p class="text-gray-600 leading-relaxed">Track every stage of an employee's journey—from joining to exit. Maintain digital records of personal details, job history, documents, appraisals, and resignation formalities. Ensure smooth onboarding and structured offboarding.</p>
+                </div>
+                <div class="bg-gray-100 rounded-xl p-4">
+                  <img src="{% static 'images/employee_onboarding.gif' %}" alt="Employee Onboarding" class="w-full rounded-lg" />
+                </div>
+              </div>
             </div>
-            <div class="bg-gray-100 rounded-xl p-4">
-              <img src="{% static 'images/mark-attendance.gif' %}" alt="Mark Attendance" class="w-full rounded-lg" />
-            </div>
-          </div>
-        </div>
 
-        <div class="feature-card shadow-card bg-gray-50">
-          <div class="grid md:grid-cols-2 gap-8 items-center">
-            <div class="order-2 md:order-1 bg-white rounded-xl p-4">
-              <img src="{% static 'images/expense_claim.png' %}" alt="Expense Claim" class="w-full rounded-lg" />
+            <div class="feature-card shadow-card bg-gray-50" id="hrms-shift">
+              <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="order-2 md:order-1 bg-white rounded-xl p-4">
+                  <div class="h-64 bg-gradient-to-br from-blue-100 to-orange-100 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-user-plus text-6xl text-orange"></i>
+                  </div>
+                </div>
+                <div class="order-1 md:order-2" id="hrms-recruitment">
+                  <h3 class="text-2xl font-bold text-navy mb-4"><i class="fas fa-user-plus text-orange mr-3"></i>Recruitment</h3>
+                  <p class="text-gray-600 leading-relaxed">Automate the hiring process. Publish job openings, shortlist candidates, schedule interviews, and roll out offers from within the system. Streamlined recruitment ensures you hire the right talent, faster.</p>
+                </div>
+              </div>
             </div>
-            <div class="order-1 md:order-2" id="hrms-expense">
-              <h3 class="text-2xl font-bold text-navy mb-4"><i class="fas fa-receipt text-orange mr-3"></i>Expense Claims</h3>
-              <p class="text-gray-600 leading-relaxed">Simplify employee reimbursements. Employees can submit travel, food, or project-related claims with receipts. Managers approve digitally, ensuring faster settlements with complete audit trails.</p>
-            </div>
-          </div>
-        </div>
 
-        <div class="feature-card shadow-card">
-          <div class="grid md:grid-cols-2 gap-8 items-center">
-            <div id="hrms-leave">
-              <h3 class="text-2xl font-bold text-navy mb-4"><i class="fas fa-plane-departure text-orange mr-3"></i>Leave Management</h3>
-              <p class="text-gray-600 leading-relaxed">Give employees the flexibility to request leave through a self-service portal. HR and managers can approve, reject, or track leave balances instantly. Configure multiple leave types with carry-forward, encashment, or custom policies.</p>
+            <div class="feature-card shadow-card" id="hrms-shift">
+              <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h3 class="text-2xl font-bold text-navy mb-4"><i class="fas fa-calendar-check text-orange mr-3"></i>Shift & Attendance</h3>
+                  <p class="text-gray-600 leading-relaxed">Manage shifts, rosters, and real-time attendance through biometric or manual entry. Get automated timesheets, late arrival reports, and overtime calculations—all synced with payroll.</p>
+                </div>
+                <div class="bg-gray-100 rounded-xl p-4">
+                  <img src="{% static 'images/mark-attendance.gif' %}" alt="Mark Attendance" class="w-full rounded-lg" />
+                </div>
+              </div>
             </div>
-            <div class="bg-gray-100 rounded-xl p-4">
-              <img src="{% static 'images/leave_balance.png' %}" alt="Leave Balance" class="w-full rounded-lg" />
-            </div>
-          </div>
-        </div>
 
-        <div class="feature-card shadow-card bg-gray-50">
-          <div class="grid md:grid-cols-2 gap-8 items-center">
-            <div class="order-2 md:order-1 bg-white rounded-xl p-4">
-              <img src="{% static 'images/salarypayout.png' %}" alt="Salary Payout" class="w-full rounded-lg" />
+            <div class="feature-card shadow-card bg-gray-50">
+              <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="order-2 md:order-1 bg-white rounded-xl p-4">
+                  <img src="{% static 'images/expense_claim.png' %}" alt="Expense Claim" class="w-full rounded-lg" />
+                </div>
+                <div class="order-1 md:order-2" id="hrms-expense">
+                  <h3 class="text-2xl font-bold text-navy mb-4"><i class="fas fa-receipt text-orange mr-3"></i>Expense Claims</h3>
+                  <p class="text-gray-600 leading-relaxed">Simplify employee reimbursements. Employees can submit travel, food, or project-related claims with receipts. Managers approve digitally, ensuring faster settlements with complete audit trails.</p>
+                </div>
+              </div>
             </div>
-            <div class="order-1 md:order-2" id="hrms-payroll">
-              <h3 class="text-2xl font-bold text-navy mb-4"><i class="fas fa-money-bill-wave text-orange mr-3"></i>Payroll & Salary Payout</h3>
-              <p class="text-gray-600 leading-relaxed">Automate payroll generation with accuracy. Define salary structures, tax slabs, and deductions. Process salary slips, manage incentives, retention bonuses, and generate statutory reports—without errors or delays.</p>
-            </div>
-          </div>
-        </div>
 
-        <div class="feature-card shadow-card">
-          <div class="flex items-start gap-4">
-            <div class="module-icon flex-shrink-0">
-              <i class="fas fa-chart-line"></i>
+            <div class="feature-card shadow-card">
+              <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div id="hrms-leave">
+                  <h3 class="text-2xl font-bold text-navy mb-4"><i class="fas fa-plane-departure text-orange mr-3"></i>Leave Management</h3>
+                  <p class="text-gray-600 leading-relaxed">Give employees the flexibility to request leave through a self-service portal. HR and managers can approve, reject, or track leave balances instantly. Configure multiple leave types with carry-forward, encashment, or custom policies.</p>
+                </div>
+                <div class="bg-gray-100 rounded-xl p-4">
+                  <img src="{% static 'images/leave_balance.png' %}" alt="Leave Balance" class="w-full rounded-lg" />
+                </div>
+              </div>
             </div>
-            <div id="hrms-performance"> 
-              <h3 class="text-2xl font-bold text-navy mb-3">Performance Management</h3>
-              <p class="text-gray-600 leading-relaxed">Set performance goals, assign KPIs, and run appraisal cycles. Capture 360° feedback and performance reviews to recognize top performers and plan growth paths.</p>
-            </div>
-          </div>
-        </div>
 
-        <div class="feature-card shadow-card">
-          <div class="flex items-start gap-4">
-            <div class="module-icon flex-shrink-0">
-              <i class="fas fa-file-invoice-dollar"></i>
+            <div class="feature-card shadow-card bg-gray-50">
+              <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="order-2 md:order-1 bg-white rounded-xl p-4">
+                  <img src="{% static 'images/salarypayout.png' %}" alt="Salary Payout" class="w-full rounded-lg" />
+                </div>
+                <div class="order-1 md:order-2" id="hrms-payroll">
+                  <h3 class="text-2xl font-bold text-navy mb-4"><i class="fas fa-money-bill-wave text-orange mr-3"></i>Payroll & Salary Payout</h3>
+                  <p class="text-gray-600 leading-relaxed">Automate payroll generation with accuracy. Define salary structures, tax slabs, and deductions. Process salary slips, manage incentives, retention bonuses, and generate statutory reports—without errors or delays.</p>
+                </div>
+              </div>
             </div>
-            <div id="hrms-tax">
-              <h3 class="text-2xl font-bold text-navy mb-3">Tax & Benefits</h3>
-              <p class="text-gray-600 leading-relaxed">Handle statutory compliance with ease. Manage income tax slabs, deductions, PF, ESI, and other employee benefits with automated calculations and reporting.</p>
-            </div>
-          </div>
-        </div>
 
-        <div class="feature-card shadow-card">
-          <div class="flex items-start gap-4">
-            <div class="module-icon flex-shrink-0">
-              <i class="fas fa-chart-bar"></i>
+            <div class="feature-card shadow-card">
+              <div class="flex items-start gap-4">
+                <div class="module-icon flex-shrink-0">
+                  <i class="fas fa-chart-line"></i>
+                </div>
+                <div id="hrms-performance"> 
+                  <h3 class="text-2xl font-bold text-navy mb-3">Performance Management</h3>
+                  <p class="text-gray-600 leading-relaxed">Set performance goals, assign KPIs, and run appraisal cycles. Capture 360° feedback and performance reviews to recognize top performers and plan growth paths.</p>
+                </div>
+              </div>
             </div>
-            <div id="hrms-reports">
-              <h3 class="text-2xl font-bold text-navy mb-3">Reports & Analytics</h3>
-              <p class="text-gray-600 leading-relaxed">Access real-time dashboards for workforce insights. From salary registers to leave balances and performance trends, make data-driven HR decisions.</p>
+
+            <div class="feature-card shadow-card">
+              <div class="flex items-start gap-4">
+                <div class="module-icon flex-shrink-0">
+                  <i class="fas fa-file-invoice-dollar"></i>
+                </div>
+                <div id="hrms-tax">
+                  <h3 class="text-2xl font-bold text-navy mb-3">Tax & Benefits</h3>
+                  <p class="text-gray-600 leading-relaxed">Handle statutory compliance with ease. Manage income tax slabs, deductions, PF, ESI, and other employee benefits with automated calculations and reporting.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-card shadow-card">
+              <div class="flex items-start gap-4">
+                <div class="module-icon flex-shrink-0">
+                  <i class="fas fa-chart-bar"></i>
+                </div>
+                <div id="hrms-reports">
+                  <h3 class="text-2xl font-bold text-navy mb-3">Reports & Analytics</h3>
+                  <p class="text-gray-600 leading-relaxed">Access real-time dashboards for workforce insights. From salary registers to leave balances and performance trends, make data-driven HR decisions.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
